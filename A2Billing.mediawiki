@@ -1,7 +1,7 @@
 <h1>Instalando</h1>
 [[ Instalando o Asterisk ]]<br>
 [[ Configurando o Asterisk]] <br>
-[[ Instalando o A2Billing - BETA ]]<br>
+[[ Instalando o A2Billing]]<br>
 [[Otimizando o MySQL]] <br>
 
 <h1>Segurança</h1>
