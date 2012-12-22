@@ -1,0 +1,239 @@
+== SMS-Khomp-API Install ==
+
+HTTP API Gateway for KHOMP SMS
+
+=== Install ===
+
+Run the install script:
+
+<pre>
+
+wget https://raw.github.com/areski/sms-khomp-api/master/install/bash-common-functions.sh
+bash bash-common-functions.sh
+
+</pre>
+
+== Modulo SMS Newfies ==
+Esta aplicação Django fornece SMS Módulo para Newfies-Dialer.
+Abaixo apresentamos os passo para instalação do modulo SMS para NewFies.
+
+=== Ative o ambiente virtual ===
+ 
+<pre> 
+workon newfies-dialer
+</pre>
+
+===Install dependencies===
+ 
+<pre> 
+cd /usr/src/newfies-sms-module/
+pip install -r requirements.txt
+</pre>  
+===Install the module===
+ 
+<pre> 
+python setup.py install
+</pre>
+
+==Configurações Manuais==
+
+Todos os arquivos abaixo apresentados se encontram dentro do diretorio /usr/share/newfies
+ 
+=== settings.py ===
+ 
+==== Descomente as seguinte linhas abaixo: ====
+
+<pre>
+    # SMS MODULE
+    try:
+        import sms
+    except ImportError:
+        pass
+    else:
+        INSTALLED_APPS = INSTALLED_APPS + ('sms',)
+ 
+    try:
+        import sms_module
+    except ImportError:
+        pass
+    else:
+        INSTALLED_APPS = INSTALLED_APPS + ('sms_module',)
+ 
+    #DEBUG SMS
+    #=========
+    SMSDEBUG = False
+ 
+ </pre>
+
+=== urls.py ===
+
+==== Após a linha "urlpatterns += urlpatterns_survey" insira: ====
+ 
+<pre>
+
+from sms_module.urls import urlpatterns as urlpatterns_sms_module
+urlpatterns += urlpatterns_sms_module
+
+</pre>
+
+=== templates/frontend/bootstrap_menu.html ===
+ 
+<pre>
+    <!--Add following line in Dashboard drop-down menu--->
+    <li {% ifequal module 'sms' %}class="active"{% endifequal %}><a href="/sms_dashboard/">{% trans "SMS Dashboard" %}</a></li>
+ 
+    <!--Add following line in Campaign drop-down menu--->
+    <li {% ifequal module 'sms' %}class="active"{% endifequal %}><a href="/sms_campaign/">{% trans "SMS Campaign" %}</a></li>
+ 
+    <!--Add following line in Reporting drop-down menu--->
+    <li {% ifequal module 'sms_report' %}class="active"{% endifequal %}><a href="/sms_report/">{% trans "SMS Detail Report" %}</a></li>
+</pre>
+
+=== templates/admin_tools/dashboard/modules/app_list.html ===
+
+<pre> 
+    <!--Replace ``else`` part of "Voice_App" -->
+    {% if child.title == "Sms_Module" %}
+        {% trans "Sms Module" %}
+    {% else %}
+        {{ child.title }}
+    {% endif %}
+</pre>
+
+=== custom_admin_tools/dashboard.py ===
+
+==== Procure pelo seguinte trecho no arquivo: ====
+
+<pre>
+    # in class CustomIndexDashboard(Dashboard):
+    # find following code
+ 
+    self.children.append(modules.AppList(
+        _('Survey'),
+        models=('survey.*', ),
+    ))
+</pre>
+
+==== Adicione o trecho abaixo logo após: ====
+
+<pre>
+    self.children.append(modules.AppList(
+        _('SMS Gateway'),
+        models=('sms.*', ),
+    ))
+ 
+    # append an app list module for "SMS"
+    self.children.append(modules.AppList(
+        _('SMS module'),
+        models=('sms_module.*', ),
+    ))
+
+</pre>
+
+=== user_profile/views.py ===
+
+==== Procure pelo seguinte trecho no arquivo: ====
+
+<pre>
+    try:
+        user_ds = UserProfile.objects.get(user=request.user)
+        dialer_set = DialerSetting.objects.get(id=user_ds.dialersetting.id)
+    except:
+        dialer_set = ''
+</pre>
+
+==== Adicione o trecho abaixo logo após: ====
+ 
+<pre>
+    # To get SMS campaign dialer settings
+    try:
+        from sms_module.models import SMSDialerSetting
+        sms_dialer_set = \
+            SMSDialerSetting.objects.get(dialer_setting=user_ds.dialersetting)
+    except:
+        sms_dialer_set = ''
+ 
+ </pre>
+
+
+==== Encontre a linha : 'dialer_set': dialer_set, ====
+ 
+<pre>
+    Adicione logo abaixo dela:
+        'sms_dialer_set': sms_dialer_set,
+</pre>
+
+=== templates/frontend/registration/user_detail_change.html===
+ 
+<pre>
+    <!--Find following code-->
+            <tr>
+                <td>{% trans "Blacklist" %}</td>
+                <td>{{ dialer_set.blacklist }}</td>
+            </tr>
+ 
+    <!--Add following code-->
+            {# Only execute when sms module is included #}
+            {% if sms_dialer_set %}
+                <tr>
+                    <td>{% trans "Maximum sms per minute" %}</td>
+                    <td>{{ sms_dialer_set.sms_max_frequency }}</td>
+                </tr>
+                <tr>
+                    <td>{% trans "Maximum sms retries" %}</td>
+                    <td>{{ sms_dialer_set.sms_maxretry }}</td>
+                </tr>
+                <tr>
+                    <td>{% trans "Maximum sms campaigns" %}</td>
+                    <td>{{ sms_dialer_set.sms_max_number_campaign }}</td>
+                </tr>
+                <tr>
+                    <td>{% trans "Maximum subscribers per sms campaign" %}</td>
+                    <td>{{ sms_dialer_set.sms_max_number_subscriber_campaign }}</td>
+                </tr>
+            {% endif %}
+</pre>
+
+===Copie o modulo SMS para a pasta do Newfies===
+ 
+    cp -rfv /usr/src/newfies-sms-module/sms_module/templates/admin/sms_module/ /usr/share/newfies/templates/admin/
+    cp -rfv /usr/src/newfies-sms-module/sms_module/templates/frontend/sms_campaign/ /usr/share/newfies/templates/frontend/
+
+* É necessário ter o modulo COMERCIAL SMS para Newfies,
+
+===Atualizando o MySQL com as tabelas do SMS===
+ 
+<pre>
+workon newfies-dialer
+cd /usr/share/newfies
+python manage.py syncdb
+python manage.py migrate
+</pre>
+
+
+=== SMS-Khomp-API Install ===
+APENAS PARA SERVIDORES COM PLACAS KHOMP
+
+Install
+Run the install script:
+
+<pre>
+cd /usr/src/newfies-sms-module/
+wget https://raw.github.com/areski/sms-khomp-api/master/install/install.sh
+bash insstall.sh
+Run SMS-Khomp-API Server with Gunicorn:
+
+</pre>
+
+<pre>
+cd /usr/share/sms_khomp_api
+/usr/share/virtualenvs/sms-khomp-api/bin/python /usr/share/virtualenvs/sms-khomp-api/bin/gunicorn sms_khomp_api:app -c /usr/share/sms_khomp_api/gunicorn.conf.py
+</pre>
+
+
+=== /etc/default/newfies-celeryd ===
+
+<pre>
+celeryd options
+CELERYD_OPTS='-EB -l info --time-limit=300 --concurrency=20'
+</pre>
