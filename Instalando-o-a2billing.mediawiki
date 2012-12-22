@@ -1,0 +1,327 @@
+O A2Billing é um produto da empresa Star2Billing ( www.star2billing.com.br ). 
+É um software disponível sobre a Licença AGPL 3, portando é distribuído de forma livre e seu código fonte pode ser alterado livremente desde que os direitos autorias sejam mantidos.
+
+Seu fundador é o programado Arezqui Belaid ( Areski ), que no qual tenho a honrar de ser amigo. Os projetos da Star2Billing vão alem do A2Billing. Hoje contamos com o Newfies-Dialer que é um discador preemptivo e sistema de pesquisa e votação por telefone. Mais informações em www.star2billing.com.br/newfies-dialer/ . Outros produtos da Star2Billing pode sem acessado em www.star2billing.com.br/produtos/ .
+
+<br>
+
+===PHP 5.2===
+
+O A2Billing 1.9.4 tem otimizações que só funcionaram correctamente na versão 5.2 do PHP. Para instalar o PHP 5.2, siga os passos descritos abaixo:
+ 
+
+<pre>
+
+vi /etc/yum.repos.d/CentOS-PHP52.repo
+
+[c5-testing]
+name=CentOS-5 Testing
+baseurl=http://dev.centos.org/centos/$releasever/testing/$basearch/
+enabled=1
+gpgcheck=1
+gpgkey=http://dev.centos.org/centos/RPM-GPG-KEY-CentOS-testing
+includepkgs=php*
+
+yum update
+</pre>
+<br>
+
+=== Dependências necessárias para instalação do A2Billing === 
+
+A bibliotecas necessárias para a instalação do A2Billing serão instaladas com o comando apresentado abaixo:
+
+<pre>
+yum install mc ncurses-devel php-imap mysql-server mysql mysql-devel php-pgsql php php-mysql php-mbstring php-mmcache php-pear php-pcntl php-gd gd httpd -y
+</pre>
+
+=== Download do A2Billing === 
+
+O A2Billing pode ser baixando em sua ultima versão em www.a2billing.org. Podemos buscar a ultima atualização pelo Github.
+
+<pre>
+mkdir /usr/src/billing
+cd /usr/src/billing
+wget https://github.com/Star2Billing/a2billing/archive/master.tar.gz --no-check-certificate -O a2billing.tgz
+
+</pre>
+
+=== Instalando o A2billing ===  
+
+O A2billing em sim não tem muito segredo para ser instalado. Como seu desenvolvimento centralizado em PHP ele é bem simples de se instalar, bastando apenas copiar seus arquivos para um diretório do apache e configurar a conexão com o MySQL.
+
+<pre>
+tar zxvf a2billing.tgz
+chmod -R 777 /usr/src/billing
+mv a2billing-master/* .
+ln -s /usr/src/billing/a2billing.conf /etc/a2billing.conf
+</pre>
+
+=== A2billing.php === 
+
+==== O que é o A2Billing.php ==== 
+
+O AGI do A2Billing é o motor de bilhetagem do sistema. Ele analisa todo o processo de ligação antes de encaminhar a ligação para o asterisk. Alguns dos vários processos realizado pelo AGI do A2Billing são:
+
+* Analisar se o cliente é um cliente valido no A2Billing
+* Analisar se o cliente tem credito suficiente para realizar a ligação solicitada
+* analisar se o cliente tem autorização para ligar para o destino solicitado
+
+Analisando estes e outros processos, o A2Billing irá montar um DIAL e encaminhar para o Asterisk, ao final da ligação ao Asterisk devolve a ligação som sinal de HUNGUP para o A2Billing, onde o sistema de bilhetagem entra em ação de calcula o tempo da chamada e o valor e faz o registro no banco de dados do A2Billing.
+
+==== Instalando o A2billing.php ====
+
+Os arquivos de responsáveis pelo sistema de bilhetagem do A2Billig são:
+
+* a2billing.php – Este arquivo compõem todos parâmetros de administração de uma ligação, seja ela entrante ou sainte. Ele calcula todos os parâmetros pré-configurados no sistema para assim executar uma bilhetagem por cada ligação
+
+* lib – Este diretório contém as bibliotecas usadas durando o processo de bilhetagem do sistema.
+
+
+<pre>
+ln -s /usr/src/billing/AGI/lib/ /var/lib/asterisk/agi-bin/lib
+ln -s /usr/src/billing/AGI/a2billing.php /var/lib/asterisk/agi-bin/a2billing.php
+</pre>
+
+==== Permissões do Agi ==== 
+
+Permissão de execução se faz necessária para que o sistema possa funcionar corretamente.
+
+<pre>
+chmod 755 /var/lib/asterisk/agi-bin/a2billing.php
+chmod -R 755 /var/lib/asterisk/agi-bin/lib
+</pre>
+
+=== Instalando os arquivos de Som ===
+ 
+Os arquivos de som, são os arquivos utilizado no A2Billing quando se tem a necessidade de emitir avisos sonoros aos usuários, por exemplo, um aviso de saldo insuficiente para a ligação solicitada.
+O A2billing por padrão traz áudios nos seguintes idiomas:
+
+* Inglês
+* Espanhol
+* Protugues Brasil
+* Frances
+* Grego
+* Russo
+
+<pre>
+cd /usr/src/billing/addons/sounds
+./install_a2b_sounds.sh
+</pre>
+
+==== Permissões dos arquivos de Som ====
+
+<pre>
+chmod -R 755 /usr/src/billing/addons/sounds
+</pre>
+
+=== Interface Web === 
+
+A interface web de administração do A2Billing é uma interface completa. É dividida em 3 partes: Administrador, Cliente e Revenda.
+A interface permite tando ao administrador e aos usuários do sistema uma completa administração de todos os recursos do billing. Abaixo iremos destacar as principais características de cada interface.
+
+==== Administrador ====
+A interface do Administrador, é utilizada para administra todos os recursos disponíveis no A2Billing. Pela interface, podemos adicionar, alterar ou excluir um ou mais clientes por exemplo. Podemos adicionar tarifas, troncos, DIDs, e vários outros recursos.
+
+<br>
+[[Imagem:home-admin-1.png|Home Admin]]<br>
+<br>
+
+A interface do Administrador esta disponível e 6 idiomas:
+
+* Inglês
+* Português Brasil
+* Romeno
+* Frances
+* Espanhol
+* Grego
+
+==== Instalando a interface Administrador ====
+
+<pre>
+mkdir /var/www/html/billing/
+ln -s /usr/src/billing/admin/ /var/www/html/billing/admin
+</pre>
+
+=== Cliente ===
+
+A interface do cliente, apresenta de forma fácil todas as informações necessárias para o cliente. Podemos destacar como as mais importantes a Bilhetagem das ligações e as Faturas.
+
+<br>
+[[Imagem:cliente-admin-1.png|Home Cliente]]<br>
+<br>
+
+A interface do Cliente esta disponível em 17 idiomas:
+
+* Inglês
+* Espanhol
+* Frances
+* Alemão
+* Português Portugal
+* Português Brasil
+* Italiano
+* Romeno
+* Chines
+* Polonês
+* Russo
+* Turco
+* Urdu
+* Ucraniano
+* Persa
+* Grego
+* Indonesia
+
+==== Instalando a interface do Cliente ====
+
+<pre>
+ln -s /usr/src/billing/customer/ /var/www/html/billing/cliente
+</pre>
+
+=== Agente === 
+
+A interface do Agente, permite aos seus agentes terem total controle sobre suas operações de venda. Através dela, seu agente poderá criar, alterar ou excluir usuários e ramais SIP/IAX, porém esta versão do A2Billing não permite que o Agentes criem seus planos, tendo os planos serem criados pelo Administrador e vinculados ao Agente.
+
+<br>
+[[Imagem:agente-admin-1.png|Home Agente]]<br>
+<br>
+
+A interface do Agente esta disponível e 6 idiomas:
+
+* Inglês
+* Português Brasil
+* Romeno
+* Frances
+* Espanhol
+* Grego
+
+==== Instalando a interface do Agente ====
+
+<pre>
+ln -s /usr/src/billing/agent/ /var/www/html/billing/agente
+</pre>
+
+=== Cronjobs ===
+
+O A2billing utiliza alguns scripts em PHP para executar tarefas em datas ou horários pré-determinados. Um desses scripts por exemplo, é utilizado para fechar a fatura dos clientes PÓS-PAGOS.
+Instalando os Scripts
+
+<pre>
+mkdir -p /var/run/a2billing
+</pre>
+
+<pre>
+echo "
+# Automatically added for A2Billing
+0 * * * * php /usr/src/billing/Cronjobs/a2billing_alarm.php
+0 12 * * * php /usr/src/billing/Cronjobs/a2billing_archive_data_cront.php
+0 10 21 * * php /usr/src/billing/Cronjobs/a2billing_autorefill.php
+#Batch process at 00:20 each day
+20 0 * * * php /usr/src/billing/Cronjobs/a2billing_batch_process.php
+#Bill DID usage at 00:00 each day
+0 0 * * * php /usr/src/billing/Cronjobs/a2billing_bill_diduse.php
+#Generate Invoices at 6am everyday
+0 6 * * * php /usr/src/billing/Cronjobs/a2billing_batch_billing.php
+#Check if balance below preset value, and email user if so.
+1 * * * * php /usr/src/billing/Cronjobs/a2billing_notify_account.php
+#Charge subscriptions at 06:05 on the 1st of each month
+0 6 1 * * php /usr/src/billing/Cronjobs/a2billing_subscription_fee.php
+#Update currencies at 01:00 each day
+0 1 * * * php /usr/src/billing/Cronjobs/currencies_update_yahoo.php
+" >> /var/spool/cron/asterisk
+</pre>
+
+=== Arquivos de Log ===
+
+Os arquivos de logs do A2Billing são de suma importância para a depuração de problemas do dia a dia do sistema. De todos os arquivos de logs que o sistema gera, podemos afirma que o mais importante é o a2billing_agi.log, onde é guardado todos os processos executado pelo a2billing.php.
+
+
+==== Instalando os arquivos de logs ====
+
+<pre>
+mkdir /var/log/a2billing/
+touch /var/log/a2billing/a2billing-daemon-callback.log
+touch /var/log/a2billing/a2billing-daemon-callback.log
+touch /var/log/a2billing/cront_a2b_alarm.log
+touch /var/log/a2billing/cront_a2b_autorefill.log
+touch /var/log/a2billing/cront_a2b_batch_process.log
+touch /var/log/a2billing/cront_a2b_bill_diduse.log
+touch /var/log/a2billing/cront_a2b_subscription_fee.log
+touch /var/log/a2billing/cront_a2b_currency_update.log
+touch /var/log/a2billing/cront_a2b_invoice.log
+touch /var/log/a2billing/a2billing_paypal.log
+touch /var/log/a2billing/a2billing_epayment.log
+touch /var/log/a2billing/api_ecommerce_request.log
+touch /var/log/a2billing/api_callback_request.log
+touch /var/log/a2billing/a2billing_agi.log
+</pre>
+
+=== Instando e configurado o MySQL ===
+
+O MySQL é o banco de dados padrão e recomendado para A2Billing, é possível também utilizar o PostgreSQL, porém neste momento, iremos abordar a instalação com MySQL. Informações detalhadas de como se utilizar o PostgreSQL com A2Billing estão disponíveis no site oficial do A2Billing.
+
+
+==== Instalando o MySQL ====
+
+<pre>
+yum install mysql mysql-server -y
+</pre>
+
+==== Configurando o MySQL ====
+
+Para podermos usarmos o MySQL é necessário configurar uma senha de administração. Esta senha é solicitada quando o banco é iniciado pela primeira vez.
+
+<pre>
+service mysqld start
+/usr/bin/mysqladmin -u root password 'NOVA-SENHA'
+</pre>
+
+=== Instalando a base do A2Billing ===
+
+Neste ponto, iremos instalar a base de dados padrão do A2Biling.
+
+==== Criando a base de dados ====
+
+Para cria a base de dados siga os passos abaixo:
+
+<pre>
+mysql -u USER -pSENHA
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 1777
+Server version: 5.0.77 Source distribution
+
+Type 'help;' or '\h' for help. Type '\c' to clear the buffer.
+
+mysql> create database billing;
+Query OK, 1 row affected (0.00 sec)
+mysq> quit;
+</pre>
+
+==== Instalando a base A2Billing ====
+
+<pre>
+cd /usr/src/billing/DataBase/mysql-5.x/
+./install-db.sh 
+Install A2Billing DataBase
+-----------------------------
+
+Enter Database Name: billing
+
+Enter Hostname: IP do Mysql
+
+Enter UserName: user_DB
+
+Enter Password: senha_DB
+</pre>
+
+==== Acessando a interface de administração ====
+
+Após a conclusão dos passos descritos acima, será possível o acesso as interfaces de Administrador, Cliente e Agente.
+Seguindo a configuração proposta acima, teremos as seguinte tela no navegador web:
+Acesse: http://IP_SERVIDOR/billling/
+
+<br>
+[[Imagem:acesso-billing-1.png|Acesso Billing]]<br>
+<br>
+
+Por questões de segurança, é altamente recomendado que se altere as configurações do Apache, de forma que os diretórios não fique expostos.
+
+*Nota: O navegador recomendado para uso com A2Billing é o Firefox, há inúmeros problemas relatados e conhecidos com o Internet Explorer.
