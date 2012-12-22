@@ -1,0 +1,119 @@
+Provedores são utilizados para um grupo de troncos primários e ou secundários. Através do menu Provedores, podemos também administrar os prefixos utilizados pelo A2Billiing.
+Troncos são utilizados para gerenciar as todas as ligações de entrada ou saída. Através do tronco, o A2Billing pode utilizar uma rota de menor custo, definir um tronco secundário em caso de uma falha no tronco principal.
+Através dos troncos, temos um relatório gráfico de todas a ligações administradas pelo A2Billing.
+<br>
+
+===Menu Provedores===
+O menu Provedores, é o ponto de partida para a correta configuração do A2Billing. Nele iremos configurar por exemplo um Tronco de saída.
+O Tronco de saída é responsável por encaminhar todas as solicitações de ligação há um provedor de terminação. Seja ele VoIP, ou via E1 Analógico ou Digital.
+O menu Provedores, é composto por 3 itens:
+
+Provedores – Lista o nome dos grupos de troncos
+Troncos – Lista todos os troncos disponíveis no A2Billing 
+Prefixos – Lista todos os prefixos de destinos cadastrados no A2Billing 
+
+
+
+===Provedores===
+
+Em Provedores, iremos cadastrar os grupos de provedores.
+
+<br>
+[[Imagem:provedor-1.png|Provedor]]<br>
+<br>
+Para cadastrar um provedor, basta clicar no ícone Adicionar Provedor  no canto superior esquerdo da tela. Em seguida a a tela abaixo será apresentada:
+<br>
+[[Imagem:provedor-2.png|Provedor]]<br>
+<br>
+
+* '''Nome do provedor''' – Insira o nome do provedor
+* '''Descrição''' – Digite uma breve descrição para o provedor 
+
+Clique em [[Imagem:confirmar-dados.png|Confirmar]]
+
+===Toncos===
+
+Em Troncos, iremos definir um ou mais de saída ou entrada. Abaixo iremos descrever os passo a serem seguidos em detalhes.
+
+<br>
+[[Imagem:provedor-3.png|Provedor]]<br>
+<br>
+
+Para cadastrar um provedor, basta clicar no ícone Adicionar Tronco  no canto superior esquerdo da tela. Em seguida a a tela abaixo será apresentada:
+
+<br>
+[[Imagem:provedor-4.png|Provedor]]<br>
+<br>
+
+* '''Provedor VoIP''' – Selecione o grupo de provedores
+* '''Nome''' – Nome do tronco 
+* '''Adicionar prefixo''' – Neste campo, podemos configurar um prefixo adicional ao tronco de saída. Neste campo é configurado por exemplo o TECH-PREFIX fornecido pela operadora VoIP.
+* '''Remover prefixo''' – Neste campo, podemos remover um prefixo que não é aceito no provedor de destino. Um exemplo pratico desta função só provedores internacionais, geralmente removemos o digito 0 e adicionamos o prefixo 55
+* '''IP do provedor''' – Neste campo definimos nome do provedor que foi configurado no arquivo sip.conf. Se a autenticação for por IP, basta digitar o IP de destino das ligações.
+* '''Parâmetro adicional''' - Defina parâmetros adicionais que serão usados quando o for executado o Comando Dial no Asterisk. 
+* '''Tronco secundário''' – Podemos selecionar um troco que será usado quando o tronco principal falhar.
+* '''Conexões atuais''' – Exibe quantas ligações estão atualmente conectadas neste tronco.
+* '''Conexões máximas''' -  Neste campo podemos definir quantas ligações este tronco suportará. O valor -1 diz ao A2Billing que o tronco não terá limites.
+* '''IFMAXUSED''' – Define qual será o tronco utilizado sem o tronco atual atingir o limite definido em Conexões máximas.
+* '''STATUS''' – Define se o tronco esta ou não Ativo.
+
+
+===Configurando um tronco no sip.conf===
+
+Abaixo listamos um exemplo de como o tronco deverá ser configurado no arquivo sip.conf . 
+
+====Autenticação por IP====
+
+<pre>
+[provedor] # Este é o nome que deve ser inserido no campo IP do provedor 
+type=friend
+domain=IP_PROVEDOR
+fromdomain=IP_PROVEDOR
+host=IP_PROVEDOR
+qualify=yes
+port=5060
+nat=yes
+dtmfmode=rfc2833
+reinvite=yes
+canreinvite=yes
+disallow=all
+allow=g729
+allow=ulaw
+allow=alaw
+insecure=port,invite
+</pre>
+
+
+====Autenticação por usuário e senha====
+
+<pre>
+[general]
+register => user:senha@ip_provedor
+
+[provedor] # Este é o nome que deve ser inserido no campo IP do provedor 
+type=friend
+username=usuário
+fromuser=usuário
+secret=senha
+domain=IP_PROVEDOR
+fromdomain=IP_PROVEDOR
+host=IP_PROVEDOR
+qualify=yes
+port=5060
+nat=yes
+dtmfmode=rfc2833
+reinvite=no
+canreinvite=yes
+disallow=all
+allow=ulaw
+allow=alaw
+allow=g729
+insecure=port,invite
+</pre>
+
+===Prefixo===
+Em prefixo, podemos adicionar, alterar, deletar  e ou listar os prefixos disponíveis no A2Billing. Os prefixos serão automaticamente adicionados quando importamos um conjunto de tafias.
+
+<br>
+[[Imagem:provedor-5.png|Provedor]]<br>
+<br>
