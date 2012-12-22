@@ -1,0 +1,114 @@
+===Pré-requisitos de instalação===
+
+* Centos 5.X<br>
+
+====Instalando dependências====
+
+Dependências necessárias para a instalação do Fail2Ban.
+
+<pre>
+yum install python iptables -y
+</pre>
+
+===Baixando o Fail2Ban===
+
+<pre>
+mkdir /usr/src/fail2ban
+cd /usr/src/fail2ban
+wget -c http://sourceforge.net/projects/fail2ban/files/fail2ban-stable/fail2ban-0.8.4/fail2ban-0.8.4.tar.bz2/download
+</pre>
+
+====Compilando o Fail2Ban====
+<pre>
+tar jxf fail2ban-0.8.4.tar.bz2
+cd fail2ban-0.8.4
+python setup.py install
+cd ..
+</pre>
+
+====Configurando o Fail2Ban====
+
+Copie as informações abaixo no arquivo /etc/fail2ban/filter.d/asterisk.conf
+
+<pre>
+vi /etc/fail2ban/filter.d/asterisk.conf
+</pre>
+
+<pre>
+# Fail2Ban configuration file
+#
+#
+# $Revision: 250 $
+#
+
+[INCLUDES]
+
+# Read common prefixes. If any customizations available -- read them from
+# common.local
+#before = common.conf
+
+
+[Definition]
+
+#_daemon = asterisk
+
+# Option:  failregex
+# Notes.:  regex to match the password failures messages in the logfile. The
+#          host must be matched by a group named "host". The tag "<HOST>" can
+#          be used for standard IP/hostname matching and is only an alias for
+#          (?:::f{4,6}:)?(?P<host>\S+)
+# Values:  TEXT
+#
+
+failregex = NOTICE.* .*: Registration from '.*' failed for '<HOST>' - Wrong password
+            NOTICE.* .*: Registration from '.*' failed for '<HOST>' - No matching peer found
+            NOTICE.* .*: Registration from '.*' failed for '<HOST>' - Username/auth name mismatch
+            NOTICE.* .*: Registration from '.*' failed for '<HOST>' - Device does not match ACL
+            NOTICE.* .*: Registration from '.*' failed for '<HOST>' - Peer is not supposed to register
+            NOTICE.* .*: Registration from '.*' failed for '<HOST>' - ACL error (permit/deny)
+            NOTICE.* .*: Registration from '.*' failed for '<HOST>' - Device does not match ACL
+            NOTICE.* <HOST> failed to authenticate as '.*'$
+            NOTICE.* .*: No registration for peer '.*' \(from <HOST>\)
+            NOTICE.* .*: Host <HOST> failed MD5 authentication for '.*' (.*)
+            NOTICE.* .*: Failed to authenticate user .*@<HOST>.*
+
+# Option:  ignoreregex
+# Notes.:  regex to ignore. If this regex matches, the line is ignored.
+# Values:  TEXT
+#
+ignoreregex =
+</pre>
+
+Copie as informações abaixo no arquivo /etc/fail2ban/jail.conf
+<pre>
+vi /etc/fail2ban/jail.conf
+</pre>
+
+<pre>
+[asterisk-iptables]
+
+enabled  = true
+filter   = asterisk
+action   = iptables-allports[name=ASTERISK, protocol=all]
+           sendmail-whois[name=ASTERISK, dest=root, sender=fail2ban@example.org]
+logpath  = /var/log/asterisk/full
+maxretry = 5
+bantime = 259200
+</pre>
+
+===Iniciando o Fail2Ban===
+
+<pre>
+cp /usr/src/fail2ban/fail2ban-0.8.4/files/redhat-initd /etc/init.d/fail2ban
+chmod 755 /etc/init.d/fail2ban
+</pre>
+
+<pre>
+service fail2ban start
+</pre>
+
+===Iniciando o no boot===
+
+<pre>
+chkconfig fail2ban on
+</pre>
