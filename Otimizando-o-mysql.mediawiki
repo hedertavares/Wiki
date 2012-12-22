@@ -1,0 +1,52 @@
+Insira as informações abaixo em seu arquivo /etc/my.cnf
+
+<pre>
+[mysqld]
+old_passwords=1
+user      = mysql
+socket      = /var/lib/mysql/mysql.sock
+port      = 3306
+datadir      = /var/lib/mysql
+tmpdir      = /tmp
+skip-locking
+ 
+set-variable    = key_buffer=312M
+set-variable    = max_allowed_packet=1M
+ 
+# table_cache é muito importante, este número deve ser o dobro
+# do número definido pela variável max_connections
+set-variable    = table_cache=20000
+ 
+set-variable    = sort_buffer=1M
+set-variable    = record_buffer=1M
+set-variable    = myisam_sort_buffer_size=64M
+set-variable    = thread_cache=8
+set-variable    = thread_concurrency=8
+ 
+# max_connections vai definir quantos sub-processos e
+# consequentemente quantas conexões seu MySQL suportará
+# simultaneamente. Por incrível que pareça, quanto maior este
+# número, menor será o load do seu server. Tente restringir este
+# para um número baixo e você verá que loucura está fazendo
+set-variable    = max_connections=10000
+ 
+set-variable    = net_write_timeout=30
+set-variable    = connect_timeout=2
+set-variable    = wait_timeout=30
+ 
+# Read the manual if you want to enable InnoDB!
+skip-innodb
+ 
+[mysqldump]
+quick
+set-variable   = max_allowed_packet=1M
+ 
+[mysql]
+ 
+[isamchk]
+set-variable   = key_buffer=64M # era 16M
+
+[mysqld_safe]
+log-error=/var/log/mysqld.log
+pid-file=/var/run/mysqld/mysqld.pid
+</pre>
