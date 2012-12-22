@@ -1,0 +1,150 @@
+[[Imagem:A2billing.png|A2Billing]] 
+
+
+= Clientes =
+*[[Adicionar]]<br>
+*[[Importar]]<br>
+*[[Ramais VOIP]]<br>
+*[[Listar CallerID]]<br>
+*[[Notificação de Crédito]]<br>
+*[[Grupos]]<br>
+*[[Série de Cartões]]<br>
+*[[Discagem Rápida]]<br>
+*[[Histórico]]<br>
+*[[Status]]<br>
+<br>
+
+= Agentes =
+*[[Adicionar Agentes|Adicionar]]<br>
+*[[URLs de Registro]]<br>
+<br>
+
+= Administradores =
+*[[Adicionar Admin]]<br>
+*[[Controle de Acesso]]<br>
+<br>
+
+= Suporte=
+*[[Tickets de Clientes]]<br>
+*[[Ticketes de Agentes]]<br>
+*[[Componentes do Ticket]]<br>
+*[[Caixas de Suporte]]<br>
+<br>
+
+=Relatórios=
+*[[CDRs]]<br>
+*[[Total de Chamadas]]<br>
+*[[Tronco]]<br>
+*[[DNID]]<br>
+*[[PNL]]<br>
+*[[Comparar Chamadas]]<br>
+*[[Tráfego Diário]]<br>
+*[[Tráfego Mensal]]<br>
+<br>
+
+=Tarifas=
+*[[Plano de Ligações]]<br>
+*[[Tarifários]]<br>
+*[[Importar]]<br>
+*[[Fusão]]<br>
+*[[Simulador]]<br>
+*[[Tarifas]]<br>
+<br>
+
+=Provedores=
+*[[Provedores]]<br>
+*[[Troncos]]<br>
+*[[Prefixos]]<br>
+<br>
+
+=DID de Entrada=
+*[[Adicionar]]<br>
+*[[Grupos]]<br>
+*[[Destinos]]<br>
+*[[Importar CVS]]<br>
+*[[Importar DID]]<br>
+*[[Uso]]<br>
+*[[Bilhetagem]]<br>
+<br>
+
+=CID Saínte=
+*[[Adicionar]]<br>
+*[[Grupos]]<br>
+<br>
+
+=Bilhetagem=
+*[[Voucher]]<br>
+===Uso de Clientes===
+*[[Ver Transações]]<br>
+*[[Bilhetagem]]<br>
+*[[Recargas]]<br>
+*[[Pagamentos]]<br>
+*[[Log de E-Pagamentos]]<br>
+*[[Taxas]]<br>
+===Agentes===
+*[[Comissões]]<br>
+*[[Remessas]]<br>
+*[[Ver Transações]]<br>
+*[[Recargas]]<br>
+*[[Pagamentos]]<br>
+*[[Log de E-Pagamentos]]<br>
+<br>
+
+=Fatura=
+*[[Recibos]]<br>
+*[[Faturas]]<br>
+<br>
+
+=Ofertas=
+*[[Adicionar]]<br>
+*[[Detalhes]]<br>
+<br>
+
+=Serviços=
+*[[Serviços de Conta]]<br>
+*[[Serviços Inscritos]]<br>
+*[[Taxa de Assinatura]]<br>
+*[[Assinantes]]<br>
+*[[Relatórios auto-recarga]]<br>
+<br>
+
+=Callback=
+*[[Adicionar]]<br>
+*[[Grupo de Serviços]]<br>
+*[[Adicionar Servidor]]<br>
+<br>
+
+=Campanha=
+*[[Adicionar]]<br>
+*[[Configuração]]<br>
+*[[Agenda]]<br>
+*[[Adicionar Número]]<br>
+*[[Importar]]<br>
+<br>
+
+=Manutenção=
+*[[Alarmes]]<br>
+*[[Atividade de Usuários]]<br>
+*[[Backup da Base de Dados]]<br>
+*[[Restaurar Base de Dados]]<br>
+*[[Música em Espera]]<br>
+*[[Fazer Upload de Arquivo]]<br>
+*[[Música de Espera]]<br>
+*[[Fazer Upload de Arquivo]]<br>
+*[[Vizualizar Arquivos de Log]]<br>
+*[[Arquivamento]]<br>
+*[[Asterisk Info]]<br>
+*[[phpSysinfo]]<br>
+*[[Monitoramento]]<br>
+<br>
+
+=Email=
+*[[Modelos de Email]]<br>
+*[[Email em Massa]]<br>
+<br>
+
+=Config do Sistema=
+*[[Lista Global]]<br>
+*[[Lista de Grupo]]<br>
+*[[Adicionae AGI-CONF]]<br>
+*[[Editor de Configurações]]<br>
