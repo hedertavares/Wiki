@@ -1,0 +1,32 @@
+<h1>Instalando</h1>
+[[ Instalando o Asterisk ]]<br>
+[[ Configurando o Asterisk]] <br>
+[[ Instalando o A2Billing - BETA ]]<br>
+[[Otimizando o MySQL]] <br>
+
+<h1>Segurança</h1>
+[[Firewall]]<br>
+[[ Instalando o Fail2Ban ]]<br>
+[[ SSL A2Billing ]]<br>
+
+<h1> Manual A2Billing </h1>
+
+Este manual esta em desenvolvimento.<br>
+[[ Manual A2Billing ]]<br>
+[[ Configurando o A2Billing ]]<br>
+[[ Provedores ]]<br>
+[[ Planos e tarifas ]]<br>
+[[ Clientes ]]<br>
+
+<h1>  FreeSwitch </h1>
+
+[[Instalando o FreeSwitch]] <br>
+
+<h1>  NewFies </h1>
+
+[[Instalando o Newfies]] <br>
+[[Modulo SMS Newfies]] <br>
+
+<h1> OpenSips </h1>
+
+[[Instalando OpenSips]]<br>
