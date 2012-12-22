@@ -1,0 +1,71 @@
+Para sistema baseados em A2billing, é necessário que tenhamos  um ou mais servidores Asterisk instalados e funcionando corretamente.
+Este capitulo, tem como objetivo orientar a forma correta de instalação do Asterisk para a utilização juntamente com o A2Billing.
+A versão recomentada para o A2billing 1.9.4 é a versão 1.6.22 do Asterisk. O A2Billing foi homologado para funcionar em conformidade com esta versão, porém já ouvimos relatos de sucessos em outras versões do asterisk, como por exemplo a versão 1.8.X.
+<br>
+
+===Pré-requisitos de instalação===
+
+* Centos 5.X<br>
+
+====Instalando dependências====
+
+Dependências necessárias para a instalação do Asterisk.
+
+<pre>
+yum groupinstall 'Development Tools' -y
+yum install ncurses-devel mysql-devel -y
+</pre>
+
+===Baixando o Asterisk===
+
+<pre>
+mkdir /usr/src/asterisk
+cd /usr/src/asterisk
+wget -c http://downloads.asterisk.org/pub/telephony/asterisk/releases/asterisk-1.6.2.22.tar.gz
+wget -c http://downloads.asterisk.org/pub/telephony/asterisk/releases/asterisk-addons-1.6.2.3.tar.gz
+</pre>
+
+
+====Compilando o Asterisk====
+<pre>
+tar zxvf asterisk-1.6.2.22.tar.gz
+cd asterisk-1.6.2.22
+./configure  --disable-xmldoc
+make
+make install
+make samples
+cd ..
+</pre>
+
+====Compilando o Asterisk Addons====
+<pre>
+tar zxvf asterisk-addons-1.6.2.3.tar.gz
+cd asterisk-addons-1.6.2.3
+./configure
+make
+make install
+make samples
+</pre>
+
+===Iniciando o Asterisk===
+
+<pre>
+safe_asterisk
+
+# asterisk -rcvvvvv
+
+Asterisk 1.6.2.22, Copyright (C) 1999 - 2010 Digium, Inc. and others.
+Created by Mark Spencer <markster@digium.com>
+Asterisk comes with ABSOLUTELY NO WARRANTY; type 'core show warranty' for details.
+This is free software, with components licensed under the GNU General Public
+License version 2 and other licenses; you are welcome to redistribute it under
+certain conditions. Type 'core show license' for details.
+=========================================================================
+  == Parsing '/etc/asterisk/asterisk.conf':   == Found
+  == Parsing '/etc/asterisk/extconfig.conf':   == Found
+  == Binding sipusers to mysql/general/cc_sip_buddies
+  == Binding sippeers to mysql/general/cc_sip_buddies
+Connected to Asterisk 1.6.2.22 currently running on Centos5 (pid = 17851)
+Verbosity is at least 18
+Asterisk*CLI> 
+</pre>
