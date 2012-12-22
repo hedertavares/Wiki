@@ -1,0 +1,4 @@
+Em clientes, iremos tratar da configuração usuários e ramais VoIP. Usuário são tratados no A2Billing como Cartões.
+Os cartões são utilizados para gerencia o comportamento de um ou mais ramais. Em cartões, podemos definir se o cliente é PRÉ-PAGO ou PÓS-PAGOS por exemplo.
+Em um cartão podemos vincular um ou mais ramais onde todas as suas ligações serão tarifas do cartão onde estão vinculados. Podemos também, definir um prazo de validade para um cartão, definir números restritos de ligações alterar planos de ligações.
+Em resumo, em cartões que iremos controlar toda parte de tarifação de um determinado grupo de ramais VoIP.
