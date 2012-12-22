@@ -1,0 +1,185 @@
+Após a instalação, iremos iniciar o processo de configuração do A2Billing. É fato que o maior problema hoje encontrada pelos usuários do A2Billing, é a sua correta configuração.
+Com essa preocupação este capitulo, será escrito sobre a supervisão o Areski. Desta forma teremos a plena certeza que a configuração básica necessária para o correto funcionamento do A2Billing será abortada em sua totalidade.
+Em longos anos de utilizando o A2Billing, deparamos com inúmeras instalações realizadas por bons profissionais, porem em sua grande maioria de forma errada. Os principais problemas que encontramos é a instabilidade constante do sistema, bilhetagem sendo tarifada de forma errada e até mesmo cobranças indevidas.
+Neste capitulo iremos detalhar cada passo, afim de evitar que estes problemas aconteçam em suas futuras instalações.
+<br>
+<br>
+===Configurando o A2Billing=== 
+
+A configuração do A2billing se da pelo menu CONFIG DO SISTEMA, localizado na interface do Administrador. Neste menu, teremos 4 sub-menus:
+
+* Lista Global
+* Lista de grupos
+* Adicionar agi-conf
+* Editar configurações
+
+
+====Lista Global====
+
+
+Em LISTA GLOBAL temos uma visão geral de todas as configurações do A2Billing. Este sub-menu é divido por 14 categorias de configurações especificas do A2Billing. As categorias são:
+
+* Global – Gerencia as configurações globais do A2Billing 
+* CallBack – Gerencia as configurações de CallBack do A2Billing 
+* WebCustomerUI – Gerencia as configurações e aparência da interface do usuário
+* Sip-IAX-INFO – Configura como será exibido as configurações SIP/IAX na interface do usuário
+* Epaymente Method – Configura os parâmetros do sistema de pagamento on line do A2Billing. Por padrão o A2billiing aceita PayPal, Moneybookers e Plugnpay
+* Signup – Gerencia o sistema de cadastro On Line para novos usuários
+* Backup – Gerencia o sistema de backup do A2Billing 
+* Webui – Gerencia os aspecto geral de todas as interface web do A2billing 
+* Peer friend – Gerencia os parâmetros de criação de novos ramais
+* Log files – Gerencia o sistema de logs do A2Billing 
+* Agi-conf1 – Esta agi vem configurada como padrão no A2Billing. Ela define como o sistema de bilhetagem e discagem irão funcionar
+* Notifications – Gerencia o sistema de notificação do A2Billing 
+* Dashboard – Gerencia a dashboard do A2Billing 
+* WebAgentUI – Gerencia a aprecia e configurações da interface Agente
+
+
+===Lista de grupos===
+
+Lista todos os grupos de configuração do A2Billing de forma organizada e detalhada.
+
+=====Adicionar agi-conf=====
+
+Permite ao administrador do A2Billiing, adicionar novas configurações de AGI ao A2Billiing. Esta configuração é muito útil quando trabalhamos com vários recursos em uma mesma plataforma A2Billing.
+
+=====Editor de configurações=====
+
+Permite ao administrador editar arquivos do Asterisk, como por exemplo o sip.conf. A cada edição de um arquivo, será necessário executar o comando reload do Asterisk através do menu Clientes → Configurações VoIP.
+
+===Configuração básica do A2Billing===
+
+Iremos descrever neste tópico, a configuração básica necessária ao funcionamento correto do A2Billing. Esta configuração irá prover todos os recurso necessários para o correto funcionamento da Autenticação  e Bilhetagem dos usuários no A2Billing.
+A configuração também irá habilitar o acesso ao manager do Asterisk. Este acesso é importante pois todos os ramais gerados e monitoração de sip peers e chanels do Asterisk, depende da correta configuração do manager.conf que já  abordamos no capitulo 1.
+
+
+====Global====
+
+As configurações disponíveis em Global iram definir o comportamento do A2Billing para todos os usuários do sistema. Iremos neste tópico apresentar as configurações básicas necessárias para o correto funcionamento.
+
+
+* '''Manager Host''' – Defina aqui o IP do servidor Asterisk
+* '''Manager User ID''' – Defina o usuário configurado no manager.conf
+* '''Manager Password''' – Defina a senha configurada no manager.conf
+* '''Use Realtime''' – Por padrão o A2Billing já utiliza Realtime. 
+* '''Server GMT''' – Defina o Time Zone de sua região GMT-03:00 para Brasília
+* '''Base Conuntry''' – Altera para BRA. O padrão é USA.
+* '''Base Language''' – Alter para br. O padrão é en. 
+* '''AsteriskVersion Global''' – Defina a versão do Aserisk que esta sendo utilizada. 1_2, 1_4, 1_6. A chave 1_6 serve para versões do Astersk 1.6 e 1.8
+
+
+====Agi-conf1====
+
+O Agi-conf1 vem por padrão no A2Billing. Este grupo de configuração permite ajustar as configurações das ligações, forma de cobrança, tem de inicio de cobrança, dentre outras configurações que iremos detalhar abaixo.
+
+* '''Asterisk Version Global''' – Defina a versão do Asterisk que esta sendo utilizada. 1_2, 1_4, 1_6. A chave 1_6 serve para versões do Asterisk 1.6 e 1.8
+* '''Answer Call''' – Deve ser configurado como No quando o AGI for utilizado para CallBack.
+* '''Use DNID''' – Deve ser configurado como Yes para dizermos ao A2BIlling que o numero que discamos no teclado, será o numero a ser chamado. Quando configurado como No ( Padrão ), toda ligação que o usuário realizar, o A2Billiing irá solicitar a reconfirmação do numero digitado.
+* '''Try Count''' – Esta chave diz ao A2Billing para permitir ao usuário ligar para um outro numero quando ele termina uma ligação. Por padrão é configurada para até 3 ligações. Esta função é útil em sistemas Calling Card. Em um sistema normal, deve ser configurada como 1.
+* '''Auto Set CLID''' – Esta chave configura automaticamente o o CLI sendo o numero do ramal se o campo CallerID do ramal estiver em branco. O padrão da chave é Yes. 
+* '''CLID Enable''' – Permite autenticar a ligação através do CLI do cliente. Esta opção é muito utilizada em conjunto com o sistema Calling Card. Com ela ativa, podemos utilizar como PIN o numero CLI do telefone do cliente.
+* '''Dial Command Params''' – Esta chave constrói o comando Dial que será enviado ao Asterisk. Esta chave pode ser alterada conforme a necessidade.
+* '''Verbosity''' – Esta chave é muito importante quando necessitamos depurar problemas no A2Billing. Quando configurada com a chave 4, ela exibe um log detalhado na CLI do Asterisk possibilitando a depuração mais apurada do erro. Seu padrão é 0.
+
+
+====Peer Friend====
+
+Nesta Grupo de configuração Global, podemos especificar as configurações de criação dos ramais sip do A2Billing. As chave permitidas são:
+
+* '''Type''' – Padrão da chave é friend.
+* '''Allow''' – Padrão da chave é  ullaw,allaw,gsm,g729
+* '''Context''' - Padrão da chave é a2billing 
+* '''Nat''' -  Padrão da chave é yes
+* '''AMA Flag''' -  Padrão da chave é billing
+* '''Qualify''' -  Padrão da chave é no
+* '''Host''' -  Padrão da chave é dynamic
+* '''DTMF Mode''' -  Padrão da chave é  RFC2833
+
+As configurações do grupo Peer Friend devem ser alteradas conforme a necessidade. Lembramos que a alteração das chaves do grupo, iram apenas valer para novos ramais.
+
+
+===Exemplo de configuração=== 
+
+As configurações apresentadas abaixo, irão funcionar basicamente em qualquer instalação do A2Billing.
+
+
+====Global====
+
+{| class="wikitable"
+|-
+| Card Number length  || 5-20
+|-
+| Base Currency  || brl
+|-
+| Manager Host  || Localhost
+|-
+| Manager User ID || USER
+|-
+| Manager Password || SENHA
+|-
+| Use Realtime || Yes
+|-
+|Go To Customer || ../../cliente/index.php 
+|-
+| Server GMT  || GMT-03:00
+|-
+| Base Conuntry || BRA
+|-
+| Base Language || Br
+|-
+|AsteriskVersion Global || 1_6
+|}
+
+====Agi-conf1====
+
+{| class="wikitable"
+|-
+| Asterisk Version Global  || 1_6
+|-
+| Answer Call || Yes
+|-
+| Play Audio || Yes
+|-
+| Use DNID || Yes
+|-
+| Try Count || 1
+|-
+| Say Balance After Auth || No
+|-
+| Say Balance After Call || No
+|-
+| Say Rate || No
+|-
+|Say Duration || No
+|-
+| Auto Set CLID || Yes 
+|-
+| CLID Enable  || Yes
+|-
+| Dial Command Params || |60|HL(%timeout%:61000:30000) 
+|-
+| Verbosity || 0
+|}
+
+====Peer Friend====
+
+{| class="wikitable"
+|-
+| Type || Friend
+|-
+| Allow || ullaw,allaw,gsm,g729
+|-
+| Context  || A2billing 
+|-
+| Nat || Yes
+|-
+| AMA Flag || Billing
+|-
+| Qualify || Yes
+|-
+| Host || Dynamic
+|-
+| DTMF Mode || RFC2833
+|}
+
+As configurações apresentadas acima, irão satisfazer a maioria das instalações do A2Billing. O sistema irá operar de forma tranquila e precisa.
