@@ -1,0 +1,147 @@
+Iremos apresentar neste capitulo, as configurações necessárias para a integração A2Billing com o Asterisk. 
+A configuração correta do Asterisk, ira resultar em uma performance melhor no ambiente como um todo.
+Nos arquivos de configuração mostrados abaixo, iremos configurar o A2Billing  de forma a usarmos o acesso ao REALTIME do Asterisk. 
+O A2Billing desde a versão 1.9.0 traz este recurso que possibilita uma melhor performance e estabilidade ao sistema.
+Neste tópico, veremos os seguintes itens:
+
+* Configuração do sip.conf
+* Configração do extensions.conf
+* Configuração do res_mysql.conf
+* Configuração do extconfig.conf
+* Configurando o manager.conf
+<br>
+
+=== Arquivo sip.conf ===
+
+Abaixo teremos um modelo do arquivo sip.conf para A2Billing. Lembramos que a configuração apresentada aqui é uma básica para o funcionamento correto do A2Billing, esta configuração poderá ser melhorada conforme a sua necessidade. Os usuário não serão configurados neste arquivo, e sim no bando MySQL via acesso REALTIME. 
+Os usuários de autenticação via IP ou TECH-PREFIX deverão ser configurados no arquivo sip.conf, pois o A2Billing não tem suporte nativos as esses usuários via REALTIME.
+
+<pre>
+[general]
+context=default 
+srvlookup=yes
+rtcachefriends=yes
+rtupdate=yes
+rtautoclear=yes
+ignoreregexpire=yes
+rtsavesysname=yes
+maxexpirey=1200
+defaultexpirey=1800
+minexpirey=1800
+disallow=all
+allow=g729
+allow=ulaw
+allow=alaw 
+recordhistory=yes 
+nat=yes     
+canreinvite=yes
+</pre>
+
+
+==== Tronco EXEMPLO ====
+
+<pre>
+
+[saida]
+type=friend
+domain=IP_SERVIDOR
+fromdomain=IP_SERVIDOR
+host=IP_SERVIDOR
+user=USER
+secret=SENHA
+defaultuser=USER
+qualify=yes
+port=5060
+nat=no
+dtmfmode=rfc2833
+reinvite=yes
+canreinvite=no
+disallow=all
+;allow=g729
+allow=ulaw
+allow=alaw
+insecure=port,invite
+
+</pre>
+
+=== Arquivo extensions.conf ===
+
+Abaixo apresentamos um modelo do arquivo extensions.conf básico para as funções de roteamento básicas . 
+Lembramos que a configuração apresentada aqui é uma básica para o funcionamento correto do A2Billing, esta configuração poderá ser melhorada conforme a sua necessidade.
+
+<pre>
+[general]
+static=yes
+writeprotect=no
+autofallthrough=yes
+clearglobalvars=yes
+
+[a2billing]
+
+
+exten => _XXXXX,1,Dial(SIP/${EXTEN},60,tT)
+exten => _XXXXX,n,Goto(s-${DIALSTATUS},1)
+exten => _XXXXX,n,Hangup
+
+exten => s-NOANSWER,1,Hangup
+exten => s-CONGESTION,1,Goto(s-CHANUNAVAIL,1)
+exten => s-CANCEL,1,Hangup
+exten => s-BUSY,1,Busy
+exten => s-CHANUNAVAIL,1,Playtones(busy)
+exten => s-CHANUNAVAIL,n,Busy(10)
+exten => s-CHANUNAVAIL,n,Hangup()
+
+
+exten => _X.,1,AGI(a2billing.php,1)
+exten => _X.,n,Hangup
+
+exten => h,n,Hangup
+
+</pre>
+
+=== Arquivo res_mysql.conf ===
+
+No arquivo res_mysql.conf, iremos definir as configurações de acesso ao mysql. 
+O exemplo abaixo, irá atender a grande maioria das instalações de A2Billing.
+
+<pre>
+
+[general]
+dbhost 	= IP_DB
+dbname 	= BANCO DE DADOS
+dbuser 	= USER
+dbpass 	= SENHA
+dbport 	= 3306
+
+</pre>
+
+=== Arquivo extconfig.conf ===
+
+No arquivo extconfig.conf, iremos definir quais tabelas do A2Billing serão utilizadas pelo asterisk para autenticação dos usuários.
+
+A configuração é muito simples, bastando adicionar ao final do arquivo as seguintes linhas:
+
+<pre>
+sipusers => mysql,general,cc_sip_buddies
+sippeers => mysql,general,cc_sip_buddies
+</pre>
+
+
+=== Arquivo manager.conf ===
+
+O arquivo manager.conf, dará ao A2Billing poderes de executar comandos no Asterisk. 
+O comando executado pelo A2Billing basicamente é um sip reload a cada usuário criado ou alterado ou quando acessamos o status do canais no Asterisk.
+
+<pre>
+[general]
+enabled = yes
+webenabled = yes
+port = 5038
+
+[user]
+secret = senha
+deny=0.0.0.0/0.0.0.0
+permit=127.0.0.1/255.255.255.0
+read = system,call,log,verbose,command,agent,user
+write = system,call,log,verbose,command,agent,user
+</pre>
