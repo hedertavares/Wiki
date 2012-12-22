@@ -1,0 +1,195 @@
+Após configurarmos os troncos de saída, será necessário criar um plano de ligação e tarifas.
+Um Plano de ligação é atrelado a cada cartão criado no A2Billing, uma ou mais tarifas são partes de um plano de ligação. As tarifas contem os destinos ( prefixos ) permitidos para um determinado plano de ligação. Nelas também configuramos o valor de custo, o valor de venda, tempo em segundos cobrado na chamado, dentre outros.
+É importante o correto entendimento sobre a diferença entre plano de ligação e tarifas. Essa é uma das principais dúvidas de novos usuários do A2Billing. Neste capitulo, iremos explicar a suas diferenças bem como a forma correta de se implementar um plano de ligação.
+
+<br>
+
+
+===Menu Tarifas===
+
+
+O menu Tarifas, é dividido em 6 itens:
+
+* '''Plano de ligações''' – Aqui definimos os planos de ligação que irão ser utilizados pelos clientes
+* '''Tarifários''' – São as tarifas que compõem um plano de ligação. Como preço de custo, preço de venda por exemplo.
+* '''Importar''' – Utilizado para importa as tarifas para a base de dados do A2Billing
+* '''Fusão'''
+* '''Simulador''' – Simula o custo de uma determinada rota
+* '''Tarifas''' – Permite visualizar, alterar, adicionar ou deletar rotas existentes
+
+===Plano de ligações===
+
+<br>
+[[Imagem:tarifas-1.png|Tarifas]]<br>
+<br>
+
+Um plano de ligação, é utilizado para definir um grupo de tarifas que será atribuído a um cartão. O cartão pode conter vários ramais VoIP que serão tarifados conforme os valores estipulados nas tarifas.
+Um plano de ligação poderá conter também um Pacote de Ofertas. Um pacote de oferta define por exemplo, que um determinado prefixo terá 1.000 minutos grátis. Pacotes de Ofertas serão discutidos em um próximo capitulo.
+Um recurso interessante que podemos configurar em um Plano de ligação, é a rota de menor custo. Este é um recurso muito utilizado no mercado VoIP.
+
+====Criando um plano de ligação====
+
+
+Para criar um plano de ligação, siga os passos descritos abaixo:
+Clique no ícone Adicionar Plano de Ligações. A tela a seguir irá aparecer:
+
+<br>
+[[Imagem:tarifas-2.png|Tarifas]]<br>
+<br>
+
+
+* '''Nome''' – Insira o nome do plano de ligação. Este é o nome que irá aparecer no cadastro do usuário
+* '''Tipo de menor custo''' – Aqui temos 2 opções:
+:'''LCR''' – Diz ao A2Billing para sempre utilizar o menos preço de custo
+:'''LCD''' – Diz ao A2Billing para sempre um o menos preço de venda para o cliente
+* '''Pacote''' – Selecione o pacote de oferta disponível
+* '''Remover o prefixo internacional''' – Esta opção diz ao A2Billing para remo todo e qualquer prefixo das tarifas começados com 00 ou 011 por exemplo
+
+Após preencher todos os campos, clique em [[Imagem:confirmar-dados.png|Confirmar]]
+
+
+===Tarifários===
+
+
+<br>
+[[Imagem:tarifas-3.png|Tarifas]]<br>
+<br>
+
+Tarifários, são utilizado pelo A2billing para configurar as regras de cobranças. Neles iremos configurar como uma chamada será cobrada. 
+Em um tarifário podemos criar regras que irão valer para cada prefixo ou destino que pertença ao tarifário. Como exemplo podemos configurar o preço de custo da ligação, preço de venda, tempo minimo de cobrança, cobrança por bloco, etc.
+A regras de tarifários são sofisticadas no A2billing, que podemo até definir valores cobrados baseados em horários e datas, podemos configurar valor extra a ser cobrado na ligação.
+Abaixo, iremos descrever em detalhes como podemos tirar o máximo de proveito do sistema tarifário do A2Billiing.
+
+
+====Criando um Tarifário====
+
+
+Para criar um tarifário clique em Adicionar Tarifário. Em seguida a tela abaixo irá aparecer:
+
+<br>
+[[Imagem:tarifas-4.png|Tarifas]]<br>
+<br>
+
+* '''Nome da tarifa''' – Insira o nome da tarifa
+* '''Data de inicio''' – Define apartir de qual data a tarifa entrara em vigor
+* '''Data de expiração''' – Define quando a tarifa não será mais utilizada pelo A2Billiing
+* '''Tronco''' – Selecione o tronco de saída a ser utilizado pela tarifa
+* '''Descrição''' – Insira uma breve descrição para a tarifa
+* '''Prefixo DNID''' – É utilizado principalmente para se controlar preços de chamadas entrantes. Por exemplo, quando temo um Calling Card e utilizamos como entrada um 0800, podemos dizer ao A2Billing que sempre que entrar uma chamada via 0800, ele use este tarifário para cobrar a chamada. Por padrão, o tarifário irá ser aplicado a todos os ramais.
+* '''Prefixo do CallerID''' – Permite força um determinado ramal a utilizar apenas esse prefixo. Por exemplo, se quiser que o ramal 9090 utilize sempre este tarifário, ignorando todos os outros tarifário dos Plano de ligação, defina o campo como 9090. Por padrão, o tarifário irá ser aplicado a todos os ramais.
+
+Após preencher todos os campos, clique em [[Imagem:confirmar-dados.png|Confirmar]]
+
+
+===Importar===
+
+
+<br>
+[[Imagem:tarifas-5.png|Tarifas]]<br>
+<br>
+
+Importar tarifas é utilizado para que possamos configurar tarifas em massa. É uma forma muito útil de se importar milhares de tarifas ao mesmo tempo.
+Em Importar, temos a possibilidade que importar de forma detalha qualquer tarifa necessária. Tempos abai a relação dos campos utilizados durante o processo de importação:
+
+
+* '''Tarifário''' – Selecione a qual tarifário irá pertencer as tarifas a serem importadas
+* '''Tronco''' – Escolha qual será o tronco  de saída utilizado pelas tarifas importadas
+* '''Campos''' obrigatórios – Selecione o 3 campos obrigatórios na importação de novas tarifas
+* '''Campos adicionais''' – Selecione os campos adicionais que serão usados durante a importação das tarifas
+* '''Moedas''' – Por padrão o A2Billing usa unidade
+* '''Arquivo''' – Selecione o arquivo que contem as tarifas a serem importadas
+
+====Exemplo de um arquivo de importação====
+
+0683235;AC ACRELANDIA;0.11;0.06;30;6;30;6 <br>
+0683238;AC ACRELANDIA;0.11;0.06;30;6;30;6 <br>
+0683548;AC ASSIS BRASIL;0.11;0.06;30;6;30;6<br>
+
+{| class="wikitable"
+|-
+| 0683235 || Prefixo de destino
+|-
+| AC ACRELANDIA || Estado / Cidade de destino
+|-
+| 0.11 || Preço de venda ao cliente
+|-
+| 0.06 || Preço de compra junto ao fornecedor
+|-
+| 30 || Tempo venda minimo da chamada em segundos
+|-
+| 6 || Tempo venda incremental da chamada em segundos
+|-
+| 30 || Tempo compra minimo da chamada em segundos
+|-
+| 6 || Tempo compra incremental da chamada em segundos
+|}
+
+O A2Billing entende que quando nos discamos 0683235-XXXX, ele irá aplicar a regra que mais se aproxima do número chamado, em nosso exemplo o prefixo 0683235.
+Com isso podemos criar regras de prefixos específicos para números de telefone, ou DDD como por exemplo uma regra de cobrança especifica para 01134. Porem essa regra não seria válida se tivéssemos outra regra iniciada com 011345 chamando o numero 0113456-7890, pois como dissemos acima, o A2Billiing sempre irá procurar pela regra mais próxima do numero chamado.
+
+===Tarifas===
+
+Tarifas, permite manipular as tarifas já existentes no A2Billing. Também permite adicionar, alterar ou excluir tarifas já existentes.
+Podemos alterar tarifas em Lote, realizar pesquisas de varias formas com por exemplo por Valor de Compra.
+Abaixo iremos descrever todo os processo envolvido em Tarifas.
+
+<br>
+[[Imagem:tarifas-6.png|Tarifas]]<br>
+<br>
+
+Podemos dizer que o menu Tarifas é dividido em 4 partes: Pesquisa, Atualizar em Lote, Lista de prefixos e Adicionar tarifas. Iremos descrever da melhor forma possível cada uma dessas sessões.
+
+====Pesquisa====
+
+Em Pesquisa, podemos combinar de forma precisa vários tipos de pesquisas que desejamos. Podemos por exemplo filtra valor = ou >=, taxa inicial > ou =. Este menu é bem completo e irá atender a pesquisas exigentes.
+Combinado com o Atualizar em lote, irá nos permitir alterar dados em um conjunto de prefixos, ou um tronco especifico, ou ate mesmo um tarifário completo. Abaixo iremos descrever os passos necessários para se trabalhar de forma tranquila com Pesquisa.
+
+<br>
+[[Imagem:tarifas-7.png|Tarifas]]<br>
+<br>
+
+
+* '''Data de inicio''' – Selecione a data de inicio e a data de termino para a pesquisa
+* '''Identificação''' – Toda tarifa ao ser criada pode conter uma identificação. Este campo usa este recurso para sua pesquisa
+* '''Prefixo de discagem''' – Insira o prefixo de discagem. Esse campo permite  Exato, Começa com, Contém e Termina com 
+* '''Valor de compra''' – Podemos pesquisar pelo valor da tarifa. Muito útil quando temos um tarifário  com valores diferentes por prefixo. Neste campo podemos usar >, >= , = , <= , <
+* '''Taxa inicial''' - Podemos pesquisar pelo valor pago no inicio da ligação. Muito útil quando temos um tarifário  com Taxa inicial diferentes por prefixo. Neste campo podemos usar >, >= , = , <= , <
+* '''Trunk''' – Podemos combinar com Atualizar em Lote, para que possamos atualiza as tarifas de um tronco. Deve ser usado com cuidado, pois todos as tarifas do tronco serão atualizadas.
+* '''RateCard''' - Podemos combinar com Atualizar em Lote, para que possamos atualiza as tarifas de um tarifário. Deve ser usado com cuidado, pois todos as tarifas do tarifário serão atualizadas.
+
+Nos permite alterar valores de um conjunto de prefixos, tarifas, tarifários ou tronco. Tudo que foi definido como critério de pesquisa pode ser alterado nesta sessão.
+Para termos um exemplo, podemos definir em Prefixo de discagem 01121 e selecionar Começa com. Em Trunk selecionamos RNKP e em Retecard selecionamos FIXO. Assim teremos o resultado abaixo:
+
+
+<br>
+[[Imagem:tarifas-8.png|Tarifas]]<br>
+<br>
+
+No exemplo acima, podemos usar o Atualizar em Lote, para altera por exemplo o valor de venda das tarifas exibidas. No exemplo acima foram encontrados 100 registros que batem com a pesquisa.
+
+
+====Atualizar em lote====
+
+
+<br>
+[[Imagem:tarifas-9.png|Tarifas]]<br>
+<br>
+
+Para atualizar por exemplo o valor de venda dos prefixos selecionados acima, iremos marcar o campo TAXA DE VENDA e colocar o novo valor. Desta forma os prefixos selecionados em nossa pesquisa, serão atualizados.
+
+Abaixo iremos descrever os campos presentes em Atualizar em Lote.
+
+* '''Tronco''' – Selecione o tronco a ser alterado
+* '''Tarifário''' – Selecione o tarifário a ser alterado
+* '''Grupo CID''' – Podemos alterar o grupo CID por um outro selecionado 
+* '''Buying Rate''' – Insira o novo valor de compra
+* '''Tempo pago pela chamada''' – Altere o tempo minimo de pago pela chamada
+* '''Blocos em segundos Compra''' – Altere o tempo incremental em segundos pago pela chamada
+* '''Taxa de venda''' - Altere o tempo minimo de venda que o usuário pagará pela chamada
+* '''Blocos em segundos Venda''' - Altere o tempo incremental em segundos que o usuário paga pela chamada
+* '''Taxa de conexão''' – Altera o valor da taxa de conexão se a mesmas for aplicada a tarifa
+* '''Arrendondamento de tempo''' - 
+* '''Inicio do arrendondamento''' -
+* '''Bloco de taxa adicional''' -
+* '''Tempo adicional da taxa''' -
+* '''Identificação''' -
