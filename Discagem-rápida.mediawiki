@@ -1,0 +1,14 @@
+==== Discagem Rápida ====
+
+Esta seção permite você definir a Discagem Rápida para os clientes.
+
+Uma discagem será introduzida no IVR para fazer um atalho para seu número de telefone preferido. 
+
+<br>
+
+=== Coluna AÇÃO ===
+<br>
+[[/images/edit.png|Editar Ramal]] - Edita as informações.<br>
+[[/images/delete.png|Deletar Ramal]] - Deleta discagem rápidas.<br>
+
+<br>
