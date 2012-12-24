@@ -10,8 +10,8 @@ Atraves deste formulário, podemos modificar as informações do autenticação 
 
 === Coluna AÇÃO ===
 <br>
-[[Imagem:edit.png|Editar Ramal]] - Edita as informações do ramal selecionado.<br>
-[[Imagem:delete.png|Deletar Ramal]] - Deleta o ramal Selecionado.<br>
+[[/images/edit.png|Editar Ramal]] - Edita as informações do ramal selecionado.<br>
+[[/images/delete.png|Deletar Ramal]] - Deleta o ramal Selecionado.<br>
 
 <br>
 
