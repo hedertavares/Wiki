@@ -19,11 +19,11 @@ Prefixos – Lista todos os prefixos de destinos cadastrados no A2Billing
 Em Provedores, iremos cadastrar os grupos de provedores.
 
 <br>
-[[Imagem:provedor-1.png|Provedor]]<br>
+[[/images/provedor-1.png|Provedor]]<br>
 <br>
 Para cadastrar um provedor, basta clicar no ícone Adicionar Provedor  no canto superior esquerdo da tela. Em seguida a a tela abaixo será apresentada:
 <br>
-[[Imagem:provedor-2.png|Provedor]]<br>
+[[/images/provedor-2.png|Provedor]]<br>
 <br>
 
 * '''Nome do provedor''' – Insira o nome do provedor
@@ -36,13 +36,13 @@ Clique em [[Imagem:confirmar-dados.png|Confirmar]]
 Em Troncos, iremos definir um ou mais de saída ou entrada. Abaixo iremos descrever os passo a serem seguidos em detalhes.
 
 <br>
-[[Imagem:provedor-3.png|Provedor]]<br>
+[[/images/provedor-3.png|Provedor]]<br>
 <br>
 
 Para cadastrar um provedor, basta clicar no ícone Adicionar Tronco  no canto superior esquerdo da tela. Em seguida a a tela abaixo será apresentada:
 
 <br>
-[[Imagem:provedor-4.png|Provedor]]<br>
+[[/images/provedor-4.png|Provedor]]<br>
 <br>
 
 * '''Provedor VoIP''' – Selecione o grupo de provedores
@@ -115,5 +115,5 @@ insecure=port,invite
 Em prefixo, podemos adicionar, alterar, deletar  e ou listar os prefixos disponíveis no A2Billing. Os prefixos serão automaticamente adicionados quando importamos um conjunto de tafias.
 
 <br>
-[[Imagem:provedor-5.png|Provedor]]<br>
+[[/images/provedor-5.png|Provedor]]<br>
 <br>
