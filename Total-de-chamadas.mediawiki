@@ -1,0 +1,30 @@
+=== Total de Chamadas ===
+
+Exibe o total de chamadas realizado por cada cartão. É possível especificar um intervalo de data especico.
+O sistema exibirá duas opções:
+
+<br>
+[[/images/cdr-6.png|Total de chamadas]]<br>
+<br>
+
+
+Ligações por usuário: Exibe a quantidade de ligações realizadas pelos usuários. A informações apresentadas são:
+* Conta usada - Cartão a qual foi atribuido as ligações.
+* Duração - Duração total de todas as ligações realizadas pelo cartão.
+* Venda - Valor total de venda ao cliente.
+* Compra - Valor total de compra no fornecedor.
+* Num. de Ligações - Quantidatde total de ligaçoes realizadas pelo cartão.
+<br>
+[[/images/cdr-4.png|Ligações por usuário]]<br>
+<br>
+
+Ligações por destino: Exibe os destinos mais acessados pelos clientes do Billing.
+* Destino - Nome do Destino acessado.
+* Duração - Duração total de todas as ligações realizadas pelo cartão.
+* Venda - Valor total de venda ao cliente.
+* Compra - Valor total de compra no fornecedor.
+* Num. de Ligações - Quantidatde total de ligaçoes realizadas pelo cartão.
+
+<br>
+[[/images/cdr-5.png|Ligações por destino]]<br>
+<br>
