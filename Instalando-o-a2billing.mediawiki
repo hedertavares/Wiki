@@ -124,7 +124,7 @@ A interface do Administrador, é utilizada para administra todos os recursos dis
 
 <br>
 [[/images/Home-admin-1.png|Home Admin]]<br>
-.. image:: https://raw.github.com/eluizbr/CloudVox-1.0/master/newfies/resources/images/newfies.png
+
 
 <br>
 
