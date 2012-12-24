@@ -1,0 +1,96 @@
+== Adicionar Clientes ==
+
+Permite Adicionar, Editar ou Exluir clientes da plataforma Billing. As informações deste formulário devem ser administradas com mito cuidado. As informações alteradas nele, podem influenciar diretamente no comportamento do sistema para o usuário editado.
+
+<br>
+[[/images/usuarios-1.png|Adicionar Clientes]]<br>
+<br>
+
+* ID - Identificação do usuário no banco de dados.
+* Número da conta - Numero de itendificação do cliente no sstema e utilizado com aytenticador PIN.
+* Login - Login de acesso ao portal web.
+* Sobrenome - Sobrenome.
+* Grupo - Grupo a qual o cliente pertence.
+* SALDO - Saldo atual da conta do cliente.
+* PLANO - Plano atual a qual o usuário esta utilizando.
+* STATUS - Exibe o status atual do cliente
+* LANG  - Idioma utilizado pelo cliente
+* AÇÃO - Descrito em detalhes abaixo.
+
+<br>
+=== Coluna AÇÃO ===
+<br>
+[[/images/info.png|Informação dos Clientes]] - Exibe informações do cliente selecionado.<br>
+[[/images/edit.png|Editar Cliente]] - Edita as informações do cliente selecionado.<br>
+[[/images/delete.png|Deletar Cliente]] - Deleta o cliente Selecionado.<br>
+[[/images/icon-sip.gif|Informações SIP]] - Exibe as informações do(s) ramal(is) SIP do cliente.<br>
+[[/images/icon-iax.gif|Informações IAX]] - Exibe as informações do(s) ramal(is) IAX do cliente.<br>
+[[/images/money.png|Adicionar Credito]] - Adiciona ou remove creditos de clientes PRÉ-PAGOS. Adicona cobranças extras ao cliente.<br>
+[[/images/boo_add.png|Adicionar Serviços]] - Adiciona serviços a fatura do cliente.<br>
+[[/images/email.png|Enviar Email]] - Envia um email para o cliente.<br>
+
+<br>
+
+== Editando usuários ==
+<br>
+
+==== Informações do Clientes ====
+Permite editar as informações da conta de acesso ao portal WEB do cliente. Também podemos alterar informações como GRUPO DE CLIENTE e SERIAL
+<br>
+[[/images/editar-usuario-1.png|Editar Usuário]]<br>
+<br>
+
+Itens editáveis:
+
+* LOGIN WEB - É o nome do usuário que será utlizado para acesso ao portal web. Deverá conter apenas NÚMEROS.
+* SENHA WEB - É a senha utilizada pelo usuário para acesso ao portal web. Deverá conter apenas NÚMEROS.
+* SALDO - O saldo do cliente deve ser adicionado apenas pelo botão [[/images/money.png|Saldo]] .
+* GRUPO DE CLIENTE - ë o grupo a qual o cliente pertence.
+* SERIAL - Número de serie no qual esta configurado o usuário.
+
+''OBS.: Após alterar qualquer informação, clieque no botão [[/images/confirmar.png|Confirmar]] no fim da pagina.
+''
+
+==== Informações Pessoais ====
+
+Permite alterar as informações cadastrais do cliente. É importa sempre matermos as informações do cliente atualizada. Esta informações são utilizadas pelo sistema de nota fiscal e pelo sistema de cobrança.
+
+[[/images/editar-usuario-2.png|Editar Usuário]]<br>
+
+==== Status do Cliente ====
+
+Neste conjunto de campos, podemos editar varias informações referentes ao sistema de TARIFAÇÃO e/ou COBRANÇA do cliente. Podemos por exemplo, alterar o PLANO DE LIGAÇÃO que esta sendo utilizado ou a MOEDA utilizada para cobrança.
+
+
+[[/images/editar-usuario-3.png|Editar Usuário]]<br>
+
+==== Recarga Automática ====
+
+Permite adicionar uma Recarago automática a clientes PRÉ-PAGOS. Você pode especificar o falor desta recarga.
+ATENÇÃO - O usuário será recaregado a cada 30 dias mesmo se o usuário estiver com pendencias financeira.
+
+[[/images/editar-usuario-4.png|Editar Usuário]]<br>
+
+==== Fatura ====
+
+Permite configurar o dia do vencimento da fatura do cliente, valores de impostos e percentual de desconto na fatura.
+
+[[/images/editar-usuario-5.png|Editar Usuário]]<br>
+
+==== Destino do Tráfego ====
+
+Este campo contém as informações referentes ao trafego do cliente.
+
+[[/images/editar-usuario-6.png|Editar Usuário]]<br>
+
+==== Números restritos ====
+
+Permite configurar restrição de números aos clientes. Podemos por exemplo, restringir ligações para telefones celulares.
+
+[[/images/editar-usuario-7.png|Editar Usuário]]<br>
+
+==== Histórico de CALLERID / CLIENTE ====
+[[/images/editar-usuario-8.png|Editar Usuário]]<br>
+
+----
+[[Manual_A2Billing|Manual A2Billing]]
