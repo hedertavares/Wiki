@@ -1,0 +1,7 @@
+=== DNID ===
+
+Exibe os números de telefones mais chamados pelos usuários.
+
+<br>
+[[/images/cdr-8.png|Total de chamadas]]<br>
+<br>
