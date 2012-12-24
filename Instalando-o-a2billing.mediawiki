@@ -124,6 +124,7 @@ A interface do Administrador, é utilizada para administra todos os recursos dis
 
 <br>
 [[Imagem:home-admin-1.png|Home Admin]]<br>
+[Home Admin](home-admin-1.png)
 <br>
 
 A interface do Administrador esta disponível e 6 idiomas:
