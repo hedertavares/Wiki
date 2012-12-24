@@ -1,0 +1,11 @@
+==== Grupos ====
+
+Esta página mostra uma lista dos grupos disponivies.O campo Grupo é usado para agrupar clientes para uma pesquisa rápida, atualizar em lote e ter relatório.
+
+<br>
+=== Coluna AÇÃO ===
+<br>
+[[/images/edit.png|Editar Ramal]] - Edita as informações do grupo selecionado.<br>
+[[/images/delete.png|Deletar Ramal]] - Deleta o grupo Selecionado.<br>
+
+<br>
