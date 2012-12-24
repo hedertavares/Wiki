@@ -149,7 +149,7 @@ ln -s /usr/src/billing/admin/ /var/www/html/billing/admin
 A interface do cliente, apresenta de forma fácil todas as informações necessárias para o cliente. Podemos destacar como as mais importantes a Bilhetagem das ligações e as Faturas.
 
 <br>
-[[Imagem:cliente-admin-1.png|Home Cliente]]<br>
+[[/images/cliente-admin-1.png|Home Cliente]]<br>
 <br>
 
 A interface do Cliente esta disponível em 17 idiomas:
@@ -183,7 +183,7 @@ ln -s /usr/src/billing/customer/ /var/www/html/billing/cliente
 A interface do Agente, permite aos seus agentes terem total controle sobre suas operações de venda. Através dela, seu agente poderá criar, alterar ou excluir usuários e ramais SIP/IAX, porém esta versão do A2Billing não permite que o Agentes criem seus planos, tendo os planos serem criados pelo Administrador e vinculados ao Agente.
 
 <br>
-[[Imagem:agente-admin-1.png|Home Agente]]<br>
+[[/images/agente-admin-1.png|Home Agente]]<br>
 <br>
 
 A interface do Agente esta disponível e 6 idiomas:
@@ -321,7 +321,7 @@ Seguindo a configuração proposta acima, teremos as seguinte tela no navegador 
 Acesse: http://IP_SERVIDOR/billling/
 
 <br>
-[[Imagem:acesso-billing-1.png|Acesso Billing]]<br>
+[[/images/acesso-billing-1.png|Acesso Billing]]<br>
 <br>
 
 Por questões de segurança, é altamente recomendado que se altere as configurações do Apache, de forma que os diretórios não fique expostos.
