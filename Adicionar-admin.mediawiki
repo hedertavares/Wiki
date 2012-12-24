@@ -1,0 +1,22 @@
+=== Adicionar :: Pesquisar ===
+
+Adiciona, altera ou deleta Administradores do sistema.
+
+
+<br>
+[[/images/admin-1.png|Adicionar Administradores]]<br>
+<br>
+
+=== Editando informações ===
+Abaixo, demonstramos a tela onde se pode alterar as informações dos administradores disponíveis no sistema.
+
+<br>
+[[/images/admin-2.png|Editando Administradores]]<br>
+<br>
+
+=== Coluna Ação ===
+<br>
+[[/images/info.png|Informação dos Clientes]] - Exibe informações do administrador selecionado.<br>
+[[/images/edit.png|Editar Cliente]] - Edita as informações do administrador selecionado.<br>
+[[/images/delete.png|Deletar Cliente]] - Deleta o administrador Selecionado.<br>
+<br>
