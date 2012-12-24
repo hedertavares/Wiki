@@ -1,0 +1,52 @@
+=== CDR ===
+Exibe em detalhes as informações da ligações realizada por todos os ramais configurados no billing.
+
+
+<br>
+[[/images/cdr-1.png|Relatório CDR]]<br>
+<br>
+
+==== Menu Pesquisa ====
+
+Permite exibir uma pesquisa de forma detalhada. É possível agrupar valores a serem pesquisados como por exemplo '''TRONCO''' com '''DATAS''' e '''HORÁRIOS''' especificos.
+
+<br>
+[[/images/cdr-2.png|Pesquisa CDR]]<br>
+<br>
+
+==== Log das ligações ====
+
+* Data - Data em que a ligação foi realizada
+* CallerID - Ramal que originou a ligação
+* DNID -
+* Número do Telefone - Número discado pelo usuário
+* Destino - Destino da ligação, exibe Estado-Cidade ou Operadora de Celular
+* Custo - Preço de custo da ligação para operadora
+* Venda - Preço de venda ao cliente
+* Duração - Duração da ligação
+* Conta - Cartão utilizado para debitar as ligações
+* Tronco - Tronco por onde foi originada a ligação
+* TC ( causa do Termino ) - Exibe o status da ligação, por exemplo se a ligação foi ATENDIDA
+* Tipo de Chamada
+* Compra - O valor total pago pela operadora ao seu fornecedor
+* Venda - O valor total do valor que deverá ser pago pelo cliente
+* Margem - Margem de lucro desta ligação
+* Marcação
+
+<br>
+
+==== Sumário de tráfego ====
+Sumário de tráfego, exibe o resumo diário das ligações. Exibe também de forma objetiva informações tais como '''LUCRO''' e '''MARGEM DE LUCRO'''.
+
+* Data - Data dos dados exibidos.
+* Duração - Tempo total da ligações realizadas na data.
+* Gráfico - Representação grafica dos minutos falados na data.
+* Ligações - Número total de ligações na data.
+* Aloc - Tempo médio em minutos de todas as ligações da data.
+* Asr - Quantidade de ligações completada na data.
+* Venda - Valor total de venda na data.
+* Compra - Valor total de compra na data.
+* Lucro - Lucro total obtido na data.
+* Margem - Margem de lucro obtida na data.
+* Marcação - Porcetagem Bruta de lucro.
+* Total - Somas dos valores dos campos anteriores, segundo a data especificada no quadro '''PESQUISA'''.
