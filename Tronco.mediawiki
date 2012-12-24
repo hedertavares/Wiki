@@ -1,0 +1,7 @@
+=== Tronco ===
+
+Exibe o total de chamadas realizado por cada tronco disponível no sistema.
+
+<br>
+[[/images/cdr-7.png|Total de chamadas]]<br>
+<br>
