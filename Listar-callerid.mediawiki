@@ -1,0 +1,27 @@
+==== Listar CallerID ====
+
+Lista o CallerID configurado para os clientes configurados no sistema.
+<br>
+
+[[/images/callerid-1.png]]
+
+
+<br>
+* '''IDENTIFICADOR DE CHAMADAS''' - Número do telefone do cliente.
+* '''NÚMEROD A CONTA''' - A conta a qual o cliente pertence.
+* '''NOME DO CLIENTE''' - Nome do cliente.
+* '''ATIVO''' - Status atual do ramal do cliente
+* '''AÇÃO''' - 
+
+<br>
+
+
+
+=== Coluna AÇÃO ===
+<br>
+[[/images/edit.png|Editar Ramal]] - Edita as informações do ramal selecionado.<br>
+[[/images/delete.png|Deletar Ramal]] - Deleta o ramal Selecionado.<br>
+[[/images/money.png|Adicionar Pagamento]] - Adicionar pagamento no ramal Selecionado.<br>
+[[/images/brick_add.png|Adicionar Recarga]] - Adicionar recarga ao ramal Selecionado.<br>
+
+<br>
