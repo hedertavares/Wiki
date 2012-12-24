@@ -20,7 +20,7 @@ O menu Tarifas, é dividido em 6 itens:
 ===Plano de ligações===
 
 <br>
-[[Imagem:tarifas-1.png|Tarifas]]<br>
+[[/images/tarifas-1.png|Tarifas]]<br>
 <br>
 
 Um plano de ligação, é utilizado para definir um grupo de tarifas que será atribuído a um cartão. O cartão pode conter vários ramais VoIP que serão tarifados conforme os valores estipulados nas tarifas.
@@ -34,7 +34,7 @@ Para criar um plano de ligação, siga os passos descritos abaixo:
 Clique no ícone Adicionar Plano de Ligações. A tela a seguir irá aparecer:
 
 <br>
-[[Imagem:tarifas-2.png|Tarifas]]<br>
+[[/images/tarifas-2.png|Tarifas]]<br>
 <br>
 
 
@@ -45,14 +45,14 @@ Clique no ícone Adicionar Plano de Ligações. A tela a seguir irá aparecer:
 * '''Pacote''' – Selecione o pacote de oferta disponível
 * '''Remover o prefixo internacional''' – Esta opção diz ao A2Billing para remo todo e qualquer prefixo das tarifas começados com 00 ou 011 por exemplo
 
-Após preencher todos os campos, clique em [[Imagem:confirmar-dados.png|Confirmar]]
+Após preencher todos os campos, clique em [[/images/confirmar-dados.png|Confirmar]]
 
 
 ===Tarifários===
 
 
 <br>
-[[Imagem:tarifas-3.png|Tarifas]]<br>
+[[/images/tarifas-3.png|Tarifas]]<br>
 <br>
 
 Tarifários, são utilizado pelo A2billing para configurar as regras de cobranças. Neles iremos configurar como uma chamada será cobrada. 
@@ -67,7 +67,7 @@ Abaixo, iremos descrever em detalhes como podemos tirar o máximo de proveito do
 Para criar um tarifário clique em Adicionar Tarifário. Em seguida a tela abaixo irá aparecer:
 
 <br>
-[[Imagem:tarifas-4.png|Tarifas]]<br>
+[[/images/tarifas-4.png|Tarifas]]<br>
 <br>
 
 * '''Nome da tarifa''' – Insira o nome da tarifa
@@ -78,14 +78,14 @@ Para criar um tarifário clique em Adicionar Tarifário. Em seguida a tela abaix
 * '''Prefixo DNID''' – É utilizado principalmente para se controlar preços de chamadas entrantes. Por exemplo, quando temo um Calling Card e utilizamos como entrada um 0800, podemos dizer ao A2Billing que sempre que entrar uma chamada via 0800, ele use este tarifário para cobrar a chamada. Por padrão, o tarifário irá ser aplicado a todos os ramais.
 * '''Prefixo do CallerID''' – Permite força um determinado ramal a utilizar apenas esse prefixo. Por exemplo, se quiser que o ramal 9090 utilize sempre este tarifário, ignorando todos os outros tarifário dos Plano de ligação, defina o campo como 9090. Por padrão, o tarifário irá ser aplicado a todos os ramais.
 
-Após preencher todos os campos, clique em [[Imagem:confirmar-dados.png|Confirmar]]
+Após preencher todos os campos, clique em [[/images/confirmar-dados.png|Confirmar]]
 
 
 ===Importar===
 
 
 <br>
-[[Imagem:tarifas-5.png|Tarifas]]<br>
+[[/images/tarifas-5.png|Tarifas]]<br>
 <br>
 
 Importar tarifas é utilizado para que possamos configurar tarifas em massa. É uma forma muito útil de se importar milhares de tarifas ao mesmo tempo.
@@ -134,7 +134,7 @@ Podemos alterar tarifas em Lote, realizar pesquisas de varias formas com por exe
 Abaixo iremos descrever todo os processo envolvido em Tarifas.
 
 <br>
-[[Imagem:tarifas-6.png|Tarifas]]<br>
+[[/images/tarifas-6.png|Tarifas]]<br>
 <br>
 
 Podemos dizer que o menu Tarifas é dividido em 4 partes: Pesquisa, Atualizar em Lote, Lista de prefixos e Adicionar tarifas. Iremos descrever da melhor forma possível cada uma dessas sessões.
@@ -145,7 +145,7 @@ Em Pesquisa, podemos combinar de forma precisa vários tipos de pesquisas que de
 Combinado com o Atualizar em lote, irá nos permitir alterar dados em um conjunto de prefixos, ou um tronco especifico, ou ate mesmo um tarifário completo. Abaixo iremos descrever os passos necessários para se trabalhar de forma tranquila com Pesquisa.
 
 <br>
-[[Imagem:tarifas-7.png|Tarifas]]<br>
+[[/images/tarifas-7.png|Tarifas]]<br>
 <br>
 
 
@@ -162,7 +162,7 @@ Para termos um exemplo, podemos definir em Prefixo de discagem 01121 e seleciona
 
 
 <br>
-[[Imagem:tarifas-8.png|Tarifas]]<br>
+[[/images/tarifas-8.png|Tarifas]]<br>
 <br>
 
 No exemplo acima, podemos usar o Atualizar em Lote, para altera por exemplo o valor de venda das tarifas exibidas. No exemplo acima foram encontrados 100 registros que batem com a pesquisa.
