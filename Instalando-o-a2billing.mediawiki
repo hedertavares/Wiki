@@ -123,7 +123,7 @@ A interface permite tando ao administrador e aos usuários do sistema uma comple
 A interface do Administrador, é utilizada para administra todos os recursos disponíveis no A2Billing. Pela interface, podemos adicionar, alterar ou excluir um ou mais clientes por exemplo. Podemos adicionar tarifas, troncos, DIDs, e vários outros recursos.
 
 <br>
-[[images/home-admin-1.png|Home Admin]]<br>
+[[https://raw.github.com/eluizbr/Manual/master/images/Home-admin-1.png|Home Admin]]<br>
 
 <br>
 
