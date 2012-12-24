@@ -1,0 +1,11 @@
+=== URL de Registro ===
+
+Atraves do SINGUP, gera uma URL de registro para que os usuários criados pelo sistema SINGUP, sejam atrelados automaticamente ao Agente.
+
+<br>
+[[/images/agente-2.png|Adicionar Agente]]<br>
+<br>
+
+
+----
+[[Manual_A2Billing|Manual A2Billing]]
