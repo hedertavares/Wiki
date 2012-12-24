@@ -1,0 +1,58 @@
+==== Ramais VOIP ====
+
+Permite Adicionar, Editar ou excluir ramais VOIP dos clientes cadastrados.<BR>
+Atraves deste formulário, podemos modificar as informações do autenticação do usuário no sistema.<br> 
+'''ATENÇÃO''': As informações alteradas neste formulário iram afetar diretamente ao ramal do usuário.
+
+<br>
+[[Imagem:ramais-1.png|Ramais Voip]]<br>
+<br>
+
+=== Coluna AÇÃO ===
+<br>
+[[Imagem:edit.png|Editar Ramal]] - Edita as informações do ramal selecionado.<br>
+[[Imagem:delete.png|Deletar Ramal]] - Deleta o ramal Selecionado.<br>
+
+<br>
+
+=== Adicionando um Ramal VOIP ===
+
+Para adicionar um aramal voip cliem em '''''CLIENTES -> Configurações VOIP - > Adicionar configuração SIP''''' . A Tela exiba abaixo será apresentada:
+<br>
+
+[[Imagem:add-user-1.png|Adicionar ramal voip]]<br>
+[[Imagem:add-user-2.png|Adicionar ramal voip]]<br>
+
+<br>
+
+A imagem exibida acima nós apresenta as configurações pré-definadas para o ramal voip a ser configurado. Iremos neste momento detalhar cada uma das configurações necessárias para o bom funcionamento do ramal voip.
+
+* '''ID DO CARTÃO''' - Clique em [[Imagem:icon_arrow_orange.gif]] para selecionar a qual cartão este ramal pertence.
+* '''NOME''' - É o nome que deverá utilzado para configuração no ATA ou softfone.
+* '''CÓDIGO DA CONTA''' - É o código de conta ao qual este ramal irá pertencer. Este código é utilizado para identificar o ramal qualdo o mesmo for tarifado.
+* '''SENHA''' - É a senha utilizada para a configuração no ATA ou SOFTFONE
+* '''QUALIFY''' - Define se o ramal será monitorado. Aceita YES ou NO
+* '''DISALLOW''' - Desanilita todos os codecs utilizados pelo ramal.
+* '''ALLOW''' - Se a opção DISALLOW for ativada, então você pode defini aqui quais codecs poderam ser usados pelo ramal.
+* '''TIPO''' - Define se o ramal, pode realizar ligações, ou se apenas pode receber ligações ou ambas as situações.
+* '''NAT''' - Define se o ramal esta atraz ou não de um firewall
+* '''DTMFMODE''' - Define o tom da teclas do telefone. Este item é importante para usuários que necessitam de interações com atendimento eletrônico. o Padrão no Brasil é RFC2833.
+<br>
+
+==== Editando ramais VOIP ====
+
+Para editar um ramal já existente, siga as intruçoes abaixo:
+
+'''''CLIENTES -> Configurações VOIP - > Clique em [[/images/Edit.png]]'''''<br>
+
+Após realizar as alterações necessárias, clique em [[/images/Confirmar.png]]
+
+<br>
+
+==== Deletando ramais VOIP ====
+
+Para deletar um ramal já existente, siga as intruçoes abaixo:
+
+'''''CLIENTES -> Configurações VOIP - > Clique em [[/images/Delete.png]]'''''<br>
+
+Para confirmar a remoção do ramal, clique em [[/images/Deletar.png]]
