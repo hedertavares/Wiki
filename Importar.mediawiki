@@ -1,0 +1,10 @@
+==== Importar Clientes ====
+
+Importa grupo de clientes apartir de um arquico '''.CSV''' .
+
+
+<br>
+[[/images/importar-clientes-1.png|Importar Clientes]]<br>
+<br>
+----
+[[Manual_A2Billing|Manual A2Billing]]
