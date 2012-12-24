@@ -1,0 +1,4 @@
+==== Status ====
+
+Logs de Status ajuda você a manter visível os status de todos os clientes. <br>
+O status pode ser 'Novo, Ativo, Cancelado, Reservado, Aguardando Confirmação de Email e Expirado'.
