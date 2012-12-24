@@ -1,0 +1,17 @@
+=== Controle de Acesso ===
+
+Adiciona Administradores com acessos restritos no sistema. 
+É utilizado para que se possa adicionar usuários administradores com acessos especificos ao sistema.
+
+<br>
+[[/images/admin-3.png|Adicionar Administradores]]<br>
+<br>
+
+
+==== Coluna permissão ====
+
+Nesta coluna selecionamos todos os menus que queremos permitir acesso ao Administrador. Este selecão é feita mantendo a telca '''CONTROL''' prescionada.
+
+<br>
+[[/images/admin-4.png|Adicionar Administradores]]<br>
+<br>
