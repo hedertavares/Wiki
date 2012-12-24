@@ -1,0 +1,22 @@
+=== Agentes ===
+
+Possibilita a integração de agentes ao A2Billing. Este recurso é muito útil em sistema [http://www.asterisk2billing.net.br/wholesale wholesale].<br>
+Cada agente poderá gerenciar seus usuários de forma independente, administrando contas e créditos destes clientes. Não será permitido ao agentes criar [[Tarifários|tárifas]] para seus clientes, este procedimento terá que ser realizado pelo administrador do sistema.
+
+<br>
+[[/images/agente-1.png|Adicionar Agente]]<br>
+<br>
+
+=== Coluna AÇÃO ===
+<br>
+[[/images/info.png|Informação do Agente]] - Exibe informações do agente.<br>
+[[/images/edit.png|Editar Agente]] - Edita as informações do agente.<br>
+[[/images/delete.png|Deletar Agente]] - Deleta o agente.<br>
+[[/images/comment_edit.png|Home Page]] - Edita as informações da HOME PAGE do agente.<br>
+[[/images/money.png|Adicionar Credito]] - Adiciona ou remove creditos para o agente<br>
+
+
+<br>
+
+----
+[[Manual_A2Billing|Manual A2Billing]]
