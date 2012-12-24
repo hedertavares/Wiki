@@ -1,0 +1,11 @@
+==== Série de Cartões ====
+
+Esta página mostra uma lista de Series.
+Series & seriais são usados para a criação de um range de cartões estáveis para fins de contas em larga escala ao invés de usar um ID de cartão. 
+
+<br>
+
+=== Coluna AÇÃO ===
+<br>
+[[/images/edit.png|Editar Ramal]] - Editar informações.<br>
+<br>

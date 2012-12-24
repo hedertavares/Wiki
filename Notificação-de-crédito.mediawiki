@@ -1,0 +1,5 @@
+==== Notificação de crédito ====
+
+Possibilita a configurar se os clientes iram receber notificação via email quando seu crédito estiver baixo.
+
+[[/images/notificacao-1.png]]
