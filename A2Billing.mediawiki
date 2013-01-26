@@ -22,10 +22,6 @@ Este manual esta em desenvolvimento.<br>
 
 [[Instalando o FreeSwitch]] <br>
 
-<h1>  NewFies </h1>
-
-[[Instalando o Newfies]] <br>
-[[Modulo SMS Newfies]] <br>
 
 <h1> OpenSips </h1>
 
