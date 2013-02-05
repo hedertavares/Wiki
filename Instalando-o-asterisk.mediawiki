@@ -23,6 +23,11 @@ mkdir /usr/src/asterisk
 cd /usr/src/asterisk
 wget -c http://downloads.asterisk.org/pub/telephony/asterisk/releases/asterisk-1.6.2.22.tar.gz
 wget -c http://downloads.asterisk.org/pub/telephony/asterisk/releases/asterisk-addons-1.6.2.3.tar.gz
+
+
+==== Asterisk 1.8 ====
+
+wget -c http://downloads.asterisk.org/pub/telephony/asterisk/asterisk-1.8-current.tar.gz
 </pre>
 
 
