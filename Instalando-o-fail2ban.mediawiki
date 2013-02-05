@@ -26,7 +26,7 @@ python setup.py install
 cd ..
 </pre>
 
-====Configurando o Fail2Ban====
+====Configurando o Fail2Ban ( Asterisk 1.6.X )====
 
 Copie as informações abaixo no arquivo /etc/fail2ban/filter.d/asterisk.conf
 
@@ -38,14 +38,14 @@ vi /etc/fail2ban/filter.d/asterisk.conf
 # Fail2Ban configuration file
 #
 #
-# $Revision: 250 $
+# $Revision: 251 $
 #
 
 [INCLUDES]
 
 # Read common prefixes. If any customizations available -- read them from
 # common.local
-#before = common.conf
+before = common.conf
 
 
 [Definition]
@@ -59,25 +59,41 @@ vi /etc/fail2ban/filter.d/asterisk.conf
 #          (?:::f{4,6}:)?(?P<host>\S+)
 # Values:  TEXT
 #
+# Asterisk 1.8 uses Host:Port format which is reflected here
 
-failregex = NOTICE.* .*: Registration from '.*' failed for '<HOST>' - Wrong password
-            NOTICE.* .*: Registration from '.*' failed for '<HOST>' - No matching peer found
-            NOTICE.* .*: Registration from '.*' failed for '<HOST>' - Username/auth name mismatch
-            NOTICE.* .*: Registration from '.*' failed for '<HOST>' - Device does not match ACL
-            NOTICE.* .*: Registration from '.*' failed for '<HOST>' - Peer is not supposed to register
-            NOTICE.* .*: Registration from '.*' failed for '<HOST>' - ACL error (permit/deny)
-            NOTICE.* .*: Registration from '.*' failed for '<HOST>' - Device does not match ACL
+failregex = NOTICE.* .*: Registration from '.*' failed for '<HOST>:.*' - Wrong password
+            NOTICE.* .*: Registration from '.*' failed for '<HOST>:.*' - No matching peer found
+            NOTICE.* .*: Registration from '.*' failed for '<HOST>:.*' - No matching peer found
+            NOTICE.* .*: Registration from '.*' failed for '<HOST>:.*' - Username/auth name mismatch
+            NOTICE.* .*: Registration from '.*' failed for '<HOST>:.*' - Device does not match ACL
+            NOTICE.* .*: Registration from '.*' failed for '<HOST>:.*' - Peer is not supposed to register
+            NOTICE.* .*: Registration from '.*' failed for '<HOST>:.*' - ACL error (permit/deny)
+            NOTICE.* .*: Registration from '.*' failed for '<HOST>:.*' - Device does not match ACL
+            NOTICE.* .*: Registration from '\".*\".*' failed for '<HOST>:.*' - No matching peer found
+            NOTICE.* .*: Registration from '\".*\".*' failed for '<HOST>:.*' - Wrong password
             NOTICE.* <HOST> failed to authenticate as '.*'$
             NOTICE.* .*: No registration for peer '.*' \(from <HOST>\)
             NOTICE.* .*: Host <HOST> failed MD5 authentication for '.*' (.*)
             NOTICE.* .*: Failed to authenticate user .*@<HOST>.*
-
+            NOTICE.* .*: <HOST> failed to authenticate as '.*'
+            NOTICE.* .*: <HOST> tried  to authenticate with nonexistent user '.*'
+            VERBOSE.*SIP/<HOST>-.*Received incoming SIP connection from unknown peer
+   
 # Option:  ignoreregex
 # Notes.:  regex to ignore. If this regex matches, the line is ignored.
 # Values:  TEXT
 #
 ignoreregex =
 </pre>
+====Configurando o Fail2Ban ( Asterisk 1.8.X )====
+
+Copie as informações abaixo no arquivo /etc/fail2ban/filter.d/asterisk.conf
+
+<pre>
+vi /etc/fail2ban/filter.d/asterisk.conf
+</pre>
+
+<pre>
 
 Copie as informações abaixo no arquivo /etc/fail2ban/jail.conf
 <pre>
