@@ -89,6 +89,7 @@ ignoreregex =
 <pre>
 
 Copie as informações abaixo no arquivo /etc/fail2ban/jail.conf
+</pre>
 <pre>
 vi /etc/fail2ban/jail.conf
 </pre>
