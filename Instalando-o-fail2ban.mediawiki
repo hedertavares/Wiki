@@ -26,7 +26,7 @@ python setup.py install
 cd ..
 </pre>
 
-====Configurando o Fail2Ban ( Asterisk 1.6.X )====
+====Configurando o Fail2Ban ( Asterisk 1.8.X )====
 
 Copie as informações abaixo no arquivo /etc/fail2ban/filter.d/asterisk.conf
 
@@ -84,13 +84,6 @@ failregex = NOTICE.* .*: Registration from '.*' failed for '<HOST>:.*' - Wrong p
 # Values:  TEXT
 #
 ignoreregex =
-</pre>
-====Configurando o Fail2Ban ( Asterisk 1.8.X )====
-
-Copie as informações abaixo no arquivo /etc/fail2ban/filter.d/asterisk.conf
-
-<pre>
-vi /etc/fail2ban/filter.d/asterisk.conf
 </pre>
 
 <pre>
