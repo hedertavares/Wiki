@@ -5,27 +5,6 @@ Seu fundador é o programado Arezqui Belaid ( Areski ), que no qual tenho a honr
 
 <br>
 
-===PHP 5.2===
-
-O A2Billing 1.9.4 tem otimizações que só funcionaram correctamente na versão 5.2 do PHP. Para instalar o PHP 5.2, siga os passos descritos abaixo:
- 
-
-<pre>
-
-vi /etc/yum.repos.d/CentOS-PHP52.repo
-
-[c5-testing]
-name=CentOS-5 Testing
-baseurl=http://dev.centos.org/centos/$releasever/testing/$basearch/
-enabled=1
-gpgcheck=1
-gpgkey=http://dev.centos.org/centos/RPM-GPG-KEY-CentOS-testing
-includepkgs=php*
-
-yum update
-</pre>
-<br>
-
 === Dependências necessárias para instalação do A2Billing === 
 
 A bibliotecas necessárias para a instalação do A2Billing serão instaladas com o comando apresentado abaixo:
