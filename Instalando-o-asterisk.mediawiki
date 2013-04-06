@@ -16,7 +16,7 @@ yum groupinstall 'Development Tools' -y
 yum install ncurses-devel mysql-devel -y
 </pre>
 
-===Baixando o Asterisk===
+===Baixando o Asterisk 1.6===
 
 <pre>
 mkdir /usr/src/asterisk
@@ -32,7 +32,7 @@ wget -c http://downloads.asterisk.org/pub/telephony/asterisk/asterisk-1.8-curren
 </pre>
 
 
-====Compilando o Asterisk====
+====Compilando o Asterisk 1.6====
 <pre>
 tar zxvf asterisk-1.6.2.22.tar.gz
 cd asterisk-1.6.2.22
@@ -43,7 +43,7 @@ make samples
 cd ..
 </pre>
 
-====Compilando o Asterisk Addons====
+====Compilando o Asterisk Addons 1.6====
 <pre>
 tar zxvf asterisk-addons-1.6.2.3.tar.gz
 cd asterisk-addons-1.6.2.3
