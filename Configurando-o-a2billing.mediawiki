@@ -136,9 +136,9 @@ As configurações apresentadas abaixo, irão funcionar basicamente em qualquer 
 |-
 | Asterisk Version Global  || 1_6
 |-
-| Answer Call || Yes
+| Answer Call || No
 |-
-| Play Audio || Yes
+| Play Audio || No
 |-
 | Use DNID || Yes
 |-
