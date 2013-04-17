@@ -125,7 +125,7 @@ As configurações apresentadas abaixo, irão funcionar basicamente em qualquer 
 |-
 | Base Conuntry || BRA
 |-
-| Base Language || Br
+| Base Language || pt
 |-
 |AsteriskVersion Global || 1_6
 |}
