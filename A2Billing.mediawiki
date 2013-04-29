@@ -18,10 +18,6 @@ Este manual esta em desenvolvimento.<br>
 [[ Planos e tarifas ]]<br>
 [[ Clientes ]]<br>
 
-<h1>  FreeSwitch </h1>
-
-[[Instalando o FreeSwitch]] <br>
-
 
 <h1> OpenSips </h1>
 
