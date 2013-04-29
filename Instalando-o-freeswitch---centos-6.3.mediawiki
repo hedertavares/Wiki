@@ -1,7 +1,13 @@
+Pre-requisitos:
+<pre>
+rpm -Uvh http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el6.rf.x86_64.rpm
+rpm -Uvh http://mirror.globo.com/epel/6/i386/epel-release-6-8.noarch.rpm
+</pre>
+
+
 CentOS :
 <pre>
 yum install git autoconf automake libtool ncurses-devel libjpeg-devel
 yum groupinstall 'Development Tools' -y
 yum install ncurses-devel mysql-devel -y
 </pre>
-
