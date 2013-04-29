@@ -1,0 +1,7 @@
+CentOS :
+<pre>
+yum install git autoconf automake libtool ncurses-devel libjpeg-devel
+yum groupinstall 'Development Tools' -y
+yum install ncurses-devel mysql-devel -y
+</pre>
+
