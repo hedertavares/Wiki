@@ -27,12 +27,7 @@ libexpat1-dev libgdbm-dev libgnutls-dev libmcrypt-dev libncurses5-dev libnewt-de
         apt-get -y install flite flite1-dev
 </pre>
 
-CentOS :
-<pre>
-yum install git autoconf automake libtool ncurses-devel libjpeg-devel
-yum groupinstall 'Development Tools' -y
-yum install ncurses-devel mysql-devel -y
-</pre>
+
 
 == Baixando ==
 Mude para o diretório /usr/src/ para baixar fonte FreeSWITCH ™:
