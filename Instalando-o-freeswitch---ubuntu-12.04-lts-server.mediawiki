@@ -5,16 +5,6 @@ Este é um guia de instalação rápida genérico para Linux e Unix. Esta págin
 Experientes de Linux / Unix usuários familiarizados com FreeSWITCH instalação ™ ou quiser um breve resumo sem ler o [Guia de Instalação http://wiki.freeswitch.org/wiki/Installation_Guide].
 
 == Pré-requisitos ==
-=== Obrigatória ===
-Esses pré-requisitos obrigatórios fornecer para a elaboração da norma FreeSWITCH instalação ™ e testar a configuração fornecida e IVR amostra. Eles são suficientes para muitos sistemas de produção.
-* [Http://en.wikipedia.org/wiki/Git_ (software)'' 'GIT'''] ou [http://en.wikipedia.org/wiki/Wget'' 'wget''']
-* [Http://en.wikipedia.org/wiki/Autoconf'' 'Autoconf''']
-* [Http://en.wikipedia.org/wiki/Automake'' 'AUTOMAKE''']
-* [Http://en.wikipedia.org/wiki/C% 2B% 2B'' 'GCC-C + +''']
-* [Http://en.wikipedia.org/wiki/Libjpeg~~HEAD=NNS'' 'libjpeg-devel'''] usados ​​pelo mod_spandsp para codecs básicos
-* [Http://en.wikipedia.org/wiki/Libtool'' 'LIBTOOL''']
-* [Http://en.wikipedia.org/wiki/Make_ (software)'' 'Faz''']
-* [Http://en.wikipedia.org/wiki/Ncurses'' 'ncurses DEVEL''']
 
 Debian / Ubuntu:
 <pre>
@@ -31,8 +21,8 @@ libexpat1-dev libgdbm-dev libgnutls-dev libmcrypt-dev libncurses5-dev libnewt-de
 
 == Baixando ==
 Mude para o diretório /usr/src/ para baixar fonte FreeSWITCH ™:
-  cd usr/src
-
+ 
+ cd usr/src
 
 Git:
 <pre>
@@ -42,7 +32,7 @@ Git:
 </pre>
 
 == Editar modules.conf == 
-Este é opcional, mas considerar [http://wiki.freeswitch.org/wiki/Installation_Guide # Edit_modules.conf modules.conf edição].
+Este é opcional, mas devemos considerar, seguindo as orientações existentes em: [http://wiki.freeswitch.org/wiki/Installation_Guide#Edit_modules.conf Editar Modulos].
 
 == Compilar o código fonte ==
 
