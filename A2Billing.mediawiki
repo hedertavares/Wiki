@@ -18,7 +18,3 @@ Este manual esta em desenvolvimento.<br>
 [[ Planos e tarifas ]]<br>
 [[ Clientes ]]<br>
 
-
-<h1> OpenSips </h1>
-
-[[Instalando OpenSips]]<br>
