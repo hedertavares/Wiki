@@ -61,3 +61,34 @@ Configurar um telefone SIP ou softphone com o endereço IP do computador ™ Fre
 === Solução de problemas: ===
 * Se não houver comunicação entre os telefones e ™ FreeSWITCH ou entre telefones desativar o firewall em seu servidor Linux. Se o teste for bem sucedido ativar o firewall e abrir apenas as portas específicas necessárias. Para mais informações sobre firewalls e portas de abrir, ver o [[Firewall]] página.
 * Se você suspeitar de problemas de rede olhar para ferramentas de rede como o Wireshark ou tcpdump.
+
+=== Discando ===
+
+vi dialplan/default/01_vono_out.xml
+<pre>
+<include>
+         <extension name="Dial Out VONO">
+           <condition field="destination_number"
+             expression="^(\d{11})$">
+             <action application="bridge"
+               data="sofia/gateway/vono/$1"/>
+           </condition>
+         </extension>
+</include>
+
+</pre>
+
+=== Recebendo ===
+
+vi dialplan/default/vono_did.xml
+
+<pre>
+<include>
+  <extension name="vono_did">
+    <condition field="destination_number" expression="^(eluizbr)$">
+      <action application="set" data="domain_name=$${domain}"/>
+      <action application="transfer" data="1000 XML default"/>
+    </condition>
+  </extension>
+</include>
+</pre>
