@@ -1,3 +1,5 @@
+Antes de começarmos a compilar o FreSWITCH, devemos instalar os pacotes necessários para a compilação:
+
 Pre-requisitos:
 <pre>
 rpm -Uvh http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el6.rf.x86_64.rpm
