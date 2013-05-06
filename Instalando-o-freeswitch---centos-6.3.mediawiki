@@ -107,6 +107,37 @@ Alterando a senha padrão dos ramais padrão do FreeSWITCH
 /bin/sed -i -e s,'<X-PRE-PROCESS cmd="set" data="default_password=1234"/>','<X-PRE-PROCESS cmd="set" data="default_password=q1w2e3r4"/>', /etc/freeswitch/vars.xml
 </pre>
 
+Criando um tronco de Saida
+
+<pre>
+<include>
+         <extension name="Dial Out VONO">
+           <condition field="destination_number"
+             expression="^(\d{11})$">
+             <action application="bridge"
+               data="sofia/gateway/vono/$1"/>
+           </condition>
+         </extension>
+</include>
+
+</pre>
+
+
+DID de entrada:
+
+<pre>
+
+<include>
+  <extension name="vono_did">
+    <condition field="destination_number" expression="^(eluizbr)$">
+      <action application="set" data="domain_name=$${domain}"/>
+      <action application="transfer" data="1000 XML default"/>
+    </condition>
+  </extension>
+</include>
+
+</pre>
+
 
 === Iniciando o FreeSWITCH ===
 
