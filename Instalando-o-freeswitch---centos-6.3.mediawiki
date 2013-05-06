@@ -92,6 +92,17 @@ EOT
 /etc/init.d/freeswitch start
 </pre>
 
+=== Removendo arquivos padrão ===
+
+<pre>
+
+cd /etc/freeswitch/dialplan/default
+mv 00_ladspa.xml 00_ladspa.noload
+mv 00_pizza_demo.xml 00_pizza_demo.noload
+mv 01_Talking_Clock.xml 01_Talking_Clock.noload
+</pre>
+
+
 == Teste um telefone SIP ==
 Configurar um telefone SIP ou softphone com o endereço IP do computador ™ FreeSWITCH e usuário "1000" e senha "1234". O padrão de configuração FreeSWITCH ™ fornece pré-definidos definições para extensões de 1000-1019, todas as senhas são 1234.
 
