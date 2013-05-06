@@ -2,6 +2,11 @@
 === Pre-requisitos ===
 
 Ter o soruce do FreeSWITCH no diretório /usr/src
+==== Instale o Fail2Ban ====
+
+<pre>
+yum install fail2ban -y 
+</pre>
 
 ==== Baixando o modulo ====
 
