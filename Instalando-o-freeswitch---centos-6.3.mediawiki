@@ -30,7 +30,7 @@ Baixando o fonte FreeSWITCH ™ via GITHUB:
   ./bootstrap.sh
 </pre>
 
-=== Editar modules.conf === 
+=== Editando o modules.conf === 
 Este é opcional, mas devemos considerar, seguindo as orientações existentes em: [http://wiki.freeswitch.org/wiki/Installation_Guide#Edit_modules.conf Editar Modulos].
 
 === Compilar o código fonte ===
