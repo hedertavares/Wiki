@@ -1,5 +1,5 @@
 Antes de começarmos a compilar o FreSWITCH, devemos instalar os pacotes necessários para a compilação:
-== Ajustando o CentOS ===
+== Ajustando o CentOS ==
 
 === Pre-requisitos ===
 <pre>
