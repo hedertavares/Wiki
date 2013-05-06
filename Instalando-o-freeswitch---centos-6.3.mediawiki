@@ -17,24 +17,29 @@ yum groupinstall 'Development Tools' -y
 
 == Baixando o FreeSWITCH ==
 Baixando o fonte FreeSWITCH ™ via GITHUB:
- 
+
 <pre>
   cd /usr/src/
   git clone git://git.freeswitch.org/freeswitch.git
+</pre>
+ 
+=== Compilando o FreeSWITCH ===
+
+<pre>
   cd freeswitch
   ./bootstrap.sh
 </pre>
 
-== Editar modules.conf == 
+=== Editar modules.conf === 
 Este é opcional, mas devemos considerar, seguindo as orientações existentes em: [http://wiki.freeswitch.org/wiki/Installation_Guide#Edit_modules.conf Editar Modulos].
 
-== Compilar o código fonte ==
+=== Compilar o código fonte ===
 
 <pre> 
  ./configure --without-pgsql --prefix=/usr/local/freeswitch --sysconfdir=/etc/freeswitch/
 </pre>
 
-== Instalando FreeSWITCH ™ ==
+=== Instalando FreeSWITCH ™ ===
 
 <pre>
   make && make install && make sounds-install && make moh-install
