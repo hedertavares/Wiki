@@ -117,10 +117,10 @@ vi /etc/freeswitch/sip_profiles/external/voip.xml
 
 <include>
   <gateway name="voip">
-  <param name="username" value="user"/>
-  <param name="realm" value="IP"/>
-  <param name="password" value="senha"/>
-  <param name="register" value="true"/>
+     <param name="username" value="user"/>
+     <param name="realm" value="IP"/>
+     <param name="password" value="senha"/>
+     <param name="register" value="true"/>
 </gateway>
 </include>
 
@@ -131,12 +131,12 @@ vi /etc/freeswitch/sip_profiles/external/voip.xml
 vi /etc/freeswitch/dialplan/default/01_saida.xml
 
 <include>
-         <extension name="Dial Out VONO">
-           <condition field="destination_number"
+        <extension name="Dial Out VONO">
+          <condition field="destination_number"
              expression="^(\d{11})$">
-             <action application="bridge"
-               data="sofia/gateway/vono/$1"/>
-           </condition>
+            <action application="bridge"
+              data="sofia/gateway/vono/$1"/>
+          </condition>
          </extension>
 </include>
 
