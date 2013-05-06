@@ -1,8 +1,6 @@
 Antes de começarmos a compilar o FreSWITCH, devemos instalar os pacotes necessários para a compilação:
 == Ajustando o CentOS ==
-
 == Pre-requisitos ==
-
 === Pacotes de desenvolvimento ===
 <pre>
 yum update
@@ -15,7 +13,6 @@ yum groupinstall 'Development Tools' -y
 <pre>
 /bin/sed -i -e s,'SELINUX=enforcing','SELINUX=disabled', /etc/selinux/config
 </pre>
-
 
 == Baixando o FreeSWITCH ==
 Baixando o fonte FreeSWITCH ™ via GITHUB:
@@ -49,7 +46,7 @@ Este é opcional, mas devemos considerar, seguindo as orientações existentes e
 
 == Iniciando o FreeSWITCH ™ ==
 
-Copie o arquivo de inicialização do FressSWITCH :
+Copie o arquivo de inicialização do FressSWITCH
 
 <pre>
 cp build/freeswitch.init.redhat /etc/init.d/freeswitch
@@ -108,7 +105,6 @@ Alterando a senha padrão dos ramais padrão do FreeSWITCH
 </pre>
 
 ===Criando um tronco de Saida===
-
 ====Criando um SIP TRUNK====
 
 <pre>
@@ -159,15 +155,11 @@ vi /etc/freeswitch/dialplan/default/vono_did.xml
 
 </pre>
 
-
 === Iniciando o FreeSWITCH ===
 
 <pre>
 /etc/init.d/freeswitch start
 </pre>
-
-
-
 
 == Teste um telefone SIP ==
 Configurar um telefone SIP ou softphone com o endereço IP do computador ™ FreeSWITCH e usuário "1000" e senha "1234". O padrão de configuração FreeSWITCH ™ fornece pré-definidos definições para extensões de 1000-1019, todas as senhas são 1234.
