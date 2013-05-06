@@ -113,6 +113,8 @@ Alterando a senha padrão dos ramais padrão do FreeSWITCH
 
 <pre>
 
+vi /etc/freeswitch/sip_profiles/external/voip.xml
+
 <include>
   <gateway name="voip">
   <param name="username" value="user"/>
