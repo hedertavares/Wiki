@@ -88,11 +88,6 @@ FS_FILE=/usr/local/freeswitch/bin/freeswitch
 FS_HOME=/usr/local/freeswitch
 EOT
 </pre>
-=== Iniciando o FreeSWITCH ===
-
-<pre>
-/etc/init.d/freeswitch start
-</pre>
 
 === Removendo arquivos padrão ===
 
@@ -103,6 +98,15 @@ mv 00_ladspa.xml 00_ladspa.noload
 mv 00_pizza_demo.xml 00_pizza_demo.noload
 mv 01_Talking_Clock.xml 01_Talking_Clock.noload
 </pre>
+
+
+=== Iniciando o FreeSWITCH ===
+
+<pre>
+/etc/init.d/freeswitch start
+</pre>
+
+
 
 
 == Teste um telefone SIP ==
