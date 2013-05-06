@@ -15,12 +15,9 @@ yum install ncurses-devel mysql-devel git autoconf automake libtool ncurses-deve
 yum groupinstall 'Development Tools' -y
 </pre>
 
-== Baixando ==
-Mude para o diretório /usr/src/ para baixar fonte FreeSWITCH ™:
-  cd usr/src
-
-
-Git:
+== Baixando o FreeSWITCH ==
+Baixando o fonte FreeSWITCH ™ via GITHUB:
+ 
 <pre>
   cd /usr/src/
   git clone git://git.freeswitch.org/freeswitch.git
