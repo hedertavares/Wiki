@@ -5,4 +5,5 @@
 
 <h1>Segurança</h1>
 
+[[Fail2Ban MODULO]]
 [[Fail2Ban]]
