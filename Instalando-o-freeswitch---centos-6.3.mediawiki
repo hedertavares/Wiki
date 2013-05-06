@@ -25,7 +25,7 @@ Git:
 <pre>
   git clone git://git.freeswitch.org/freeswitch.git
   cd freeswitch
-  . / Bootstrap.sh
+  ./bootstrap.sh
 </pre>
 
 == Editar modules.conf == 
