@@ -2,3 +2,7 @@
 
 [[Instalando o FreeSwitch - UBUNTU 12.04 LTS Server]] <br>
 [[Instalando o FreeSwitch - CentOS 6.3]] <br>
+
+<h1>Segurança</h1>
+
+[[Fail2Ban]
