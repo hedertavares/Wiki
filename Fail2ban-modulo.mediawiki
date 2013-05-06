@@ -1,0 +1,65 @@
+== Compilando o modulo Fail2Ban ==
+=== Pre-requisitos ===
+
+Ter o soruce do FreeSWITCH no diretório /usr/src
+==== Instale o Fail2Ban ====
+
+<pre>
+yum install fail2ban -y 
+</pre>
+
+==== Baixando o modulo ====
+
+<pre>
+cd /usr/src
+git clone git://github.com/eluizbr/mod_fail2ban.git
+</pre>
+
+==== Compilando o modulo ====
+
+<pre>
+cd /usr/src/mod_fail2ban
+make clean
+make
+make install
+</pre>
+
+==== Carregando o modulo ====
+
+<pre>
+vi /etc/freeswitch/autoload_configs/modules.conf.xml
+
+Adicione a linha "<load module="mod_fail2ban"/>" logo apos:
+<configuration name="modules.conf" description="Modules">
+  <modules>
+
+</pre>
+===== Deixando assim: =====
+<pre>
+<configuration name="modules.conf" description="Modules">
+  <modules>
+<load module="mod_fail2ban"/>
+
+</pre>
+
+==== Testando ====
+
+Reinicie o FreeSWITCH:
+
+<pre>
+/etc/init.d/freeswitch restart
+</pre>
+
+Acesse o CLI do FreeSWTICH:
+
+<pre>
+fs_cli
+</pre>
+
+Digite:
+
+<pre>
+module_exists mod_fail2ban
+</pre>
+
+O resultado deverá ser TRUE
