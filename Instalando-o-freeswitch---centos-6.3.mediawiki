@@ -1,10 +1,19 @@
-Antes de começarmos a compilar o FreSWITCH, devemos instalar os pacotes necessários para a compilação:
-== Ajustando o CentOS ==
+Antes de começarmos a compilar o FreSWITCH, devemos instalar os pacotes necessários para a compilação. Este tutorial foi desenvolvido no CentOS 6.3 64 Bits.
+== Ajustando o CentOS 6.3 64 Bits ==
 == Pre-requisitos ==
+===Repositorios adicionais===
+<pre>
+rpm -Uvh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
+<pre>
+===Atualizando o sistema===
+<pre>
+yum -y update
+yum -y upgrade
+reboot
+</pre>
+
 === Pacotes de desenvolvimento ===
 <pre>
-yum update
-yum upgrade
 yum install ncurses-devel mysql-devel git autoconf automake libtool ncurses-devel libjpeg-devel perl-devel yum mod_perl-devel -y
 yum groupinstall 'Development Tools' -y
 </pre>
