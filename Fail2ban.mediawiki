@@ -36,3 +36,26 @@ Adicione a linha "<load module="mod_fail2ban"/>" logo apos:
 <load module="mod_fail2ban"/>
 
 </pre>
+
+==== Testando ====
+
+Reinicie o FreeSWITCH:
+
+<pre>
+/etc/init.d/freeswitch restart
+</pre>
+
+Acesse o CLI do FreeSWTICH:
+
+<pre>
+fs_cli
+</pre>
+
+Digite:
+
+<pre>
+module_exists mod_fail2ban
+</pre>
+
+O resultado deverá ser TRUE
+
