@@ -41,6 +41,7 @@ Este é opcional, mas considerar [http://wiki.freeswitch.org/wiki/Installation_G
 
 <pre>
   make && make install && make sounds-install && make moh-install
+cp build/freeswitch.init.redhat /etc/init.d/freeswitch
 </pre>
 
 == Iniciando o FreeSWITCH ™ ==
