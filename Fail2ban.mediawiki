@@ -14,7 +14,6 @@ yum install fail2ban -y
 vi /etc/fail2ban/filter.d/freeswitch.conf
 
 <pre>
-
 # Fail2Ban configuration file
 #
 # Author: Rupa SChomaker
