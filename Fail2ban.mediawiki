@@ -9,26 +9,26 @@ yum install fail2ban -y
 </pre>
 
 === Configurando o Fail2Ban ===
-###====freeswitch.conf====
+====freeswitch.conf====
 
 vi /etc/fail2ban/filter.d/freeswitch.conf
 
 <pre>
- # Fail2Ban configuration file
- #
- # Author: Rupa SChomaker
- #
+# Fail2Ban configuration file
+#
+# Author: Rupa SChomaker
+#
 
- [Definition]
+[Definition]
 
- # Option:  failregex
- # Notes.:  regex to match the password failures messages in the logfile. The
- #          host must be matched by a group named "host". The tag "<HOST>" can
- #          be used for standard IP/hostname matching and is only an alias for
- #          (?:::f{4,6}:)?(?P<host>[\w\-.^_]+)
- # Values:  TEXT
- #
- failregex = \[WARNING\] sofia_reg.c:\d+ SIP auth failure \(REGISTER\) on sofia profile \'[^']+\' for \[.*\]  from ip <HOST>
+# Option:  failregex
+# Notes.:  regex to match the password failures messages in the logfile. The
+#          host must be matched by a group named "host". The tag "<HOST>" can
+#          be used for standard IP/hostname matching and is only an alias for
+#          (?:::f{4,6}:)?(?P<host>[\w\-.^_]+)
+# Values:  TEXT
+#
+failregex = \[WARNING\] sofia_reg.c:\d+ SIP auth failure \(REGISTER\) on sofia profile \'[^']+\' for \[.*\]  from ip <HOST>
             \[WARNING\] sofia_reg.c:\d+ SIP auth failure \(INVITE\) on sofia profile \'[^']+\' for \[.*\] from ip <HOST>
 
 # Option:  ignoreregex
