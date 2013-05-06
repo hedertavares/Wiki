@@ -1,19 +1,26 @@
 Antes de começarmos a compilar o FreSWITCH, devemos instalar os pacotes necessários para a compilação:
+== Ajustando o CentOS ===
 
-Pre-requisitos:
+=== Pre-requisitos ===
 <pre>
 rpm -Uvh http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el6.rf.x86_64.rpm
 rpm -Uvh http://mirror.globo.com/epel/6/i386/epel-release-6-8.noarch.rpm
 </pre>
 
 
-Pacotes de desenvolvimento :
+=== Pacotes de desenvolvimento ===
 <pre>
 yum update
 yum upgrade
 yum install ncurses-devel mysql-devel git autoconf automake libtool ncurses-devel libjpeg-devel perl-devel yum mod_perl-devel -y
 yum groupinstall 'Development Tools' -y
 </pre>
+
+=== Desabilitando o SELINUX ===
+<pre>
+/bin/sed -i -e s,'SELINUX=enforcing','SELINUX=disabled', /etc/selinux/config
+</pre>
+
 
 == Baixando o FreeSWITCH ==
 Baixando o fonte FreeSWITCH ™ via GITHUB:
