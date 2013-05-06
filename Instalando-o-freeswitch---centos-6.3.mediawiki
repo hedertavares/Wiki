@@ -41,12 +41,29 @@ Este é opcional, mas devemos considerar, seguindo as orientações existentes e
 
 <pre>
   make && make install && make sounds-install && make moh-install
-cp build/freeswitch.init.redhat /etc/init.d/freeswitch
 </pre>
 
 == Iniciando o FreeSWITCH ™ ==
-Certifique-se de nenhuma outra instância do FreeSWITCH ™ ou Asterisk está sendo executado no mesmo computador. Execute o comando:
- /usr/local/freeswitch/bin/freeswitch
+
+Copie o arquivo de inicialização do FressSWITCH :
+
+<pre>
+cp build/freeswitch.init.redhat /etc/init.d/freeswitch
+chmod +x /etc/init.d/freeswitch
+</pre>
+
+=== Adicionando o usuário do FreeSWITCH ===
+
+<pre>
+useradd freeswitch
+</pre>
+
+=== Configurando permissões ===
+<pre>
+cd /usr/local/
+chown -R freeswitch:freeswitch freeswitch
+chmod -R g+w freeswitch
+</pre>
 
 == Teste um telefone SIP ==
 Configurar um telefone SIP ou softphone com o endereço IP do computador ™ FreeSWITCH e usuário "1000" e senha "1234". O padrão de configuração FreeSWITCH ™ fornece pré-definidos definições para extensões de 1000-1019, todas as senhas são 1234.
