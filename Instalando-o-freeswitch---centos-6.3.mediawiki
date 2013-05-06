@@ -112,15 +112,16 @@ Alterando a senha padrão dos ramais padrão do FreeSWITCH
 ====Criando um SIP TRUNK====
 
 <pre>
+
 <include>
   <gateway name="voip">
   <param name="username" value="user"/>
   <param name="realm" value="IP"/>
   <param name="password" value="senha"/>
   <param name="register" value="true"/>
- 
 </gateway>
 </include>
+
 </pre>
 
 ====Criando uma rota de Saída====
