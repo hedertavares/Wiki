@@ -19,7 +19,7 @@ make
 make install
 </pre>
 
-==== Carregando o modulo ===
+==== Carregando o modulo ====
 
 <pre>
 vi /etc/freeswitch/autoload_configs/modules.conf.xml
@@ -28,7 +28,7 @@ Adicione a linha "<load module="mod_fail2ban"/>" logo apos:
 <configuration name="modules.conf" description="Modules">
   <modules>
 
-Ficando assim:
+===== Ficando assim: =====
 
 <configuration name="modules.conf" description="Modules">
   <modules>
