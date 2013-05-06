@@ -99,3 +99,13 @@ maxretry = 50
 findtime = 30
 bantime  = 6000
 </pre>
+
+=== Configurando FreeSWITCH ===
+====internal.xml====
+<pre>
+<param name="log-auth-failures" value="true"/>
+</pre>
+====external.xml====
+<pre>
+<param name="log-auth-failures" value="true"/>
+</pre>
