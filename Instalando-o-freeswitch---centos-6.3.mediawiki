@@ -52,6 +52,14 @@ Copie o arquivo de inicialização do FressSWITCH :
 <pre>
 cp build/freeswitch.init.redhat /etc/init.d/freeswitch
 chmod +x /etc/init.d/freeswitch
+chkconfig --add freeswitch
+</pre>
+
+=== Criando o CLI de comando ===
+
+<pre>
+cd /usr/bin/
+ln -s /usr/local/freeswitch/bin/fs_cli fs_cli
 </pre>
 
 === Adicionando o usuário do FreeSWITCH ===
@@ -65,6 +73,23 @@ useradd freeswitch
 cd /usr/local/
 chown -R freeswitch:freeswitch freeswitch
 chmod -R g+w freeswitch
+</pre>
+
+=== Criando o FreeSWITCH sysconfig ===
+
+<pre>
+
+cat >> /etc/sysconfig/freeswitch <<EOT
+PID_FILE=/var/run/freeswitch/freeswitch.pid
+FS_USER=freeswitch
+FS_FILE=/usr/local/freeswitch/bin/freeswitch
+FS_HOME=/usr/local/freeswitch
+EOT
+</pre>
+=== Iniciando o FreeSWITCH ===
+
+<pre>
+/etc/init.d/freeswitch start
 </pre>
 
 == Teste um telefone SIP ==
