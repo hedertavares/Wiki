@@ -22,6 +22,7 @@ Mude para o diretório /usr/src/ para baixar fonte FreeSWITCH ™:
 
 Git:
 <pre>
+  cd /usr/src/
   git clone git://git.freeswitch.org/freeswitch.git
   cd freeswitch
   ./bootstrap.sh
