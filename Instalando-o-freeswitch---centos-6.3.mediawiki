@@ -9,6 +9,8 @@ rpm -Uvh http://mirror.globo.com/epel/6/i386/epel-release-6-8.noarch.rpm
 
 Pacotes de desenvolvimento :
 <pre>
+yum update
+yum upgrade
 yum install git autoconf automake libtool ncurses-devel libjpeg-devel perl-devel yum mod_perl-devel -y
 yum groupinstall 'Development Tools' -y
 yum install ncurses-devel mysql-devel -y
