@@ -8,59 +8,49 @@ Ter o soruce do FreeSWITCH no diretório /usr/src
 yum install fail2ban -y 
 </pre>
 
-==== Baixando o modulo ====
+=== Configurando o Fail2Ban ===
+====freeswitch.conf====
+
+vi /etc/fail2ban/filter.d/freeswitch.conf
 
 <pre>
-cd /usr/src
-git clone git://github.com/eluizbr/mod_fail2ban.git
+
+# Fail2Ban configuration file
+#
+# Author: Rupa SChomaker
+#
+
+[Definition]
+
+# Option:  failregex
+# Notes.:  regex to match the password failures messages in the logfile. The
+#          host must be matched by a group named "host". The tag "<HOST>" can
+#          be used for standard IP/hostname matching and is only an alias for
+#          (?:::f{4,6}:)?(?P<host>[\w\-.^_]+)
+# Values:  TEXT
+#
+failregex = \[WARNING\] sofia_reg.c:\d+ SIP auth failure \(REGISTER\) on sofia profile \'[^']+\' for \[.*\] from ip <HOST>
+            \[WARNING\] sofia_reg.c:\d+ SIP auth failure \(INVITE\) on sofia profile \'[^']+\' for \[.*\] from ip <HOST>
+
+# Option:  ignoreregex
+# Notes.:  regex to ignore. If this regex matches, the line is ignored.
+# Values:  TEXT
+#
+ignoreregex =
 </pre>
 
-==== Compilando o modulo ====
+====jail.conf====
+
+vi /etc/fail2ban/jail.conf
 
 <pre>
-cd /usr/src/mod_fail2ban
-make clean
-make
-make install
+[freeswitch]
+enabled  = true
+port     = 5060,5061,5080,5081
+filter   = freeswitch
+logpath  = /usr/local/freeswitch/log/freeswitch.log
+maxretry = 10
+action   = iptables-allports[name=freeswitch, protocol=all]
+           sendmail-whois[name=FreeSwitch, dest=root, sender=fail2ban@example.org]
 </pre>
-
-==== Carregando o modulo ====
-
-<pre>
-vi /etc/freeswitch/autoload_configs/modules.conf.xml
-
-Adicione a linha "<load module="mod_fail2ban"/>" logo apos:
-<configuration name="modules.conf" description="Modules">
-  <modules>
-
-</pre>
-===== Deixando assim: =====
-<pre>
-<configuration name="modules.conf" description="Modules">
-  <modules>
-<load module="mod_fail2ban"/>
-
-</pre>
-
-==== Testando ====
-
-Reinicie o FreeSWITCH:
-
-<pre>
-/etc/init.d/freeswitch restart
-</pre>
-
-Acesse o CLI do FreeSWTICH:
-
-<pre>
-fs_cli
-</pre>
-
-Digite:
-
-<pre>
-module_exists mod_fail2ban
-</pre>
-
-O resultado deverá ser TRUE
 
