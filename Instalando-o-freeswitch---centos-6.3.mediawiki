@@ -143,7 +143,7 @@ vi /etc/freeswitch/dialplan/default/01_saida.xml
 
 <pre>
 
-vi /etc/freeswitch/dialplan/default/vono_did.xml
+vi /etc/freeswitch/dialplan/default/did.xml
 <include>
   <extension name="vono_did">
     <condition field="destination_number" expression="^(conta_vono)$">
