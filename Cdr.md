@@ -1,0 +1,9 @@
+In freeswitch/conf/autoload_configs/cdr_mongodb.conf.xml
+
+<pre>
+Change <param name="log-b-leg" value="false"/>
+to <param name="log-b-leg" value="true"/>
+
+Change <param name="namespace" value="test.cdr"/>
+to <param name="namespace" value="freeswitch_cdr.cdr"/>
+</pre>
