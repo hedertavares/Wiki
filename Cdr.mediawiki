@@ -19,10 +19,9 @@ yum install -y mongodb mongodb-server
 
 vi /etc/freeswitch/conf/autoload_configs/cdr_mongodb.conf.xml
 
-<pre>
+
 '''Altere''' <param name="log-b-leg" value="false"/>
 '''Para''' <param name="log-b-leg" value="true"/>
 
 '''Altere''' <param name="namespace" value="test.cdr"/>
 '''Para''' <param name="namespace" value="freeswitch_cdr.cdr"/>
-</pre>
