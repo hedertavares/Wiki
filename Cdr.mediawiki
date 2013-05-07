@@ -1,4 +1,4 @@
-== Ajustando o CentOS 6.3 64 Bits ==
+== Configurando o FreeSWITCH com MongoDB e CDRStats ==
 == Pre-requisitos ==
 Para esta solução iremos instalar o MongoDB.
 ===Atualizando o sistema===
