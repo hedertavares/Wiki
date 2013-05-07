@@ -6,14 +6,30 @@ Para esta solução iremos instalar o MongoDB em conjunto com o CDRStats (www.cd
 * Instalar e configurar o MongoDB
 * Realizar altereações nas configurações do FreeSWITCH
 * Instalar e configurar o CDRStats
+
+==Recompilando o FreeSWITCH==
+
+'''Acesse'''<pre> cd /usr/src/freeswitch </pre>
+
+No arquivo '''modules.conf''' descomente :
+
+<pre>event_handlers/mod_cdr_mongodb</pre>
+
+'''Recompile o FreeSWITCH''''
+<pre> /etc/init.d/freeswitch stop </pre>
+<pre> make && make install</pre>
+Add in freeswitch/conf/autoload_configs/modules.conf.xml:
+<load module="mod_cdr_mongodb"/>
+
+== Instalando o MongoDB ==
+
 ===Atualizando o sistema===
 <pre>
 yum -y update
 yum -y upgrade
-reboot
 </pre>
 
-=== Pacotes de desenvolvimento ===
+=== Instalando o MongoDB ===
 <pre>
 yum install -y mongodb mongodb-server
 </pre>
