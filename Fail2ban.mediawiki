@@ -14,7 +14,6 @@ yum install fail2ban -y
 vi /etc/fail2ban/filter.d/freeswitch.conf
 
 <pre>
-
 # Fail2Ban configuration file
 #
 # Author: Rupa SChomaker
@@ -29,8 +28,7 @@ vi /etc/fail2ban/filter.d/freeswitch.conf
 #          (?:::f{4,6}:)?(?P<host>[\w\-.^_]+)
 # Values:  TEXT
 #
-
-failregex = \[WARNING\] sofia_reg.c:\d+ SIP auth failure \(REGISTER\) on sofia profile \'[^']+\' for \[.*\]  from ip <HOST>
+failregex = \[WARNING\] sofia_reg.c:\d+ SIP auth failure \(REGISTER\) on sofia profile \'[^']+\' for \[.*\] from ip <HOST>
             \[WARNING\] sofia_reg.c:\d+ SIP auth failure \(INVITE\) on sofia profile \'[^']+\' for \[.*\] from ip <HOST>
 
 # Option:  ignoreregex
@@ -38,8 +36,8 @@ failregex = \[WARNING\] sofia_reg.c:\d+ SIP auth failure \(REGISTER\) on sofia p
 # Values:  TEXT
 #
 ignoreregex =
+</pre>
 
- </pre>
 ====jail.conf====
 
 vi /etc/fail2ban/jail.conf
