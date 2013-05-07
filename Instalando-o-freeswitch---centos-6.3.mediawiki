@@ -180,8 +180,9 @@ Configurar um telefone SIP ou softphone com o endereço IP do computador ™ Fre
 
 == Exemplos ==
 ===VONO===
+vi /etc/freeswitch/sip_profiles/external.xml
+
 <pre>
-in external.xml file, insert the below line into settings:
 <param name="user-agent-string" value="FreeSWITCH Agent"/>
 </pre>
 <pre>
