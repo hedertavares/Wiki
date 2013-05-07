@@ -26,7 +26,7 @@ No arquivo '''modules.conf''' descomente :
 '''Para'''
 <pre>event_handlers/mod_cdr_mongodb</pre>
 
-'''Recompile o FreeSWITCH''''
+'''Recompile o FreeSWITCH'''
 <pre> /etc/init.d/freeswitch stop </pre>
 <pre> make && make install</pre>
 
