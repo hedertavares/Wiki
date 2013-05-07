@@ -1,6 +1,11 @@
 == Configurando o FreeSWITCH com MongoDB e CDRStats ==
 == Pre-requisitos ==
-Para esta solução iremos instalar o MongoDB.
+Para esta solução iremos instalar o MongoDB em conjunto com o CDRStats (www.cdr-stats.org)
+=== Tarefas===
+* Recompilar o FreeSWITCH com suporte a MongoDB
+* Instalar e configurar o MongoDB
+* Realizar altereações nas configurações do FreeSWITCH
+* Instalar e configurar o CDRStats
 ===Atualizando o sistema===
 <pre>
 yum -y update
