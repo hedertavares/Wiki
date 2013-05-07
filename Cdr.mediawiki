@@ -18,14 +18,25 @@ No arquivo '''modules.conf''' descomente :
 '''Recompile o FreeSWITCH''''
 <pre> /etc/init.d/freeswitch stop </pre>
 <pre> make && make install</pre>
+
+
+
+==Configurando o FreeSWITCH==
+
 '''Edite''' 
 <pre>vi /etc/freeswitch/autoload_configs/modules.conf.xml</pre>
 
-'''Inclua''''
+'''Inclua'''
 <pre><load module="mod_cdr_mongodb"/></pre>
 
-'''Inicie o FreeSWITCH'''
-<pre> /etc/init.d/freeswitch start </pre>
+'''Edite''' 
+<pre>vi /etc/freeswitch/autoload_configs/cdr_mongodb.conf.xml</pre>
+
+'''Altere''' <pre><param name="namespace" value="test.cdr"/></pre>
+'''Para''' <pre><param name="namespace" value="freeswitch_cdr.cdr"/></pre>
+'''Altere''' <pre><param name="log-b-leg" value="false"/></pre>
+'''Para''' <pre><param name="log-b-leg" value="true"/></pre>
+
 == Instalando o MongoDB ==
 
 ===Atualizando o sistema===
@@ -42,13 +53,6 @@ yum install -y mongodb mongodb-server
 ==Configurando o MongoDB==
 
 
+'''Inicie o FreeSWITCH'''
+<pre> /etc/init.d/freeswitch start </pre>
 
-==Configurando o FreeSWITCH==
-vi /etc/freeswitch/conf/autoload_configs/cdr_mongodb.conf.xml
-
-
-'''Altere''' <pre><param name="log-b-leg" value="false"/></pre>
-'''Para''' <pre><param name="log-b-leg" value="true"/></pre>
-
-'''Altere''' <pre><param name="namespace" value="test.cdr"/></pre>
-'''Para''' <pre><param name="namespace" value="freeswitch_cdr.cdr"/></pre>
