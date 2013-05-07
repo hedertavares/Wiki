@@ -3,7 +3,7 @@
 [[Instalando o FreeSwitch - UBUNTU 12.04 LTS Server]] <br>
 [[Instalando o FreeSwitch - CentOS 6.3]] <br>
 
-<h1>CDR MongoDB</h1>
+<h1>CDR FreeSwitch MongoDB</h1>
 
 [[CDR]]
 
