@@ -48,6 +48,13 @@ No arquivo '''modules.conf''' descomente :
 
 
 
+==Inciando os serviços==
 
-'''Inicie o FreeSWITCH'''
+===MongoDB===
+<pre>
+/etc/init.d/mongod start
+chkconfig --add mongod
+</pre>
+
+===FreeSWITCH===
 <pre> /etc/init.d/freeswitch start </pre>
