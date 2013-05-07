@@ -178,6 +178,27 @@ Configurar um telefone SIP ou softphone com o endereço IP do computador ™ Fre
 * Configurar um telefone SIP segunda como usuário 1001, disque 1001 a partir de 1000, e 1000 de 1001 para testar, entre os telefones
 * Confira mais em [http://wiki.freeswitch.org/wiki/Getting_Started_Guide # Some_stuff_to_try_out.21 tentar alguma coisa]
 
-=== Solução de problemas: ===
-* Se não houver comunicação entre os telefones e ™ FreeSWITCH ou entre telefones desativar o firewall em seu servidor Linux. Se o teste for bem sucedido ativar o firewall e abrir apenas as portas específicas necessárias. Para mais informações sobre firewalls e portas de abrir, ver o [[Firewall]] página.
-* Se você suspeitar de problemas de rede olhar para ferramentas de rede como o Wireshark ou tcpdump.
+== Exemplos ==
+===VONO===
+<pre>
+in external.xml file, insert the below line into settings:
+<param name="user-agent-string" value="FreeSWITCH Agent"/>
+</pre>
+<pre>
+vi /etc/freeswitch/sip_profiles/external/vono.xml
+
+<include>
+  <gateway name="vono">
+    <param name="username" value="[USERNAME]"/>
+    <param name="realm" value="vono.net.br"/>
+    <param name="password" value="[PASSWORD]"/>
+    <param name="caller-id-in-from" value="false"/>
+    <param name="extension" value="[USERNAME]"/>
+    <param name="extension-in-contact" value="true"/>
+    <param name="proxy" value="vono.net.br"/>
+    <param name="register-proxy" value="201.86.87.2"/>
+    <param name="expire-seconds" value="3600"/>
+    <param name="register" value="true"/>
+  </gateway>
+</include>
+</pre>
