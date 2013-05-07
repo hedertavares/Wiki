@@ -103,10 +103,13 @@ bantime  = 6000
 
 === Configurando FreeSWITCH ===
 ====internal.xml====
+vi /etc/freeswitch/sip_profiles/internal.xml
 <pre>
 <param name="log-auth-failures" value="true"/>
 </pre>
 ====external.xml====
+
 <pre>
-<param name="log-auth-failures" value="true"/>
+/bin/sed -i -e s,'<param name="log-auth-failures" value="false"/>','<param name="log-auth-failures" value="true"/>', /etc/freeswitch/sip_profiles/external.xml/etc/selinux/config
+
 </pre>
