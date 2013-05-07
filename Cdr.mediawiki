@@ -18,9 +18,14 @@ No arquivo '''modules.conf''' descomente :
 '''Recompile o FreeSWITCH''''
 <pre> /etc/init.d/freeswitch stop </pre>
 <pre> make && make install</pre>
-Add in freeswitch/conf/autoload_configs/modules.conf.xml:
-<load module="mod_cdr_mongodb"/>
+'''Edite''' 
+<pre>vi /etc/freeswitch/autoload_configs/modules.conf.xml</pre>
 
+'''Inclua''''
+<pre><load module="mod_cdr_mongodb"/></pre>
+
+'''Inicie o FreeSWITCH'''
+<pre> /etc/init.d/freeswitch start </pre>
 == Instalando o MongoDB ==
 
 ===Atualizando o sistema===
