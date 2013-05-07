@@ -14,7 +14,7 @@ yum install fail2ban -y
 vi /etc/fail2ban/filter.d/freeswitch.conf
 
 <nowiki>
-<pre>
+
 # Fail2Ban configuration file
 #
 # Author: Rupa SChomaker
@@ -37,7 +37,7 @@ failregex = \[WARNING\] sofia_reg.c:\d+ SIP auth failure \(REGISTER\) on sofia p
 # Values:  TEXT
 #
 ignoreregex =
-</pre>
+
  </nowiki>
 ====jail.conf====
 
