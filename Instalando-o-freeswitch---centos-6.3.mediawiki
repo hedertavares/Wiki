@@ -14,7 +14,7 @@ reboot
 
 === Pacotes de desenvolvimento ===
 <pre>
-yum install vim ncurses-devel mysql-devel git autoconf automake libtool ncurses-devel libjpeg-devel perl-devel yum mod_perl-devel -y
+yum install wget vim ncurses-devel mysql-devel git autoconf automake libtool ncurses-devel libjpeg-devel perl-devel yum mod_perl-devel -y
 yum groupinstall 'Development Tools' -y
 </pre>
 
