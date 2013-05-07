@@ -29,10 +29,10 @@ vi /etc/fail2ban/filter.d/freeswitch.conf
 #          (?:::f{4,6}:)?(?P<host>[\w\-.^_]+)
 # Values:  TEXT
 #
-<ref>
+
 failregex = \[WARNING\] sofia_reg.c:\d+ SIP auth failure \(REGISTER\) on sofia profile \'[^']+\' for \[.*\]  from ip <HOST>
             \[WARNING\] sofia_reg.c:\d+ SIP auth failure \(INVITE\) on sofia profile \'[^']+\' for \[.*\] from ip <HOST>
-</ref>
+
 # Option:  ignoreregex
 # Notes.:  regex to ignore. If this regex matches, the line is ignored.
 # Values:  TEXT
