@@ -21,6 +21,9 @@ yum install -y mongodb mongodb-server
 
 No arquivo '''modules.conf''' descomente :
 
+'''Altere'''
+<pre>#event_handlers/mod_cdr_mongodb</pre>
+'''Para'''
 <pre>event_handlers/mod_cdr_mongodb</pre>
 
 '''Recompile o FreeSWITCH''''
