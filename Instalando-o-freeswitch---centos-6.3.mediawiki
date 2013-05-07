@@ -103,6 +103,7 @@ cd /etc/freeswitch/dialplan/default
 mv 00_ladspa.xml 00_ladspa.noload
 mv 00_pizza_demo.xml 00_pizza_demo.noload
 mv 01_Talking_Clock.xml 01_Talking_Clock.noload
+mv 01_example.com.xml 01_example.com.noload
 </pre>
 
 === Ajustando arquivos de configuração ===
