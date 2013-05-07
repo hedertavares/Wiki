@@ -21,7 +21,7 @@ vi /etc/freeswitch/conf/autoload_configs/cdr_mongodb.conf.xml
 
 
 '''Altere''' <pre><param name="log-b-leg" value="false"/></pre>
-'''Para''' <param name="log-b-leg" value="true"/>
+'''Para''' <pre><param name="log-b-leg" value="true"/></pre>
 
-'''Altere''' <param name="namespace" value="test.cdr"/>
-'''Para''' <param name="namespace" value="freeswitch_cdr.cdr"/>
+'''Altere''' <pre><param name="namespace" value="test.cdr"/></pre>
+'''Para''' <pre><param name="namespace" value="freeswitch_cdr.cdr"/></pre>
