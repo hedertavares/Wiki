@@ -2,10 +2,18 @@
 == Pre-requisitos ==
 Para esta solução iremos instalar o MongoDB em conjunto com o CDRStats (www.cdr-stats.org)
 === Tarefas===
-* Recompilar o FreeSWITCH com suporte a MongoDB
+
 * Instalar e configurar o MongoDB
+* Recompilar o FreeSWITCH com suporte a MongoDB
 * Realizar altereações nas configurações do FreeSWITCH
 * Instalar e configurar o CDRStats
+
+== Instalando o MongoDB ==
+<pre>
+yum install -y mongodb mongodb-server
+</pre>
+
+==Configurando o MongoDB==
 
 ==Recompilando o FreeSWITCH==
 
@@ -18,8 +26,6 @@ No arquivo '''modules.conf''' descomente :
 '''Recompile o FreeSWITCH''''
 <pre> /etc/init.d/freeswitch stop </pre>
 <pre> make && make install</pre>
-
-
 
 ==Configurando o FreeSWITCH==
 
@@ -37,22 +43,8 @@ No arquivo '''modules.conf''' descomente :
 '''Altere''' <pre><param name="log-b-leg" value="false"/></pre>
 '''Para''' <pre><param name="log-b-leg" value="true"/></pre>
 
-== Instalando o MongoDB ==
 
-===Atualizando o sistema===
-<pre>
-yum -y update
-yum -y upgrade
-</pre>
-
-=== Instalando o MongoDB ===
-<pre>
-yum install -y mongodb mongodb-server
-</pre>
-
-==Configurando o MongoDB==
 
 
 '''Inicie o FreeSWITCH'''
 <pre> /etc/init.d/freeswitch start </pre>
-
