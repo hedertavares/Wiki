@@ -138,10 +138,8 @@ vi /etc/freeswitch/dialplan/default/01_saida.xml
 
 <include>
         <extension name="Dial Out">
-          <condition field="destination_number"
-             expression="^(\d{11})$">
-            <action application="bridge"
-              data="sofia/gateway/vono/$1"/>
+          <condition field="destination_number" expression="^(\d{11})$">
+            <action application="bridge" data="sofia/gateway/voip/$1"/>
           </condition>
          </extension>
 </include>
