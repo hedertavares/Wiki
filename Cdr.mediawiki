@@ -1,11 +1,28 @@
+== Ajustando o CentOS 6.3 64 Bits ==
+== Pre-requisitos ==
+Para esta solução iremos instalar o MongoDB.
+===Atualizando o sistema===
+<pre>
+yum -y update
+yum -y upgrade
+reboot
+</pre>
+
+=== Pacotes de desenvolvimento ===
+<pre>
+yum install -y mongodb mongodb-server
+</pre>
+
+==Configurando o MongoDB==
 
 
-In freeswitch/conf/autoload_configs/cdr_mongodb.conf.xml
+
+vi /etc/freeswitch/conf/autoload_configs/cdr_mongodb.conf.xml
 
 <pre>
-Change <param name="log-b-leg" value="false"/>
-to <param name="log-b-leg" value="true"/>
+''Altere'' <param name="log-b-leg" value="false"/>
+''Para'' <param name="log-b-leg" value="true"/>
 
-Change <param name="namespace" value="test.cdr"/>
-to <param name="namespace" value="freeswitch_cdr.cdr"/>
+''Altere'' <param name="namespace" value="test.cdr"/>
+''Para'' <param name="namespace" value="freeswitch_cdr.cdr"/>
 </pre>
