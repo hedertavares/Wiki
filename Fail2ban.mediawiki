@@ -107,9 +107,3 @@ bantime  = 6000
 <pre>
 /bin/sed -i -e s,'<param name="log-auth-failures" value="false"/>','<param name="log-auth-failures" value="true"/>', /etc/freeswitch/sip_profiles/internal.xml
 </pre>
-====external.xml====
-
-<pre>
-
-
-</pre>
