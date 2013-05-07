@@ -136,7 +136,7 @@ vi /etc/freeswitch/sip_profiles/external/voip.xml
 vi /etc/freeswitch/dialplan/default/01_saida.xml
 
 <include>
-        <extension name="Dial Out VONO">
+        <extension name="Dial Out">
           <condition field="destination_number"
              expression="^(\d{11})$">
             <action application="bridge"
