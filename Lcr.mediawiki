@@ -88,7 +88,7 @@ quit;
 mysql -u root -pSENHA lcr < /usr/src/freeswitch/src/mod/applications/mod_lcr/sql/mysql-5.0.sql
 </pre>
 
-==== Exemplos para MySQL ====
+=== Exemplos para MySQL ===
 
 
 '''carriers'''
