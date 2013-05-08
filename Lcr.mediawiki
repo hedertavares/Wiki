@@ -7,7 +7,7 @@ Antes de começarmos a compilar o FreSWITCH, devemos instalar os pacotes necess�
 
 === Pacotes de necessários ===
 <pre>
-yum -y install mysql-server phpmyadmin unixODBC-devel unixODBC libmyodbc
+yum -y install mysql-server phpmyadmin unixODBC-devel unixODBC mysql-connector-odbc
 </pre>
 
 == Compilando o mod_lcr ==
