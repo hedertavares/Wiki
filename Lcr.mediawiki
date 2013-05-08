@@ -22,10 +22,16 @@ yum -y install mysql-server phpmyadmin
 <pre>/etc/init.d/freeswitch stop
 make
 make install
+
+=== Configurando o FreeSWITCH ===
 </pre>
 '''Edite''''<pre>vim /etc/freeswitch/autoload_configs/modules.conf.xml</pre>
 '''Altere''' <pre><!--<load module="mod_lcr"/>--></pre>
 '''Para'''<pre><load module="mod_lcr"/></pre>
+
+'''Edite'''<pre> vim /etc/freeswitch/autoload_configs/lcr.conf.xml<pre>
+'''Altere''' <pre><param name="odbc-dsn" value="freeswitch-mysql:freeswitch:Fr33Sw1tch"/></pre>
+'''Para'''<pre><param name="odbc-dsn" value="ODBC:USER:SENHA"/></pre>
 
 === Saída ===
 <pre>
