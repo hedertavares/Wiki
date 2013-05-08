@@ -88,20 +88,20 @@ quit;
 mysql -u root -pSENHA lcr < /usr/src/freeswitch/src/mod/applications/mod_lcr/sql/mysql-5.0.sql
 </pre>
 
-==== Sample data for MySQL ====
+==== Exemplos para MySQL ====
 
 
-'''insert two carriers'''
+'''carriers'''
 <pre>
 INSERT INTO carriers (id, carrier_name, enabled) VALUES (1, 'carrier1', 1);
 INSERT INTO carriers (id, carrier_name, enabled) VALUES (2, 'carrier2', 1);
 </pre>
-'''insert some gateway info'''
+'''gateway info'''
 <pre>
 INSERT INTO carrier_gateway (id, carrier_id, prefix, suffix) VALUES (1, 1, 'sofia/gateway/carrier1/', '');
 INSERT INTO carrier_gateway (id, carrier_id, prefix, suffix) VALUES (2, 2, 'sofia/gateway/carrier2/', '');
 </pre>
-'''insert some lcr data'''
+'''lcr data'''
 <pre>
 INSERT INTO lcr (id, digits, rate, carrier_id, lead_strip, trail_strip, prefix, suffix, date_start, date_end, quality, reliability)
  VALUES (1, '011', 0.15, 1, 0, 0, '', '', current_timestamp - interval 1 year, current_timestamp + interval 1 year , 0, 0);
