@@ -1,0 +1,14 @@
+
+
+=== Saída ===
+<pre>
+<include>
+        <extension name="Dial Out">
+          <condition field="destination_number" expression="^(\d{11})$">
+          <action application="lcr" data="$1 default"/>
+          <action application="bridge" data="${lcr_auto_route}"/>-->
+          </condition>
+         </extension>
+</include>
+
+</pre>
