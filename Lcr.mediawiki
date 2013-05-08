@@ -23,8 +23,9 @@ yum -y install mysql-server phpmyadmin
 make
 make install
 </pre>
-
-
+'''Edite''''<pre>vim /etc/freeswitch/autoload_configs/modules.conf.xml</pre>
+'''Altere''' <pre><!--<load module="mod_lcr"/>--></pre>
+'''Para'''<pre><load module="mod_lcr"/></pre>
 
 === Saída ===
 <pre>
