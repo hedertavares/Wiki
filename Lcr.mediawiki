@@ -22,7 +22,7 @@ yum -y install mysql-server phpmyadmin unixODBC-devel unixODBC libmyodbc
 <pre>/etc/init.d/freeswitch stop
 make
 make install
-
+</pre>
 == Configurando o FreeSWITCH ==
 
 '''Edite''' <pre>vim /etc/freeswitch/autoload_configs/modules.conf.xml</pre>
