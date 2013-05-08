@@ -35,6 +35,12 @@ make install
 
 === Configurando a ODBC ===
 
+==== Crie o link simbolico ====
+
+<pre>ln -s /usr/lib/libmyodbc5.so /usr/lib/libmyodbc.so</pre>
+
+==== Editando as configurações====
+
 '''Edite'''<pre>vim /etc/odbc.ini</pre>
 '''Adicione'''
 <pre>
@@ -47,6 +53,20 @@ OPTION  = 67108864
 USER    = USER_MYSQL
 PASSWORD = SENHA_MYSQL
 </pre>
+
+'''Edite'''<pre>vim /etc/odbcinst.ini</pre>
+'''Altere para'''
+<pre>
+[MySQL]
+Description	= ODBC for MySQL
+Driver		= /usr/lib/libmyodbc5.so
+Setup		= /usr/lib/libodbcmyS.so
+Driver64	= /usr/lib64/libmyodbc5.so
+Setup64		= /usr/lib64/libodbcmyS.so
+FileUsage	= 1
+</pre>
+
+
 === Saída ===
 <pre>
 <include>
