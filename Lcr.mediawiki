@@ -1,3 +1,30 @@
+Antes de começarmos a compilar o FreSWITCH, devemos instalar os pacotes necessários para a compilação. Este tutorial foi desenvolvido no CentOS 6.3 64 Bits.
+== Ajustando o CentOS 6.3 64 Bits ==
+== Pre-requisitos ==
+* FreeSWITCH com suporte a DOBC
+* Modulo LCR habilitado no FreeSWITCH
+* MySQL Server instalado
+
+=== Pacotes de necessários ===
+<pre>
+yum -y install mysql-server phpmyadmin
+</pre>
+
+== Compilando o mod_lcr ==
+
+'''Edite''''
+<pre>vim /usr/src/freeswitch/modules.conf</pre>
+'''Altere''' <pre>#applications/mod_lcr</pre>
+'''Para'''<pre>applications/mod_lcr</pre>
+
+=== Recompile o FreeSWITCH ===
+
+<pre>/etc/init.d/freeswitch stop
+make
+make install
+</pre>
+
+
 
 === Saída ===
 <pre>
