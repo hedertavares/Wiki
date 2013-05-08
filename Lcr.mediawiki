@@ -7,7 +7,7 @@ Antes de começarmos a compilar o FreSWITCH, devemos instalar os pacotes necess�
 
 === Pacotes de necessários ===
 <pre>
-yum -y install mysql-server phpmyadmin
+yum -y install mysql-server phpmyadmin unixODBC-devel unixODBC libmyodbc
 </pre>
 
 == Compilando o mod_lcr ==
@@ -33,6 +33,20 @@ make install
 '''Altere''' <pre><param name="odbc-dsn" value="freeswitch-mysql:freeswitch:Fr33Sw1tch"/></pre>
 '''Para'''<pre><param name="odbc-dsn" value="ODBC:USER:SENHA"/></pre>
 
+=== Configurando a ODBC ===
+
+'''Edite'''<pre>vim /etc/odbc.ini</pre>
+'''Adicione'''
+<pre>
+[freeswitch]
+Driver   = MySQL
+SERVER   = localhost
+PORT     = 3306
+DATABASE = lcr
+OPTION  = 67108864
+USER    = USER_MYSQL
+PASSWORD = SENHA_MYSQL
+</pre>
 === Saída ===
 <pre>
 <include>
