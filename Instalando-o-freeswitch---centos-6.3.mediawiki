@@ -34,6 +34,7 @@ Baixando o fonte FreeSWITCH:
 
 === Opção 2 ===
 <pre>
+cd /usr/src/
 wget -c http://files.freeswitch.org/freeswitch-1.2.8.tar.bz2
 tar jxvf freeswitch-1.2.8.tar.bz2
 mv freeswitch-1.2.8 freeswitch
