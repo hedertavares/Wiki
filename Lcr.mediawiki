@@ -89,7 +89,7 @@ mysql -u root -pSENHA lcr < /usr/src/freeswitch/src/mod/applications/mod_lcr/sql
 </pre>
 
 ==== Sample data for MySQL ====
-<pre>
+
 
 '''insert two carriers'''
 <pre>
