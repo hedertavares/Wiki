@@ -11,21 +11,18 @@ Debian / Ubuntu:
 apt-get -y update
         apt-get -y install autoconf automake autotools-dev binutils bison build-essential cpp curl flex g++ gcc git-core libaudiofile-dev libc6-dev libdb-dev libexpat1  \
 libexpat1-dev libgdbm-dev libgnutls-dev libmcrypt-dev libncurses5-dev libnewt-dev libpcre3 libpopt-dev libsctp-dev libsqlite3-dev libtiff4 libtiff4-dev \
- libtool libx11-dev libxml2 libxml2-dev lksctp-tools lynx m4 make mcrypt ncftp nmap openssl sox sqlite3 ssl-cert ssl-cert unixodbc-dev unzip zip zlib1g-dev zlib1g-dev
-        apt-get -y install libssl-dev pkg-config
-        apt-get -y install libvorbis0a libogg0 libogg-dev libvorbis-dev
-        apt-get -y install flite flite1-dev
+ libtool libx11-dev libxml2 libxml2-dev lksctp-tools lynx m4 make mcrypt ncftp nmap openssl sox sqlite3 ssl-cert ssl-cert unixodbc-dev unzip zip zlib1g-dev zlib1g-dev libssl-dev pkg-config libvorbis0a libogg0 \ 
+libogg-dev libvorbis-dev flite flite1-dev
+     
 </pre>
 
 
 
 == Baixando ==
-Mude para o diretório /usr/src/ para baixar fonte FreeSWITCH ™:
- 
- cd usr/src
 
 Git:
 <pre>
+ cd usr/src
   git clone git://git.freeswitch.org/freeswitch.git
   cd freeswitch
   . / Bootstrap.sh
@@ -46,21 +43,6 @@ Este é opcional, mas devemos considerar, seguindo as orientações existentes e
   make && make install && make sounds-install && make moh-install
 </pre>
 
-== Iniciando o FreeSWITCH ™ ==
-Certifique-se de nenhuma outra instância do FreeSWITCH ™ ou Asterisk está sendo executado no mesmo computador. Execute o comando:
- /usr/local/freeswitch/bin/freeswitch
-
-== Teste um telefone SIP ==
-Configurar um telefone SIP ou softphone com o endereço IP do computador ™ FreeSWITCH e usuário "1000" e senha "1234". O padrão de configuração FreeSWITCH ™ fornece pré-definidos definições para extensões de 1000-1019, todas as senhas são 1234.
-
-* Disque 9664 para ouvir música.
-* Disque 5000 para testar a amostra IVR
-* Configurar um telefone SIP segunda como usuário 1001, disque 1001 a partir de 1000, e 1000 de 1001 para testar, entre os telefones
-* Confira mais em [http://wiki.freeswitch.org/wiki/Getting_Started_Guide # Some_stuff_to_try_out.21 tentar alguma coisa]
-
-=== Solução de problemas: ===
-* Se não houver comunicação entre os telefones e ™ FreeSWITCH ou entre telefones desativar o firewall em seu servidor Linux. Se o teste for bem sucedido ativar o firewall e abrir apenas as portas específicas necessárias. Para mais informações sobre firewalls e portas de abrir, ver o [[Firewall]] página.
-* Se você suspeitar de problemas de rede olhar para ferramentas de rede como o Wireshark ou tcpdump.
 
 === Discando ===
 
