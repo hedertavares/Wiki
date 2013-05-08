@@ -20,6 +20,7 @@ yum -y install mysql-server phpmyadmin unixODBC-devel unixODBC libmyodbc
 === Recompile o FreeSWITCH ===
 
 <pre>/etc/init.d/freeswitch stop
+cd /usr/src/freeswitch/
 make
 make install
 </pre>
