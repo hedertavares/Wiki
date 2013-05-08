@@ -8,7 +8,8 @@
 [[CDR]]
 
 <h1> Modulos </h1>
-[[LCR]]
+[[LCR]]<br>
+[[Billing]]
 
 <h1>Segurança</h1>
 
