@@ -99,18 +99,18 @@ INSERT INTO carriers (id, carrier_name, enabled) VALUES (2, 'carrier2', 1);
 '''insert some gateway info'''
 <pre>
 INSERT INTO carrier_gateway (id, carrier_id, prefix, suffix) VALUES (1, 1, 'sofia/gateway/carrier1/', '');
-INSERT INTO carrier_gateway (id, carrier_id, prefix, suffix) VALUES (2, 2, 'sofia/external/', '@proxy.carrier2.net:5060');
+INSERT INTO carrier_gateway (id, carrier_id, prefix, suffix) VALUES (2, 2, 'sofia/gateway/carrier2/', '');
 </pre>
 '''insert some lcr data'''
 <pre>
 INSERT INTO lcr (id, digits, rate, carrier_id, lead_strip, trail_strip, prefix, suffix, date_start, date_end, quality, reliability)
- VALUES (1, '1', 0.15, 1, 0, 0, '', '', current_timestamp - interval 1 year, current_timestamp + interval 1 year , 0, 0);
+ VALUES (1, '011', 0.15, 1, 0, 0, '', '', current_timestamp - interval 1 year, current_timestamp + interval 1 year , 0, 0);
 INSERT INTO lcr (id, digits, rate, carrier_id, lead_strip, trail_strip, prefix, suffix, date_start, date_end, quality, reliability)
- VALUES (2, '1', 0.12, 2, 1, 0, '0', '', current_timestamp - interval 1 year, current_timestamp + interval 1 year , 0, 0);
+ VALUES (2, '011', 0.12, 2, 1, 0, '0', '', current_timestamp - interval 1 year, current_timestamp + interval 1 year , 0, 0);
 INSERT INTO lcr (id, digits, rate, carrier_id, lead_strip, trail_strip, prefix, suffix, date_start, date_end, quality, reliability)
- VALUES (3, '1234', 0.05, 1, 0, 0, '', '', current_timestamp - interval 1 year, current_timestamp + interval 1 year , 0, 0);
+ VALUES (3, '031', 0.05, 1, 0, 0, '', '', current_timestamp - interval 1 year, current_timestamp + interval 1 year , 0, 0);
 INSERT INTO lcr (id, digits, rate, carrier_id, lead_strip, trail_strip, prefix, suffix, date_start, date_end, quality, reliability)
- VALUES (4, '1234', 0.02, 2, 1, 0, '0', '', current_timestamp - interval 1 year, current_timestamp + interval 1 year , 0, 0);
+ VALUES (4, '031', 0.02, 2, 1, 0, '0', '', current_timestamp - interval 1 year, current_timestamp + interval 1 year , 0, 0);
 </pre>
 == Contexto de Saída ==
 <pre>
