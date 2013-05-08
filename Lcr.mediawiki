@@ -113,6 +113,9 @@ INSERT INTO lcr (id, digits, rate, carrier_id, lead_strip, trail_strip, prefix, 
  VALUES (4, '031', 0.02, 2, 1, 0, '0', '', current_timestamp - interval 1 year, current_timestamp + interval 1 year , 0, 0);
 </pre>
 == Contexto de Saída ==
+
+'''Edite'''<pre>vi /etc/freeswitch/dialplan/default/01_saida.xml</pre>
+
 <pre>
 <include>
         <extension name="Dial Out">
