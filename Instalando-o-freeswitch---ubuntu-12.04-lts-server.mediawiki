@@ -43,34 +43,3 @@ Este é opcional, mas devemos considerar, seguindo as orientações existentes e
   make && make install && make sounds-install && make moh-install
 </pre>
 
-
-=== Discando ===
-
-vi dialplan/default/01_vono_out.xml
-<pre>
-<include>
-         <extension name="Dial Out VONO">
-           <condition field="destination_number"
-             expression="^(\d{11})$">
-             <action application="bridge"
-               data="sofia/gateway/vono/$1"/>
-           </condition>
-         </extension>
-</include>
-
-</pre>
-
-=== Recebendo ===
-
-vi dialplan/default/vono_did.xml
-
-<pre>
-<include>
-  <extension name="vono_did">
-    <condition field="destination_number" expression="^(eluizbr)$">
-      <action application="set" data="domain_name=$${domain}"/>
-      <action application="transfer" data="1000 XML default"/>
-    </condition>
-  </extension>
-</include>
-</pre>
