@@ -26,7 +26,7 @@ make install
 == Configurando o FreeSWITCH ==
 
 '''Edite''' <pre>vim /etc/freeswitch/autoload_configs/modules.conf.xml</pre>
-'''Altere''' <pre><!--<load module="mod_lcr"/>--></pre>
+'''Altere''' <nowiki><!--<load module="mod_lcr"/>--><nowiki>
 '''Para'''<pre><load module="mod_lcr"/></pre>
 
 '''Edite'''<pre> vim /etc/freeswitch/autoload_configs/lcr.conf.xml</pre>
