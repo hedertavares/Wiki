@@ -24,11 +24,19 @@ yum groupinstall 'Development Tools' -y
 </pre>
 
 == Baixando o FreeSWITCH ==
-Baixando o fonte FreeSWITCH ™ via GITHUB:
+Baixando o fonte FreeSWITCH:
 
+=== Opção 1 ===
 <pre>
   cd /usr/src/
   git clone git://git.freeswitch.org/freeswitch.git
+</pre>
+
+=== Opção 2 ===
+<pre>
+wget -c http://files.freeswitch.org/freeswitch-1.2.8.tar.bz2
+tar jxvf freeswitch-1.2.8.tar.bz2
+mv freeswitch-1.2.8 freeswitch
 </pre>
  
 === Compilando o FreeSWITCH ===
