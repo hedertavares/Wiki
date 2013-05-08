@@ -58,3 +58,7 @@ chkconfig --add mongod
 
 ===FreeSWITCH===
 <pre> /etc/init.d/freeswitch start </pre>
+
+==Instalando o CDRStats==
+
+Siga os passos deste link: http://www.cdr-stats.org/documentation/beginners-guide/howto-installing-on-freeswitch/
