@@ -62,7 +62,7 @@ chkconfig --add mongod
 ==Instalando o CDRStats==
 <pre>cd /usr/src</pre>
 <pre>
-wget –no-check-certificate https://raw.github.com/Star2Billing/cdr-stats/master/install/install-cdr-stats.sh -O install-cdr-stats.sh
+wget https://raw.github.com/Star2Billing/cdr-stats/master/install/install-cdr-stats.sh
 </pre>
 
 <pre>bash install-cdr-stats.sh</pre>
