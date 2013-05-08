@@ -66,3 +66,6 @@ wget –no-check-certificate https://raw.github.com/Star2Billing/cdr-stats/maste
 </pre>
 
 <pre>bash install-cdr-stats.sh</pre>
+
+===Configurando o CDRStats===
+Para configuração, siga os passos do link: http://www.cdr-stats.org/docs/
