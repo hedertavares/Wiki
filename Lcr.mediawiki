@@ -23,7 +23,7 @@ yum -y install mysql-server phpmyadmin unixODBC-devel unixODBC libmyodbc
 make
 make install
 
-=== Configurando o FreeSWITCH ===
+== Configurando o FreeSWITCH ==
 </pre>
 '''Edite''''<pre>vim /etc/freeswitch/autoload_configs/modules.conf.xml</pre>
 '''Altere''' <pre><!--<load module="mod_lcr"/>--></pre>
@@ -33,7 +33,7 @@ make install
 '''Altere''' <pre><param name="odbc-dsn" value="freeswitch-mysql:freeswitch:Fr33Sw1tch"/></pre>
 '''Para'''<pre><param name="odbc-dsn" value="ODBC:USER:SENHA"/></pre>
 
-=== Configurando a ODBC ===
+== Configurando a ODBC ==
 
 ==== Crie o link simbolico ====
 
