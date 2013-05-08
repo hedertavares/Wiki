@@ -91,18 +91,18 @@ mysql -u root -pSENHA lcr < /usr/src/freeswitch/src/mod/applications/mod_lcr/sql
 ==== Sample data for MySQL ====
 <pre>
 
--- insert two carriers
-
+'''insert two carriers'''
+<pre>
 INSERT INTO carriers (id, carrier_name, enabled) VALUES (1, 'carrier1', 1);
 INSERT INTO carriers (id, carrier_name, enabled) VALUES (2, 'carrier2', 1);
-
--- insert some gateway info
-
+</pre>
+'''insert some gateway info'''
+<pre>
 INSERT INTO carrier_gateway (id, carrier_id, prefix, suffix) VALUES (1, 1, 'sofia/gateway/carrier1/', '');
 INSERT INTO carrier_gateway (id, carrier_id, prefix, suffix) VALUES (2, 2, 'sofia/external/', '@proxy.carrier2.net:5060');
-
--- insert some lcr data
-
+</pre>
+'''insert some lcr data'''
+<pre>
 INSERT INTO lcr (id, digits, rate, carrier_id, lead_strip, trail_strip, prefix, suffix, date_start, date_end, quality, reliability)
  VALUES (1, '1', 0.15, 1, 0, 0, '', '', current_timestamp - interval 1 year, current_timestamp + interval 1 year , 0, 0);
 INSERT INTO lcr (id, digits, rate, carrier_id, lead_strip, trail_strip, prefix, suffix, date_start, date_end, quality, reliability)
