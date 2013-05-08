@@ -66,6 +66,26 @@ Setup64		= /usr/lib64/libodbcmyS.so
 FileUsage	= 1
 </pre>
 
+== Configurando o MySQL ===
+
+=== Configurando o usuário ===
+<pre>
+/etc/init.d/mysqld start
+/usr/bin/mysqladmin -u root password 'SENHA'
+</pre>
+
+=== Criando a base LCR ===
+
+<pre>
+mysql -u root -pSENHA
+create database lcr;
+quit;
+</pre>
+
+=== Importando criando as tabelas padrão ===
+<pre>
+mysql -u root -pSENHA lcr < /usr/src/freeswitch/src/mod/applications/mod_lcr/sql/mysql-5.0.sql
+</pre>
 
 === Saída ===
 <pre>
