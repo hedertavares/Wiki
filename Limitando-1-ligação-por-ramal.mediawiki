@@ -25,3 +25,5 @@
  </context>
 </include>
 </pre>
+
+'''De um reloadxml, e o limite estará aplicado'''
