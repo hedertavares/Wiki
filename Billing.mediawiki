@@ -1,4 +1,10 @@
 <pre>
+wget https://raw.github.com/ASTPP/ASTPP/master/install.sh
+bash install.sh
+</pre>
+
+
+<pre>
  perl -MCPAN -e shell
 cpan> o conf prerequisites_policy 'follow'
 cpan> o conf build_requires_install_policy yes
