@@ -1,1 +1,0 @@
-Referencia: http://wiki.freeswitch.org/wiki/Misc._Dialplan_Tools_record_session#Record_Calls_To_Extensions

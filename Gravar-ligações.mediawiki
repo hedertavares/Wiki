@@ -1,0 +1,85 @@
+Referencia: http://wiki.freeswitch.org/wiki/Misc._Dialplan_Tools_record_session#Record_Calls_To_Extensions
+
+==Record Calls To Extensions==
+To record all phone calls between extensions do the following. Make a directory under freeswitch/recordings/archive/. Then edit Local_Extension in dialplan in /usr/local/freeswitch/conf/dialplan/default.xml 
+
+    <extension name="Local_Extension">
+      <condition field="destination_number" expression="^(10[01][0-8])$">
+
+Then add the following actions.
+
+    <action application="set" data="RECORD_TITLE=Recording ${destination_number} ${caller_id_number} ${strftime(%Y-%m-%d %H:%M)}"/>
+    <action application="set" data="RECORD_COPYRIGHT=(c) 2011"/>
+    <action application="set" data="RECORD_SOFTWARE=FreeSWITCH"/>
+    <action application="set" data="RECORD_ARTIST=FreeSWITCH"/>
+    <action application="set" data="RECORD_COMMENT=FreeSWITCH"/>
+    <action application="set" data="RECORD_DATE=${strftime(%Y-%m-%d %H:%M)}"/>
+    <action application="set" data="RECORD_STEREO=true"/>
+    <action application="record_session" data="$${base_dir}/recordings/archive/${strftime(%Y-%m-%d-%H-%M-%S)}_${destination_number}_${caller_id_number}.wav"/>
+
+==Record Calls From Extensions==
+Add the following in /usr/local/freeswitch/conf/dialplan/default/
+
+  <extension name="flowroute.com.11.digits">
+     <condition field="destination_number" expression="^(\d{11})$">
+         <action application="set" data="RECORD_TITLE=Recording ${destination_number} ${caller_id_number} ${strftime(%Y-%m-%d %H:%M)}"/>
+         <action application="set" data="RECORD_COPYRIGHT=(c) 2009"/>
+         <action application="set" data="RECORD_SOFTWARE=FreeSwitch"/>
+         <action application="set" data="RECORD_ARTIST=FreeSwitch"/>
+         <action application="set" data="RECORD_COMMENT=FreeSwitch"/>
+         <action application="set" data="RECORD_DATE=${strftime(%Y-%m-%d %H:%M)}"/>
+         <action application="set" data="RECORD_STEREO=true"/>
+         <action application="record_session" data="$${base_dir}/recordings/archive/${strftime(%Y-%m-%d-%H-%M-%S)}_${destination_number}_${caller_id_number}.wav"/>
+         <action application="bridge" data="sofia/gateway/flowroute.com/$1"/>
+     </condition>
+  </extension>
+
+==Controlling when recording begins==
+Recording normally starts as soon as the bridge application is called -- oftentimes this isn't desired.  You can force the recording to start after the call is actually answered by setting the channel variable [[Variable_media_bug_answer_req | media_bug_answer_req]]
+
+   <action application="set" data="media_bug_answer_req=true"/>
+or for releases prior to 1.0.5 or builds prior to 15235
+   <action application="set" data="RECORD_ANSWER_REQ=true"/>
+
+Another way to record calls when the call is answered
+
+    <action application="export" data="execute_on_answer=record_session $${base_dir}/recordings/${strftime(%Y%m%d%H%M%S)}_${caller_id_number}.wav"/>
+
+If you happen to be using [[Channel_Variables#group_confirm_key|group_confirm_key]]/[[Channel_Variables#group_confirm_file|group_confirm_file]] as part of your bridge, you may want to delay the start of the recording until the confirm action is completed.  This can be accomplished through use of [[Channel_Variables#bridge_pre_execute_bleg_app|bridge_pre_execute_bleg_app]]/[[Channel_Variables#bridge_pre_execute_bleg_data|bridge_pre_execute_bleg_data]]:
+
+  <action application="set" data="bridge_pre_execute_bleg_app=record_session"/>
+  <action application="set" data="bridge_pre_execute_bleg_data=$${base_dir}/recordings/${strftime(%Y-%m-%d-%H-%M-%S)}_${destination_number}_${caller_id_number}.wav"/>
+
+==Recording a call on demand==
+
+If your sip client supports a record key or free function keys which allow sending DTMF you can activate server based recording during the call. Recording starts with activating the recording, so not the complete call is recorded.
+
+There are at least two ways to do this: via DTMF or via SIP INFO.
+
+==Continue recording on transfer==
+
+If you want the call recording to continue after transferring, set the [[Variable recording_follow_transfer|recording_follow_transfer]] variable to true.
+<pre>
+  <action application="set" data="recording_follow_transfer=true"/>
+</pre> 
+
+===Activating via DTMF===
+Recording on demand via DTMF is done via dptools' "bind_meta_app" application in dialplan as shown in default dialplan which ships with FreeSWITCH. 
+
+Here is a example dialplan:
+<pre>
+<extension name="Local_Extension">
+      <condition field="destination_number" expression="^(10[01][0-9])$">
+        <!-- bind_meta_app can have these args <key> [a|b|ab] [a|b|o|s] <app> -->
+        <action application="export" data="RECORD_STEREO=true"/>
+        <action application="export" data="RECORD_TOGGLE_ON_REPEAT=true"/>
+        <action application="bind_meta_app" data="2 b s record_session::$${base_dir}/recordings/${caller_id_number}.${strftime(%Y-%m-%d-%H-%M-%S)}.wav"/>
+        <action application="bridge" data="user/$1@${domain_name}"/>
+      </condition>
+</extension>
+</pre>
+
+Lastly, configure your SIP client to send "*2" as DTMF within dialog. When that SIP client is called and call is established it can activate recording by pressing the configured key one time. Pressing it a second time it stops the recording. The other party doesn't hear the DTMFs but possibly its comfort noise generation (CNG) might stop momentarily. The above dialplan example is set to allow the SIP client to turn recording on and off when it is the recipient of a call (i.e. it is the B leg). Change the bind_meta_app settings if you want the originating leg (i.e. the A leg) also to be able to record the call:
+ <action application="bind_meta_app" data="2 ab s record_session::$${base_dir}/recordings/${caller_id_number}.${strftime(%Y-%m-%d-%H-%M-%S)}.wav"/>
+
+(Note that bind_meta_app in this example is listening on both the a and b legs.)
