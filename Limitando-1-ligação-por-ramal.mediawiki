@@ -7,3 +7,21 @@
         <action application="export" data="dialed_extension=$1"/>
         <-- bind_meta_app can have these args <key> [a|b|ab] [a|b|o|s] <app> -->
 </pre>
+
+'''Crie o arquivo '''<pre>vim /etc/freeswitch/dialplan/limis.xml</pre> COm o seguinte conteúdo:
+
+<pre>
+<include>
+ <context name="over_limit_actions">
+   <extension name="oops, too many calls for this one">
+     <condition field="destination_number" expression="handle_over_limit">
+       <action application="answer"/>
+       <action application="playback" data="ivr/ivr-no_no_no.wav"/>
+       <action application="playback" data="ivr/ivr-no_no_no.wav"/>
+       <action application="playback" data="ivr/ivr-no_no_no.wav"/>
+       <action application="hangup" data="USER_BUSY"/>
+     </condition>
+   </extension>
+ </context>
+</include>
+</pre>
