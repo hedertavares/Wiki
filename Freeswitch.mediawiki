@@ -14,7 +14,7 @@
 
 <h1> Recursos </h1>
 
-[[Limitando 1 ligação por ramal]]
+[[Limitando 1 ligação por ramal]]<br>
 [[Gravar ligações]]
 
 <h1>Segurança</h1>
