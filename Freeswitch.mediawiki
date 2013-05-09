@@ -12,6 +12,10 @@
 [[Billing]]<br>
 [[Sip Proxy]]
 
+<h1> Recursos </h1>
+
+[[Limitando 1 ligação por ramal]]
+
 <h1>Segurança</h1>
 
 [[Fail2Ban MODULO]]<br>
