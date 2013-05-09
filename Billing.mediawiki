@@ -1,6 +1,6 @@
-
-
+<pre>
  perl -MCPAN -e shell
 cpan> o conf prerequisites_policy 'follow'
 cpan> o conf build_requires_install_policy yes
 cpan> o conf commit
+</pre>
