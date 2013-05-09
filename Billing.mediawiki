@@ -5,7 +5,8 @@ bash install.sh
 
 
 <pre>
- perl -MCPAN -e shell
+yum install cpan -y
+perl -MCPAN -e shell
 cpan> o conf prerequisites_policy 'follow'
 cpan> o conf build_requires_install_policy yes
 cpan> o conf commit
