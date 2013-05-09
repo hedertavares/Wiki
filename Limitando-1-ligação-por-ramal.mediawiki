@@ -8,7 +8,7 @@
         <-- bind_meta_app can have these args <key> [a|b|ab] [a|b|o|s] <app> -->
 </pre>
 
-'''Crie o arquivo '''<pre>vim /etc/freeswitch/dialplan/limis.xml</pre> COm o seguinte conteúdo:
+'''Crie o arquivo '''<pre>vim /etc/freeswitch/dialplan/limis.xml</pre> Com o seguinte conteúdo:
 
 <pre>
 <include>
