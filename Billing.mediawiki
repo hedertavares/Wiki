@@ -1,5 +1,5 @@
 <pre>
-wget https://raw.github.com/ASTPP/ASTPP/master/install.sh
+wget https://raw.github.com/eluizbr/ASTPP/master/install.sh
 bash install.sh
 </pre>
 
