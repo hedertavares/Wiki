@@ -14,7 +14,7 @@ reboot
 
 === Pacotes de desenvolvimento ===
 <pre>
-yum install unixODBC-devel unixODBC mysql-connector-odbc wget vim ncurses-devel mysql-devel git autoconf automake libtool ncurses-devel libjpeg-devel perl-devel yum mod_perl-devel -y
+yum install unixODBC-devel unixODBC mysql-connector-odbc wget vim ncurses-devel mysql-devel git autoconf automake libtool ncurses-devel libjpeg-devel perl-devel mod_perl mod_perl-devel -y
 yum groupinstall 'Development Tools' -y
 </pre>
 
