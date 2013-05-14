@@ -1,0 +1,1 @@
+Referencia: https://wiki.freeswitch.org/wiki/Dialplan_XML#Example_11:_Route_based_on_number_prefix
