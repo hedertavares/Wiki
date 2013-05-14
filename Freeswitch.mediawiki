@@ -13,7 +13,7 @@
 [[Sip Proxy]]
 
 <h1> Recursos </h1>
-[DialPlan - Exemplo ]]<br>
+[[DialPlan - Exemplo ]]<br>
 [[Limitando 1 ligação por ramal]]<br>
 [[Gravar ligações]]<br>
 [[Rota por prefixo]]
