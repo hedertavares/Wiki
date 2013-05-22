@@ -39,8 +39,8 @@ tar zxvf opensips-1.9.1_src.tar.gz
 OPENSIPS
 <pre>
   cd /usr/src/opensips-1.9.1-tls
-make prefix=/ all
-make prefix=/ install
+make include_modules="db_mysql mi_xmlrpc" prefix="/" all
+make include_modules="db_mysql mi_xmlrpc" prefix="/" install
 </pre>
 
 ==== Editando o modules.conf ==== 
