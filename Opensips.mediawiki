@@ -31,6 +31,7 @@ Baixando o fonte OPENSIPS:
 <pre>
   cd /usr/src/
  wget http://opensips.org/pub/opensips/1.9.1/src/opensips-1.9.1_src.tar.gz
+tar zxvf opensips-1.9.1_src.tar.gz
 </pre>
 
 
