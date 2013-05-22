@@ -44,18 +44,31 @@ make include_modules="db_mysql mi_xmlrpc" prefix="/" install
 </pre>
 
 ==== Editando o modules.conf ==== 
-Este é opcional, mas devemos considerar, seguindo as orientações existentes em: [http://wiki.freeswitch.org/wiki/Installation_Guide#Edit_modules.conf Editar Modulos].
-
-==== Compilar o código fonte ====
+uncomment (#) DBENGINE=MYSQL
+vim /etc/opensips/opensipsctlrc
+==== OpenSIPS Database ====
 
 <pre> 
- ./configure --without-pgsql --prefix=/usr/local/freeswitch --sysconfdir=/etc/freeswitch/
+ opensipsdbctl create
 </pre>
 
-==== Instalando FreeSWITCH ™ ====
+==== Editar OpenSIPS config ====
 
 <pre>
-  make && make install && make sounds-install && make moh-install
+ vim /etc/opensips/opensips.cfg
+</pre>
+
+Descomente os seguinte modulos :
+
+<pre>
+
+loadmodule "db_mysql.so"
+loadmodule "auth.so"
+loadmodule "auth_db.so"
+modparam("usrloc", "db_mode", 2)
+modparam("auth_db", "calculate_ha1", yes)  
+modparam("auth_db", "password_column", "password")
+
 </pre>
 
 === Iniciando o FreeSWITCH ™ ===
