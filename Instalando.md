@@ -1,0 +1,76 @@
+Antes de começarmos a compilar o OPENSIPS, devemos instalar os pacotes necessários para a compilação. Este tutorial foi desenvolvido no CentOS 6.4 64 Bits.
+== Ajustando o CentOS 6.4 64 Bits ==
+== Pre-requisitos ==
+===Repositorios adicionais===
+<pre>
+rpm -Uvh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
+</pre>
+===Atualizando o sistema===
+<pre>
+yum -y update
+yum -y upgrade
+reboot
+</pre>
+
+=== Pacotes de desenvolvimento ===
+<pre>
+yum install unixODBC-devel unixODBC mysql-connector-odbc wget vim ncurses-devel mysql-devel git autoconf automake libtool ncurses-devel libjpeg-devel xmlrpc-c-devel xmlrpc-c gcc gcc-c++ bison flex zlib-devel openssl-devel mysql-server mysql-devel subversion pcre-devel php-mysql php-pear httpd-devel libmicrohttpd -y
+yum groupinstall 'Development Tools' -y
+
+</pre>
+
+=== Desabilitando o SELINUX ===
+<pre>
+/bin/sed -i -e s,'SELINUX=enforcing','SELINUX=disabled', /etc/selinux/config
+</pre>
+
+== Baixando o OPENSIPS ==
+Baixando o fonte OPENSIPS:
+
+==== CURRENT VERSION ====
+<pre>
+  cd /usr/src/
+ wget http://opensips.org/pub/opensips/1.9.1/src/opensips-1.9.1_src.tar.gz
+tar zxvf opensips-1.9.1_src.tar.gz
+</pre>
+
+
+==== Compilando o OPENSIPS ====
+OPENSIPS
+<pre>
+  cd /usr/src/opensips-1.9.1-tls
+make include_modules="db_mysql mi_xmlrpc" prefix="/" all
+make include_modules="db_mysql mi_xmlrpc" prefix="/" install
+</pre>
+
+==== Editando o modules.conf ==== 
+
+uncomment (#) DBENGINE=MYSQL
+<pre>
+vim /etc/opensips/opensipsctlrc
+</pre>
+
+==== OpenSIPS Database ====
+
+<pre> 
+ opensipsdbctl create
+</pre>
+
+==== Editar OpenSIPS config ====
+
+<pre>
+ vim /etc/opensips/opensips.cfg
+</pre>
+
+Descomente os seguinte modulos :
+
+<pre>
+
+loadmodule "db_mysql.so"
+loadmodule "auth.so"
+loadmodule "auth_db.so"
+modparam("usrloc", "db_mode", 2)
+modparam("auth_db", "calculate_ha1", yes)  
+modparam("auth_db", "password_column", "password")
+
+</pre>
