@@ -1,0 +1,157 @@
+debug=1
+memlog=1
+
+fork=yes
+children=2
+log_stderror=no
+log_facility=LOG_LOCAL0
+
+disable_tcp=yes
+disable_dns_blacklist = yes
+
+auto_aliases=no
+
+check_via=no
+dns=off
+rev_dns=off
+
+listen=udp:0.0.0.0:5060 # REPLACE here with right values
+#set module path
+mpath="//lib64/opensips/modules/"
+
+
+loadmodule "maxfwd.so"
+loadmodule "sl.so"
+loadmodule "db_mysql.so"
+loadmodule "tm.so"
+loadmodule "uri.so"
+loadmodule "rr.so"
+loadmodule "dialog.so"
+loadmodule "mi_fifo.so"
+loadmodule "mi_xmlrpc.so"
+loadmodule "signaling.so"
+loadmodule "textops.so"
+loadmodule "sipmsgops.so"
+loadmodule "load_balancer.so"
+
+
+
+modparam("mi_fifo", "fifo_name", "/tmp/opensips_fifo")
+
+modparam("dialog", "db_mode", 1)
+modparam("dialog", "db_url", "mysql://root:q1w2e3r4t5@localhost/opensips")
+
+modparam("rr","enable_double_rr",1)
+modparam("rr","append_fromtag",1)
+
+modparam("load_balancer", "db_url","mysql://root:q1w2e3r4t5@localhost/opensips")
+# ping every 30 secs the failed destinations
+modparam("load_balancer", "probing_interval", 30)
+modparam("load_balancer", "probing_from", "sip:pinger@LB_IP:LB_PORT")
+# consider positive ping reply the 404
+modparam("load_balancer", "probing_reply_codes", "404")
+
+
+route{
+	if (!mf_process_maxfwd_header("3")) {
+		send_reply("483","looping");
+		exit;
+	}
+
+
+	if ( has_totag() ) {
+		# sequential request -> obey Route indication
+		loose_route();
+                t_relay();
+                exit;
+        }
+
+        # handle cancel and re-transmissions
+	if ( is_method("CANCEL") ) {
+		if ( t_check_trans() )
+			t_relay();
+		exit;
+	}
+
+
+        # from now on we have only the initial requests
+        if (!is_method("INVITE")) {
+                send_reply("405","Method Not Allowed");
+                exit;
+        }
+
+        # initial request
+	record_route();
+
+        # not really necessary to create the dialog from script (as the
+        # LB functions will do this for us automatically), but we do it
+        # if we want to pass some flags to dialog (pinging, bye, etc)
+        create_dialog("B");
+
+        # check the direction of call
+        if ( lb_is_destination("$si","$sp","1") ) {
+                # call comes from our cluster, so it is an PSNT inbound call
+                # mark it as load on the corresponding destination
+                lb_count_call("$si","$sp","1", "pstn");
+                # and route is to our main sip server to send call to end user
+                $du = "sip:0.0.0.0:5060"; # REPLACE here with right values
+                t_relay();
+                exit;
+        }
+
+        # detect resources and store in an AVP
+        if ( $rU=~"^VM_" ) {
+                # looks like a VoiceMail call
+                $avp(lb_res) = "vm";
+        } else if ( $rU=~"^[0-9]+$" ) {
+                # PSTN call
+                $avp(lb_res) = "pstn";
+        } else {
+                send_reply("404","Destination not found");
+                exit;
+        }
+
+        # LB function returns negative if no suitable destination (for requested resources) is found,
+        # or if all destinations are full
+        if ( !load_balance("1","$avp(lb_res)") ) {
+             send_reply("500","Service full");
+             exit;
+        }
+
+	xlog("Selected destination is: $du\n");
+
+        # arm a failure route for be able to catch a failure event and to do
+        # failover to the next available destination
+        t_on_failure("LB_failed");
+
+        # send it out
+	if (!t_relay()) {
+		sl_reply_error();
+	}
+}
+
+failure_route[LB_failed]
+{
+        # skip if call was canceled
+	if (t_was_cancelled()) {
+		exit;
+	}
+
+        # was a destination failure ? (we do not want to do failover
+        # if it was a call setup failure, so we look for 500 and 600
+        # class replied and for local timeouts)
+        if ( t_check_status("[56][0-9][0-9]") ||
+        (t_check_status("408") && t_local_replied("all") ) ) {
+                # this is a case for failover
+                xlog("REPORT: LB destination $du failed with code $T_reply_code\n");
+                # mark failed destination as disabled
+                lb_disable();
+                # try to re-route to next available destination
+                if ( !load_balance("1","$avp(lb_res)") ) {
+                      send_reply("500","Service full");
+                      exit;
+                }
+                xlog("REPORT: re-routing call to $du \n");
+                t_relay();
+        }
+}
