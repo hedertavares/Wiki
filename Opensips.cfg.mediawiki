@@ -1,3 +1,4 @@
+<pre>
 debug=1
 memlog=1
 
@@ -155,3 +156,4 @@ failure_route[LB_failed]
                 t_relay();
         }
 }
+</pre>
