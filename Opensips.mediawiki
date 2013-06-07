@@ -44,8 +44,11 @@ make include_modules="db_mysql mi_xmlrpc" prefix="/" install
 </pre>
 
 ==== Editando o modules.conf ==== 
+<pre>
 uncomment (#) DBENGINE=MYSQL
 vim /etc/opensips/opensipsctlrc
+</pre>
+
 ==== OpenSIPS Database ====
 
 <pre> 
