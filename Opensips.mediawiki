@@ -14,7 +14,7 @@ reboot
 
 === Pacotes de desenvolvimento ===
 <pre>
-yum install unixODBC-devel unixODBC mysql-connector-odbc wget vim ncurses-devel mysql-devel git autoconf automake libtool ncurses-devel libjpeg-devel xmlrpc-c-devel xmlrpc-c gcc gcc-c++ bison flex zlib-devel openssl-devel mysql-server mysql-devel subversion pcre-devel php-mysql php-pear  -y
+yum install unixODBC-devel unixODBC mysql-connector-odbc wget vim ncurses-devel mysql-devel git autoconf automake libtool ncurses-devel libjpeg-devel xmlrpc-c-devel xmlrpc-c gcc gcc-c++ bison flex zlib-devel openssl-devel mysql-server mysql-devel subversion pcre-devel php-mysql php-pear httpd-devel libmicrohttpd -y
 yum groupinstall 'Development Tools' -y
 
 </pre>
