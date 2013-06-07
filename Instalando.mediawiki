@@ -39,8 +39,8 @@ tar zxvf opensips-1.9.1_src.tar.gz
 OPENSIPS
 <pre>
   cd /usr/src/opensips-1.9.1-tls
-make include_modules="db_mysql mi_xmlrpc" prefix="/" all
-make include_modules="db_mysql mi_xmlrpc" prefix="/" install
+make all include_modules="db_mysql" modules
+make install include_modules="db_mysql" modules
 </pre>
 
 ==== Editando o modules.conf ==== 
@@ -54,23 +54,4 @@ vim /etc/opensips/opensipsctlrc
 
 <pre> 
  opensipsdbctl create
-</pre>
-
-==== Editar OpenSIPS config ====
-
-<pre>
- vim /etc/opensips/opensips.cfg
-</pre>
-
-Descomente os seguinte modulos :
-
-<pre>
-
-loadmodule "db_mysql.so"
-loadmodule "auth.so"
-loadmodule "auth_db.so"
-modparam("usrloc", "db_mode", 2)
-modparam("auth_db", "calculate_ha1", yes)  
-modparam("auth_db", "password_column", "password")
-
 </pre>
