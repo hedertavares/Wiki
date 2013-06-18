@@ -35,6 +35,57 @@ vi /etc/fail2ban/filter.d/asterisk.conf
 </pre>
 
 <pre>
+Asterisk 1.6
+</pre>
+
+<pre>
+# Fail2Ban configuration file
+#
+#
+# $Revision: 251 $
+#
+
+[INCLUDES]
+
+# Read common prefixes. If any customizations available -- read them from
+# common.local
+before = common.conf
+
+
+[Definition]
+
+#_daemon = asterisk
+
+# Option:  failregex
+# Notes.:  regex to match the password failures messages in the logfile. The
+#          host must be matched by a group named "host". The tag "<HOST>" can
+#          be used for standard IP/hostname matching and is only an alias for
+#          (?:::f{4,6}:)?(?P<host>\S+)
+# Values:  TEXT
+#
+
+failregex = NOTICE.* .*: Registration from '.*' failed for '<HOST>' - Wrong password
+            NOTICE.* .*: Registration from '.*' failed for '<HOST>' - No matching peer found
+            NOTICE.* .*: Registration from '.*' failed for '<HOST>' - Username/auth name mismatch
+            NOTICE.* <HOST> failed to authenticate as '.*'$
+            NOTICE.* .*: No registration for peer '.*' (from )
+            NOTICE.* .*: Host  failed MD5 authentication for '.*' (.*)
+            NOTICE.* .*: Registration from '.*' failed for '<HOST>' - Device does not match ACL
+            NOTICE.* .*: Registration from '.*" .* failed for '<HOST>' - Peer is not supposed to register
+            VERBOSE.*SIP/<HOST>-.*Received incoming SIP connection from unknown peer
+   
+# Option:  ignoreregex
+# Notes.:  regex to ignore. If this regex matches, the line is ignored.
+# Values:  TEXT
+#
+ignoreregex =
+</pre>
+
+
+<pre>
+Asterisk .18
+</pre>
+<pre>
 # Fail2Ban configuration file
 #
 #
