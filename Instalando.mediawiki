@@ -42,6 +42,8 @@ OPENSIPS
 make menuconfig
 </pre>
 
+[[/images/make-menuconfig.png|Make Menuconfig]]<br>
+
 ==== Editando o modules.conf ==== 
 
 uncomment (#) DBENGINE=MYSQL
