@@ -1,0 +1,36 @@
+Referencia: https://wiki.freeswitch.org/wiki/Dialplan_XML#Example_14:_Media_recording <br>
+Referencia: http://wiki.freeswitch.org/wiki/Misc._Dialplan_Tools_record_session#Record_Calls_To_Extensions
+
+==Record Calls To Extensions==
+To record all phone calls between extensions do the following. Make a directory under freeswitch/recordings/archive/. Then edit Local_Extension in dialplan in /usr/local/freeswitch/conf/dialplan/default.xml 
+
+    <extension name="Local_Extension">
+      <condition field="destination_number" expression="^(10[01][0-8])$">
+
+Then add the following actions.
+
+    <action application="set" data="RECORD_TITLE=Recording ${destination_number} ${caller_id_number} ${strftime(%Y-%m-%d %H:%M)}"/>
+    <action application="set" data="RECORD_COPYRIGHT=(c) 2011"/>
+    <action application="set" data="RECORD_SOFTWARE=FreeSWITCH"/>
+    <action application="set" data="RECORD_ARTIST=FreeSWITCH"/>
+    <action application="set" data="RECORD_COMMENT=FreeSWITCH"/>
+    <action application="set" data="RECORD_DATE=${strftime(%Y-%m-%d %H:%M)}"/>
+    <action application="set" data="RECORD_STEREO=true"/>
+    <action application="record_session" data="$${base_dir}/recordings/archive/${strftime(%Y-%m-%d-%H-%M-%S)}_${destination_number}_${caller_id_number}.wav"/>
+
+==Record Calls From Extensions==
+Add the following in /usr/local/freeswitch/conf/dialplan/default/
+
+  <extension name="flowroute.com.11.digits">
+     <condition field="destination_number" expression="^(\d{11})$">
+         <action application="set" data="RECORD_TITLE=Recording ${destination_number} ${caller_id_number} ${strftime(%Y-%m-%d %H:%M)}"/>
+         <action application="set" data="RECORD_COPYRIGHT=(c) 2009"/>
+         <action application="set" data="RECORD_SOFTWARE=FreeSwitch"/>
+         <action application="set" data="RECORD_ARTIST=FreeSwitch"/>
+         <action application="set" data="RECORD_COMMENT=FreeSwitch"/>
+         <action application="set" data="RECORD_DATE=${strftime(%Y-%m-%d %H:%M)}"/>
+         <action application="set" data="RECORD_STEREO=true"/>
+         <action application="record_session" data="$${base_dir}/recordings/archive/${strftime(%Y-%m-%d-%H-%M-%S)}_${destination_number}_${caller_id_number}.wav"/>
+         <action application="bridge" data="sofia/gateway/flowroute.com/$1"/>
+     </condition>
+  </extension>
