@@ -39,8 +39,7 @@ tar zxvf opensips-1.9.1_src.tar.gz
 OPENSIPS
 <pre>
   cd /usr/src/opensips-1.9.1-tls
-make all include_modules="db_mysql" modules
-make install include_modules="db_mysql" modules
+make menuconfig
 </pre>
 
 ==== Editando o modules.conf ==== 
