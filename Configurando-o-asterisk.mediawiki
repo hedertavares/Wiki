@@ -99,7 +99,7 @@ exten => h,n,Hangup
 
 </pre>
 
-=== Arquivo res_mysql.conf ===
+=== Arquivo res_mysql.conf ( Asterisk 1.8.X = res_config_mysql.conf ) ===
 
 No arquivo res_mysql.conf, iremos definir as configurações de acesso ao mysql. 
 O exemplo abaixo, irá atender a grande maioria das instalações de A2Billing.
