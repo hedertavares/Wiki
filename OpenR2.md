@@ -14,7 +14,7 @@ apt-get upgrade
 reboot
 
 Pacotes essenciais:
- apt-get install -y build-essential ncurses-dev ncurses-term libcurl4-openssl-dev bison
+apt-get install -y build-essential ncurses-dev ncurses-term libcurl4-openssl-dev bison
 apt-get install -y libxml2-dev zlib1g-dev zlib-bin libncurses5-dev   
 apt-get install -y libmysqlclient-dev postgresql-client libpq5 libpq-dev libssl-dev libtool
 apt-get install -y libasterisk-agi-perl libpg-perl libsqlite3-dev sqlite3 libvorbis-dev
