@@ -9,9 +9,9 @@ Neste post estou explicando como instalar o Asterisk com OpenR2 no Ubuntu Server
 	•	Placa TE220 dual-span T1/E1/J1
 	•	
 Após a instalação do sistema operativo faça um “update” e depois um “upgrade”. Em seguinda reinicie o servidor.
-# apt-get update
-# apt-get upgrade
-# reboot
+apt-get update
+apt-get upgrade
+reboot
 
 Pacotes essenciais:
 # apt-get install -y build-essential ncurses-dev ncurses-term libcurl4-openssl-dev bison
