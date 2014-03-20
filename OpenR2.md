@@ -14,14 +14,14 @@ apt-get upgrade
 reboot
 
 Pacotes essenciais:
-# apt-get install -y build-essential ncurses-dev ncurses-term libcurl4-openssl-dev bison
-# apt-get install -y libxml2-dev zlib1g-dev zlib-bin libncurses5-dev   
-# apt-get install -y libmysqlclient-dev postgresql-client libpq5 libpq-dev libssl-dev libtool
-# apt-get install -y libasterisk-agi-perl libpg-perl libsqlite3-dev sqlite3 libvorbis-dev
-# apt-get install -y gcc g++ make openssl zlib1g-dev libtermcap-dev unixodbc unixodbc-dev
-# apt-get install -y automake mysql-serve mysql-client mysql-admin libmysqlclient15-dev 
-# apt-get install -y curl libgnutls13 libgnutls-dev 
-# apt-get install -y libtiff4-dev
+ apt-get install -y build-essential ncurses-dev ncurses-term libcurl4-openssl-dev bison
+apt-get install -y libxml2-dev zlib1g-dev zlib-bin libncurses5-dev   
+apt-get install -y libmysqlclient-dev postgresql-client libpq5 libpq-dev libssl-dev libtool
+apt-get install -y libasterisk-agi-perl libpg-perl libsqlite3-dev sqlite3 libvorbis-dev
+apt-get install -y gcc g++ make openssl zlib1g-dev libtermcap-dev unixodbc unixodbc-dev
+apt-get install -y automake mysql-serve mysql-client mysql-admin libmysqlclient15-dev 
+apt-get install -y curl libgnutls13 libgnutls-dev 
+apt-get install -y libtiff4-dev
 
 Pacotes não essenciais:
 # apt-get install -y tshark vim php5 php5-pgsql php5-mysql php5-cli php5-common php5-dev   
