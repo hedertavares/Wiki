@@ -1,7 +1,7 @@
 O A2Billing é um produto da empresa Star2Billing ( www.star2billing.com.br ). 
 É um software disponível sobre a Licença AGPL 3, portando é distribuído de forma livre e seu código fonte pode ser alterado livremente desde que os direitos autorias sejam mantidos.
 
-Seu fundador é o programado Arezqui Belaid ( Areski ), que no qual tenho a honrar de ser amigo. Os projetos da Star2Billing vão alem do A2Billing. Hoje contamos com o Newfies-Dialer que é um discador preemptivo e sistema de pesquisa e votação por telefone. Mais informações em www.star2billing.com.br/newfies-dialer/ . Outros produtos da Star2Billing pode sem acessado em www.star2billing.com.br/produtos/ .
+
 
 <br>
 
