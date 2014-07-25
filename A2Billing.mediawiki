@@ -3,7 +3,7 @@
 [[ Configurando o Asterisk]] <br>
 [[ Instalando o A2Billing]]<br>
 [[Otimizando o MySQL]] <br>
-[[OpenR2]] <br>
+
 
 <h1>Segurança</h1>
 [[Firewall]]<br>
