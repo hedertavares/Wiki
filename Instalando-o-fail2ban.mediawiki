@@ -15,7 +15,7 @@ yum install python iptables -y
 <pre>
 mkdir /usr/src/fail2ban
 cd /usr/src/fail2ban
-wget -c http://sourceforge.net/projects/fail2ban/files/fail2ban-stable/fail2ban-0.8.4/fail2ban-0.8.4.tar.bz2/download
+wget -c https://github.com/fail2ban/fail2ban/archive/0.8.14.tar.gz
 </pre>
 
 ====Compilando o Fail2Ban====
