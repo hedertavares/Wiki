@@ -20,8 +20,8 @@ wget -c https://github.com/fail2ban/fail2ban/archive/0.8.14.tar.gz
 
 ====Compilando o Fail2Ban====
 <pre>
-tar jxf fail2ban-0.8.4.tar.bz2
-cd fail2ban-0.8.4
+tar zxvf 0.8.14.tar.gz
+cd fail2ban-0.8.14
 python setup.py install
 cd ..
 </pre>
