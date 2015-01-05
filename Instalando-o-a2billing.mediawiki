@@ -10,7 +10,7 @@ O A2Billing é um produto da empresa Star2Billing ( www.star2billing.com.br ).
 A bibliotecas necessárias para a instalação do A2Billing serão instaladas com o comando apresentado abaixo:
 
 <pre>
-yum install mc ncurses-devel php-imap mysql-server mysql mysql-devel php-pgsql php php-mysql php-mbstring php-mmcache php-pear php-pcntl php-gd gd httpd -y
+yum install mc ncurses-devel php-imap mysql-server mysql mysql-devel php-pgsql php php-mysql php-mbstring php-mmcache php-pear php-pcntl php-gd php-posix gd httpd -y
 </pre>
 
 === Download do A2Billing === 
